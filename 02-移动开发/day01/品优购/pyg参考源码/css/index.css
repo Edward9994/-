@@ -1,0 +1,256 @@
+/* main部分 */
+
+.main {
+    float: right;
+    width: 980px;
+    height: 455px;
+    margin-top: 10px;
+}
+
+.main .slider {
+    float: left;
+}
+
+.main aside {
+    float: right;
+    width: 250px;
+    height: 455px;
+}
+
+.main aside .news {
+    height: 165px;
+    border: 1px solid #ccc;
+}
+
+.main aside .news_hd {
+    height: 33px;
+    line-height: 32px;
+    padding: 0 15px;
+    /* dashed 虚线 点线 dotted */
+    border-bottom: 1px dotted #ccc;
+}
+
+.main .news_hd h3 {
+    float: left;
+    font-size: 14px;
+    color: #343434;
+    font-weight: normal;
+}
+
+.main .news_hd a {
+    float: right;
+}
+
+.main .news_hd a::after {
+    float: right;
+    content: "\e920";
+    font-family: "icomoon";
+    /* font-size: 16px;
+    vertical-align: middle; */
+}
+
+.main .news_bd {
+    padding: 0 15px;
+    margin-top: 6px;
+}
+
+.main .news_bd a {
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    /* 1. 不换行 white-space: nowrap */
+    white-space: nowrap;
+    overflow: hidden;
+    /* 文字溢出的部分变成省略号 */
+    text-overflow: ellipsis;
+}
+
+.main .life_nav {
+    height: 210px;
+    border: 1px solid #ccc;
+    /* bt0  */
+    border-top: 0;
+    overflow: hidden;
+    /* 让溢出life_nav的子元素 隐藏 */
+    overflow: hidden;
+}
+
+.main .life_nav ul {
+    /* 
+        障眼法 li本身是上不去的 ul的宽度不够
+        由于ul本身没有背景颜色和边框 
+        透明的所以 增加宽度不会造成影响
+    */
+    width: 253px;
+}
+
+.main .life_nav li {
+    float: left;
+    width: 63px;
+    height: 71px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.main .life_nav li a {
+    display: block;
+    text-align: center;
+}
+
+.main .life_nav li .icon {
+    /* 有宽度的块级元素 居中margin: 0 auto */
+    width: 21px;
+    height: 25px;
+    background: url('../images/icons.png') -18px -15px no-repeat;
+    margin: 13px auto 10px;
+}
+
+.main aside .onsale {
+    margin-top: 5px;
+}
+
+/* 推荐模块 */
+
+.recommend {
+    height: 162px;
+    margin-top: 12px;
+    background-color: #ebebeb;
+}
+
+.rec_title {
+    float: left;
+    width: 206px;
+    height: 162px;
+    background-color: #5c5251;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.rec_title .icon {
+    width: 57px;
+    height: 57px;
+    margin: 30px auto 11px;
+    background: url("../images/clock.png");
+}
+
+.rec_items {
+    float: left;
+}
+
+.rec_items li {
+    position: relative;
+    float: left;
+    width: 248px;
+    /* border-right: 1px solid #000; */
+    /* overflow: hidden; */
+}
+
+.rec_items li img {
+    width: 100%;
+}
+
+/* 用伪元素创建边框 */
+
+.rec_items li::after {
+    position: absolute;
+    right: 0;
+    top: 9px;
+    content: "";
+    width: 0;
+    height: 145px;
+    border-right: 1px solid #ccc;
+}
+
+/* 选中最后一个li 的伪元素*/
+
+.rec_items li:last-child::after {
+    border: 0;
+}
+
+/* 楼层模块 */
+
+.floor {
+    margin-bottom: 20px;
+}
+
+.floor_hd {
+    /* 像素眼 */
+    height: 40px;
+    /* 内容高度 38 */
+    margin-top: 20px;
+    line-height: 38px;
+    border-bottom: 2px solid #c81823;
+}
+
+.floor_hd h2 {
+    float: left;
+    font-size: 18px;
+    color: #c81823;
+    font-weight: normal;
+}
+
+.floor_hd ul {
+    float: right;
+}
+
+.floor_hd ul li {
+    float: left;
+}
+
+.floor_hd li a {
+    padding: 0 15px;
+}
+
+/* column */
+
+.floor_bd a {
+    display: block;
+}
+
+.col_209 {
+    width: 209px;
+    padding: 0 12px;
+    background-color: #fbfbfb;
+    /* background-color: #0a0; */
+}
+
+.col_209 li {
+    float: left;
+    width: 87px;
+    height: 33px;
+    line-height: 32px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+/* .col_209 li:nth-child(2n+1){ */
+
+.col_209 li:nth-child(odd) {
+    margin-right: 10px;
+}
+
+.col_329 {
+    width: 329px;
+}
+
+.col_219 {
+    width: 219px;
+}
+
+.col_219 a:first-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.col_222 {
+    width: 222px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+/* 子代选择器 只会选中亲儿子的div */
+
+.floor_bd>div {
+    float: left;
+    height: 360px;
+}

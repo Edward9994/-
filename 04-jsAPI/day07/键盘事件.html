@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 键盘事件：在网页开发的时候，经常用到键盘进行输入，需要记录键盘的信息：事件对象中记录着
+
+
+        /*
+            键盘事件
+            keyup：键盘松开触发
+            keydown：键盘按下触发
+                * 获取键盘信息：e.keyCode获取按键对应的ASCII编码  e.key获取字面值（字母跟数据是可见的效果，其他的不一定）
+
+
+
+
+            keypress：键盘按下触发
+                * 自动屏蔽功能键
+                * 获取键盘信息：e.charCode === e.keyCode   e.key
+        */
+        document.onkeyup = (e)=>{
+            let char = e.key;
+            document.body.innerHTML+=char;
+        }
+    </script>
+</body>
+</html>

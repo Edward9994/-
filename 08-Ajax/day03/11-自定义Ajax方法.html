@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">提交</button>
+    <script>
+        // 如果请求方式没有传值，默认使用GET
+        // 如果url属性没有传值，退出函数
+        // 请求方式转换成大写（分支判断用到）
+        // GET请求，带参数和不带参数写法
+        // POST请求，带参数和不带参数的写法
+        // onload事件回调函数
+
+
+        // 定义自己的ajax函数,
+        function ajax(options) {
+            //1.如果请求的方式没有传值,默认为GET
+            if (!options.type) options.type = 'GET';
+            // 2.如果url属性没有传值,推出函数
+            if (!options.url) return console.log('url为必传参数');
+            // 3.请求方式转换成大写（分支判断用到）
+            options.type = options.type.toUpperCase();
+            //4.1创建XHR实例
+            const XHR = new XMLHttpRequest;
+            //通过newURLSearchParmas把对象转化成查询参数字符串
+            const params = new URLSearchParams(options.data).toString();
+            //判断请求的方式
+            if (options.type === "GET") {
+                console.log('发送GET请求');
+                // 4.2设置请求的方式和地址
+                // GET请求，带参数和不带参数写法
+                //GET带参数
+                if (params) {
+                    XHR.open(options.type, options.url + '?' + params)
+                }
+                //不带参数
+                else {
+                    XHR.open(options.type, options.url);
+                }
+                //4.3发送请求
+                XHR.send();
+
+                // POST请求，带参数和不带参数的写法
+
+            } else if (options.type === "POST") {
+                console.log('POST请求');
+                //   5.1POST请求方式和请求地址
+                XHR.open(options.type, options.url);
+                // 5.2POST请求所需的内容类型设置
+                XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+                // 5.3POST请求参数需要写道send中
+                XHR.send(params);
+            }
+            XHR.onload = function () {
+                const res = JSON.parse(XHR.responseText);
+                // 6.调用success回调函数，把转换后的res作为实参传递出去
+                if (typeof options.success === 'function') options.success(res);
+            }
+
+            console.log(options);
+        }
+
+
+
+        // 调用自己封装的ajax函数
+        document.querySelector('#btn').onclick = function () {
+            ajax({
+                type: 'post',
+                url: 'http://127.0.0.1:3001/addHero',
+                data: { name: '刘备', gender: '女' },
+                success: (res) => {
+                    console.log(res);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

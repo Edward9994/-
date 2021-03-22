@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数：是函数语法的简写
+/*
+            语法：一般都是匿名函数（回调函数）
+            (形参)=>{函数体}
+        */
+// 特点1：如果形参只有1个，可以省略()小括号
+// 特点2：如果函数体只有一行，可以省略{}
+// 特点2：隐藏特点，如果只有一行代码，自带return（如果非要写return，不能省略大括号）
+(a,b)=>{return a+b}
+
+        const fn1 = x =>x*2; 
+        console.log(fn1(5));   
+    </script>
+</body>
+</html>

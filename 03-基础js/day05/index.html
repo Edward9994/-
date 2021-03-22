@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //对象的创建
+//         let obj1 = {
+//             name:'李白',
+//             age:'18',
+//             skill:'将进酒',
+//             niubi:{
+//             wusha:function(){
+//          console.log('五杀');
+//             },
+//             hh:'哈哈'
+//         }}
+// console.log(obj1.niubi.wusha())
+
+
+
+// let obj1 = {
+//             name:'李白',
+//             age:'18',
+//             skill:'将进酒'
+//         }
+//        for (let i in obj1){
+//            let a = i;
+//            console.log(i,obj1[i]) //obj.属性值
+//        } 
+
+
+
+
+//谁调用，this就代表谁
+// let obj1 = {
+//             name:'李白',
+//             age:'18',
+//             skill:'将进酒',
+//             shoot:function() {
+//                 document.write(`${this.age}岁的${this.name},使用了${this.skill}技能`);
+//             }
+//         }
+
+
+
+// obj1.shoot();
+// let arr = [
+//    { name:'李白',age:'18',skill:'将进酒'},
+//    { name:'韩信',age:'19',skill:'将进酒'},
+//    { name:'兰陵王',age:'20',skill:'将进酒'}
+// ]
+// for(let i in arr){
+//     console.log(i,arr[i])
+// }
+
+
+
+
+// const news = [
+//             { category: "要闻", title: "牢记初心使命 实干笃定前行", href: "https://news.ifeng.com/c/7wNelHB0SgK" },
+//             { category: "要闻", title: "你以生命相托，我必全力以赴", href: "https://news.ifeng.com/c/7wM1V3EzQBM" },
+//             { category: "要闻", title: "中国无人战车正式服役：机枪显示惊人杀伤力", href: "https://tech.ifeng.com/c/7wMT02ftUZ4" },
+//             { category: "健康", title: "独家 | 武汉封城建议者：向武汉人民致敬，向援助武汉的人致敬", href: "https://finance.ifeng.com/c/7wM0E6Bs8PI" },
+//             { category: "汽车", title: "马斯克发飙：起诉当地政府！总部搬离加州！", href: "http://auto.ifeng.com/c/7wM43afWMFs" },
+//             { category: "汽车", title: "奇瑞真正的旗舰SUV，车长近5米+2.0T动力，气场不输路虎揽胜", href: "https://auto.ifeng.com/c/7wIpWtWvHYv" },
+//             { category: "房产", title: "广州即将推出9宗土地 涉及22.2万平米4宗宅地", href: "https://gz.house.ifeng.com/news/2020_05_11-52744145_0.shtml" }
+//         ];
+// let div = document.createElement('div');
+// let ul = document.createElement('ul');
+// let body = document.querySelector('body');
+// body.appendChild(div);
+// div.appendChild(ul);
+// for(let i=0;i<news.length;i++){
+
+//     let li = document.createElement('li');
+//     ul.appendChild(li);
+//     li.innerHTML=`${news[i].category}</br>${news[i].title}`;
+
+//     li.addEventListener('click',function(){
+//          window.location.href=news[i].href;
+//     })
+// }
+
+
+
+
+// function min (){
+//     let min = arguments[0];//实参传入后，自动被存入一个数组中
+//     for(let i =1;i<arguments.length;i++){
+//         if(arguments[i]<min){
+//             min=arguments[i];
+//         }
+//     }return min;
+// }
+// console.log(min(-1,2,3));
+
+
+
+// / 自调用函数：将函数写在另外一个函数的调用位置
+        /*
+            ()();       // 系统只要见到最后一个是括号，认为前面的内容是一个函数，就会执行当前函数
+
+
+            将函数写在第一个括号里面即可，函数匿名即可
+            (function(){})()
+
+
+            特点：函数里面的代码会自动执行，执行1次（再也无法执行）
+        */
+// (function(){
+//     alert(123)
+// })()
+
+
+
+// function a(){
+//     alert('a')
+// }
+// function b(){
+//     alert('b')
+// }
+// function c(fn){
+//     fn();
+// }
+// c(a)//调用a()
+// c(b)//调用b()
+
+
+
+// function a(){
+//     console.log('a')
+// }
+// function b(){
+//     console.log('b')
+// }
+// function c(fn){
+//     fn();
+// }
+// c(function(){
+//     console.log('匿名调用')
+// })
+
+
+
+// function forEach(arr,fn) {
+//     for(let i in arr){
+//         fn(arr[i],i);
+//     }
+// }
+// let a =['a','b','c','d'];
+// forEach(a,function(item,index){
+//     console.log(item,index);
+// })
+
+
+    </script>
+</body>
+</html>

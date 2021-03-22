@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   用户名：<input type="text" id="un" name="username" value="用户名">  
+    密码：<input type="passwords" id="pwd" name="passwords" value="密码">
+</br> 男：<input type="radio" name="sex" id="male" value="男">
+     女：<input type="radio" name="sex" id="female" value="女">
+   </br>  打篮球：<input type="checkbox" name="hoby" id="hb" value="打篮球">
+       游泳：<input type="checkbox" name="hoby" id="hb" value="游泳">
+       <script>
+            // 表单属性
+        // 表单值：value
+// 控制radio和checkbox的选中：checked属性       
+        // 如果值为false：没有选中
+        // 如果值为true：选中
+ // 控制表单的可用性：disabled，值为布尔类型：true表示不可用，false表示可用
+ let un = document.querySelector('#un');
+ let pwd = document.querySelector('#pwd');
+ un.disabled = true;
+ un.value = '我被修改了';
+ let sex = document.querySelectorAll('[name="sex"]');
+ sex[1].checked =true;
+sex[0].checked =true;
+ let hoby = document.querySelectorAll('[name="hoby"]')
+ hoby[0].checked = true;
+ hoby[1].checked = true;
+       </script>
+</body>
+</html>

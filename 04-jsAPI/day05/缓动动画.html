@@ -1,0 +1,43 @@
+
+
+
+ <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">运动到400</button>
+<button id="btn2">0</button>
+<div id="div"></div>
+<script>
+  function animation (ele,target,style){
+       clearInterval(ele.timer);
+       ele.timer = setInterval(() => {
+           let left =parseInt(getComputedStyle(ele)[style]);
+          let step = (target-left)/10;
+          step = target>left? Math.ceil(step):Math.floor(step);
+           ele.style[style] = step+left+'px';
+          if(step==0){
+              clearInterval(ele.timer);
+          }
+       }, 100);
+  }
+  btn1.onclick = ()=>{
+      animation (div,600,'left');
+  }
+btn2.onclick = ()=>{
+      animation (div,0,'left');
+  }
+</script>
+</body>
+</html>

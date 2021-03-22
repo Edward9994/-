@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品优购-注册页面</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/reg.css">
+</head>
+
+<body>
+    <header class="w">
+        <div class="logo"></div>
+    </header>
+    <div class="container w">
+        <div class="reg_hd">
+            <h2>注册新用户</h2>
+            <span>
+                我有账号，去<a href="#">登录</a>
+            </span>
+        </div>
+        <div class="reg_bd">
+            <ul>
+                <li>
+                    <label for="mobile">手机号：</label>
+                    <input type="text" id="mobile">
+                    <span class="tips error">
+                        <img src="./images/error.png" alt="">
+                        手机号码格式不正确，请重新输入
+                    </span>
+                </li>
+                <li>
+                    <label for="yzm">短信验证码：</label>
+                    <input type="text" id="yzm">
+                </li>
+                <li>
+                    <label for="pwd">登录密码：</label>
+                    <input type="password" id="pwd">
+                    <span class="tips error">
+                        <img src="./images/error.png" alt="">
+                        密码少于6位，请重新输入
+                    </span>
+                </li>
+                <li class="safe">
+                    安全程度
+                    <i>弱</i>
+                    <i>中</i>
+                    <i>强</i>
+                </li>
+                <li>
+                    <label for="pwd2">确认密码：</label>
+                    <input type="password" id="pwd2">
+                    <span class="tips success">
+                        <img src="./images/success.png" alt="">
+                        密码对了
+                    </span>
+                </li>
+                <li class="tiaokuan">
+                    <input type="checkbox" checked>
+                    同意协议和<a href="#">《霸王条款》</a>
+                </li>
+                <li>
+                    <button>完成注册</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <!-- links 友情链接模块 -->
+        <div class="links">
+            <a href="#">关于我们</a> |
+            <a href="#">联系我们</a> |
+            <a href="#">联系客服</a> |
+            <a href="#">联系客服</a> |
+            <a href="#">商家入驻</a> |
+            <a href="#">营销中心</a> |
+            <a href="#">手机品优购</a> |
+            <a href="#">友情链接</a> |
+            <a href="#">销售联盟</a> |
+            <a href="#">品优购社区</a> |
+            <a href="#">品优购公益</a> |
+            <a href="#">English</a> |
+            <a href="#">Site</a> |
+            <a href="#">Contact U</a>
+        </div>
+        <!-- address 地址 -->
+        <div class="address">
+            地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn
+            <br>
+            京ICP备08001421号京公网安备110108007702
+        </div>
+    </footer>
+</body>
+
+</html>

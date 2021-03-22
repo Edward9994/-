@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 重写：override，子类继承了父类，子类拥有与父类同名的成员（属性和方法）
+        /*
+            重写特点
+                属性：覆盖（父类的没了）
+                方法：都存在（访问子类自己的）
+        */
+
+        class Person {
+            weapon='冷兵器';
+            work(){
+                console.log('种田');
+            }
+        }
+        class NewPerson extends Person{
+            weapon ='热兵器';
+            work(){
+                console.log('程序员');
+            }
+        }
+        let n1 = new NewPerson();
+        console.log(n1);
+        n1.work();
+        console.log(n1.weapon);
+    </script>
+</body>
+</html>

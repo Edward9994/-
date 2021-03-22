@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+
+        .hd {
+            height: 45px;
+        }
+
+
+        .hd span {
+            display: inline-block;
+            /*将行内元素转换成行内块元素，宽高才起作用*/
+            width: 90px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+
+        .hd span.current {
+            /*交集选择器，标签指定式选择器*/
+            background-color: purple;
+            /*紫色*/
+        }
+
+
+        .bd li {
+            height: 255px;
+            background-color: purple;
+            display: none;
+            /*设置隐藏*/
+        }
+
+
+        .bd li.current {
+            display: block;
+            /*显示*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="hd">
+            <span class="current">体育</span>
+            <span>娱乐</span>
+            <span>新闻</span>
+            <span>综合</span>
+        </div>
+        <div class="bd">
+            <ul id="list">
+                <li class="current">我是体育模块</li>
+                <li>我的娱乐模块</li>
+                <li>我是新闻模块</li>
+                <li>我是综合模块</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let hd = document.querySelector('.hd');
+        let spans = hd.querySelectorAll('span');
+        let list= document.querySelector('#list');
+        let lis = list.querySelectorAll('li');
+        spans.forEach(function(span,index){
+            span.onclick = function(){
+                 //清除span全部current
+                spans.forEach(function(span,i){
+                    span.classList.remove('current');
+                    lis[i].classList.remove('current');
+                    
+                })
+                //点击当前变为current
+              this.classList.add('current');
+                //点击当前变为current
+                lis[index].classList.add('current');
+            }
+        })
+        // let i = 0;
+        // setInterval(function(){
+        //     if(i>3){
+        //         i=0;
+        //     }
+        //     spans[i].onclick();
+        //     i++;
+        //     console.log()
+        // },200)
+    
+
+  
+    </script>
+</body>
+</html>

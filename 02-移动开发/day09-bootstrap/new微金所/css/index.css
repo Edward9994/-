@@ -1,0 +1,204 @@
+@font-face {
+  font-family: 'wjsfont';
+  src: url('../font/MiFie-Web-Font.eot');
+  src: url('../font/MiFie-Web-Font.eot?#iefix') format('embedded-opentype'), url('../font/MiFie-Web-Font.woff') format('woff'), url('font/MiFie-Web-Font.ttf') format('truetype'), url('../font/MiFie-Web-Font.svg') format('svg');
+}
+.wjsfont {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'wjsfont';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+/* 网页基本字体颜色 灰色 */
+/* 头部工具栏 */
+.wjs-top-tool .row {
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+.wjs-top-tool .row > div {
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+.wjs-top-tool .row > div a {
+  color: #808080;
+}
+.wjs-top-tool .row > div:last-child {
+  border-right: none;
+}
+.wjs-top-tool .row > div:first-child {
+  position: relative;
+}
+.wjs-top-tool .row > div:first-child img {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  display: none;
+}
+.wjs-top-tool .row > div:first-child a:hover img {
+  display: block;
+}
+.wjs-nav {
+  height: 82px;
+  background-color: #f8f8f8;
+}
+.wjs-nav li a {
+  height: 82px;
+  line-height: 50px;
+  color: #808080;
+}
+.wjs-nav li a:hover {
+  border-bottom: 1px solid #f00;
+  background-color: #f8f8f8;
+}
+.wjs-nav .wjsfont {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'wjsfont';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size: 70px;
+  line-height: 80px;
+}
+.wjs-nav .wjsfont::before {
+  content: '\e920';
+  color: #ff0000;
+}
+.wjs-nav .wjsfont::after {
+  content: '\e921';
+  color: #777777;
+}
+.carousel-inner .item img {
+  width: 100%;
+  height: 100%;
+}
+.wjs-exchange {
+  margin-bottom: 10px;
+  background-color: #ffffff;
+}
+.wjs-exchange a {
+  color: #80808c;
+  text-align: center;
+}
+.wjs-exchange .media-left::before {
+  content: '\e901';
+  font-size: 50px;
+  position: absolute;
+  top: 40px;
+}
+.wjs-waitting {
+  height: 64px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.wjs-waitting .waitting-center {
+  margin: 20px 20px;
+  font-size: 16px;
+}
+.wjs-waitting .waitting-center .glyphicon-camera a {
+  color: #000;
+}
+.wjs-waitting .waitting-center .glyphicon-time a {
+  color: red;
+}
+.wjs-buy .tab-content .tab-pane {
+  margin-left: 10px;
+}
+.wjs-buy .tab-content .tab-pane .col-md-4:nth-child(even) .cart-df {
+  background-color: red;
+  color: white;
+}
+.wjs-buy .tab-content .tab-pane .cart-df {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  height: 175px;
+  box-shadow: 0 0 16px 0px #000;
+  padding: 20px 75px 0px 8px;
+  color: #808080;
+  position: relative;
+}
+.wjs-buy .tab-content .tab-pane .cart-df .cart-content {
+  width: 100%;
+}
+.wjs-buy .tab-content .tab-pane .cart-df .cart-content h5 {
+  text-align: center;
+  font-size: 17px;
+}
+.wjs-buy .tab-content .tab-pane .cart-df .cart-rate {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 100%;
+  border-left: 1px dashed #000;
+  text-align: center;
+  padding-top: 60px;
+}
+.wjs-buy .tab-content .tab-pane .cart-df .cart-rate::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid white;
+  position: absolute;
+  border-radius: 50%;
+  top: -10px;
+  left: -10px;
+  z-index: 100;
+}
+.wjs-buy .tab-content .tab-pane .cart-df .cart-rate::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid white;
+  position: absolute;
+  border-radius: 50%;
+  bottom: -10px;
+  left: -10px;
+  z-index: 100;
+}
+.wjs-news .all-news {
+  border-bottom: 1px solid #000;
+  position: relative;
+}
+.wjs-news .all-news::after {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #000;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  bottom: -5px;
+  right: 0;
+  z-index: 1;
+}
+.wjs-news .all-news a {
+  font-size: 30px;
+  color: #333333;
+}
+.wjs-news .wjs-newstitle li a {
+  width: 70px;
+  height: 70px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.wjs-news .wjs-newstitle li a:hover {
+  background-color: red;
+}
+.wjs-news .wjs-newstitle li a::after {
+  content: "\e911";
+  position: absolute;
+  font-size: 50px;
+  top: 10px;
+  left: 10px;
+  color: white;
+}

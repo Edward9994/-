@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如何判定是一个对象？
+        // 如何判定是谁的对象？
+// typeof是用来判定数据类型的：只能判定基础数据类型
+// 要判定复合（复杂）数据类型：需要用到instanceof
+      let arr =[];
+      let obj = {};
+      console.log(typeof arr,typeof obj);
+      console.log(arr instanceof Array,obj instanceof Object);//true  true
+
+    //   原型最终都继承Object.prototype,不能判定是否亲子
+      console.log(arr instanceof Object);//true
+
+        //通过构造器判断是否是亲子关系
+      console.log(arr.constructor==Array);//true
+      console.log(obj.constructor==Object);//false
+    </script>
+</body>
+</html>

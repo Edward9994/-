@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="box"></div>
+    <script>
+        let box =document.querySelector('.box');
+        box.innerHTML=`<a href ="#"> sdfsd </a>`;
+        // box.innerText=`<a href ="#"> sdfsd </a>`;
+    </script> -->
+
+
+
+<!-- <div class="box" index =1>我是小马哥</div>
+    <script>
+        // 需求：如何取出index的值，然后修改：在原来的基础上+1，最后把属性删掉
+        let box = document.querySelector('.box');
+        box.setAttribute('index',parseInt(box.getAttribute('index'))+1);
+        // box.removeAttribute('index');
+        console.log(box.getAttribute('index'));
+    </script> -->
+
+
+    
+<!-- <div class="box" data-src='./images/b1.jpg' data-index=0>我是小马哥</div>
+    <script>
+        // 需求：如何取出index的值，然后修改：在原来的基础上+1，最后把属性删掉
+        let box = document.querySelector('.box');
+      console.log(box.dataset)
+      console.log(box.dataset.index)
+    </script> -->
+
+
+
+    <ul>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+        <li>sgadfdfdsfd</li>
+    </ul>
+    <script>
+        // 需求：如何取出index的值，然后修改：在原来的基础上+1，最后把属性删掉
+        let lis = document.querySelectorAll('li');
+    lis.forEach((li,index) => {
+          console.log(index);
+         if(index%2==0){
+             li.style.backgroundColor='red';
+         }else{
+             li.style.backgroundColor='yellow';
+         }
+    });
+    
+    </script>
+
+
+</body>
+</html>

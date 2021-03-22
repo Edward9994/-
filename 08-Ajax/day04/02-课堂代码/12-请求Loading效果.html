@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .loading {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Ajax获取数据</button>
+    <hr />
+    <img class="loading" src="./imgs/loading.gif" alt="" />
+    <script src="./libs/jquery.min.js"></script>
+    <script>
+      $('button').click(() => {
+        $.ajax({
+          type: 'get',
+          url: 'http://127.0.0.1:3001/getHeroList',
+          data: {},
+          // 请求发送前
+          beforeSend: () => {
+            $('.loading').show()
+          },
+          // 请求完成 - 不分成功失败
+          complete: () => {
+            $('.loading').hide()
+          },
+          // 请求成功
+          success: (res) => {
+            console.log(res)
+          },
+        })
+      })
+    </script>
+  </body>
+</html>

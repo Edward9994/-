@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+         // 事件执行的三大阶段
+        /*
+            1. 事件捕获阶段：从window开始到当前元素之前
+            2. 事件目标阶段：当前元素自己的事件
+            3. 事件冒泡阶段：从父元素到window
+        */
+       document.body.addEventListener('click',()=>{
+           document.write('我是body');
+       })
+          document.addEventListener('click',()=>{
+           document.write('我是document');
+       })
+    //       document.body.addEventListener('click',()=>{
+    //        console.log('我是body');
+    //    })
+    //       document.body.addEventListener('click',()=>{
+    //        console.log('我是body');
+    //    })
+
+    </script>
+</body>
+</html>

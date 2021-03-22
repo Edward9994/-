@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 借调：别人的东西，拿过来自己用
+
+
+        // 函数的借调：以后的函数（可以是对象内部的方法），借过来，当做自己的去使用
+        // 借调的本质：修改函数里面this的指向
+
+
+
+
+        /*
+            JS提供了三种借调模式
+            call(新对象)：
+            apply(新对象)：
+            bind(新对象)：
+
+
+            逻辑关系：新对象赋值给被借调函数里面的this
+
+            不管哪种借调：都不重要
+
+
+            1. 借调的前提是：我们直到别的函数能做什么事情，内部是怎么运行的，只要修改this就可以实现新的功能
+            2. 凡是借调能实现的内容：不通过借调，自己定义函数实现，都可以做到
+
+
+            借调的价值：简化开发过程
+        */
+
+
+        // 借调用法：方法.call/apply/bind(新对象)
+// // bind比较特殊：bind是返回一个新函数，不会自动调用
+// const obj = {
+//      name:'刘德华',
+//      song:function(){
+//         console.log(`${this.name}唱的歌忘情水`);
+//     }
+// }
+// const  ds = {
+//     name:'郭富城'
+// };
+// obj.song();
+// obj.song.call(ds);
+
+
+let res = arr.slice();
+console.log(res);
+
+
+let newArr = Array.prototype.slice.call(obj);
+console.log(newArr);
+for (let key in lis){
+    console.log(key,los[key]);
+}
+lis  = Array.prototype.slice.call(lis);
+console.log(lis);
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+header {
+    /* 给父元素设置弹性盒子 */
+    display: flex;
+    /* 单行侧轴对齐方式 */
+    align-items: center;
+    height: 45px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #f6f6f6;
+}
+
+header .search {
+    position: relative;
+    /* 让他占用剩余宽度 实现单飞翼布局 */
+    flex: 1;
+    height: 26px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin-left: 7px;
+    color: #666;
+    font-size: 12px;
+    line-height: 24px;
+    padding-left: 25px;
+}
+
+header .search::before {
+    /* 必写属性 */
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    /* 量取出的背景尺寸 背景位置都要除以2 */
+    background: url('../images/sprite.png') -59px -279px / 104px;
+}
+
+header .user {
+    width: 50px;
+    /* c3盒子模型导致内容43px */
+    height: 43px;
+    color: #099fde;
+    font-size: 12px;
+    text-align: center;
+}
+
+header .user .icon {
+    width: 24px;
+    height: 24px;
+    background: url('../images/sprite.png') -59px -194px / 104px;
+    margin: 0 auto;
+}
+
+.banner a {
+    display: block;
+}
+
+.banner img {
+    width: 100%;
+}
+
+/* 本地导航 */
+
+.local_nav {
+    /* height: 64px; */
+    background-color: #fff;
+    margin: 4px 6px;
+    border-radius: 6px;
+}
+
+/* 
+    最容易出错的地方 
+    找错父元素 
+    我们是想让li在一行上显示
+    他的父元素只有一个 就是ul！！！！
+
+*/
+
+.local_nav ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.local_nav ul li {
+    /* 
+        换行的时候要考虑一下 不能再用flex: 1
+        是瓜分一行的剩余宽度 
+        flex-wrap是不清楚你要在哪里进行换行显示。
+     */
+    /* flex: 1; */
+    /* flex: 20%; */
+    width: 20%;
+}
+
+.local_nav ul a {
+    display: block;
+    height: 64px;
+    /* background-color: #6cf;
+    border: 1px solid #000; */
+    font-size: 12px;
+}
+
+.local_nav .icon {
+    width: 32px;
+    height: 32px;
+    background: url('../images/localnav_bg.png') 0 0 / 32px;
+}
+
+.local_nav li:nth-child(2) .icon {
+    background-position: 0 -32px;
+}
+
+.local_nav li:nth-child(3) .icon {
+    background-position: 0 -64px;
+}
+
+.local_nav li:nth-child(4) .icon {
+    background-position: 0 -96px;
+}
+
+.local_nav li:nth-child(5) .icon {
+    background-position: 0 -128px;
+}
+
+/* 为了控制icon和文字 要找到他们的父元素 a */
+
+.local_nav li a {
+    display: flex;
+    /* 切换主轴方向为垂直方向 */
+    flex-direction: column;
+    /* 分析得知侧轴(水平)居中显示 */
+    align-items: center;
+    /* 主轴(垂直)space-evenly */
+    justify-content: space-evenly;
+}
+
+/* 主导航 */
+
+.main_nav {
+    height: 270px;
+    margin: 0 6px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main_nav .row {
+    display: flex;
+    height: 88px;
+    background-color: #0a0;
+    /* 背景渐变 */
+    background-image: linear-gradient(to right, #fa5956, #fa9b4d);
+}
+
+.main_nav .row:nth-child(2) {
+    background-image: linear-gradient(to right, #4b90ed, #53bbed);
+}
+
+.main_nav .row:last-child {
+    background-image: linear-gradient(to right, #34c2a9, #6bd457);
+}
+
+/* 前两个row设置下外边距 */
+
+.main_nav .row:nth-child(-n+2) {
+    margin-bottom: 3px;
+}
+
+/* 针对于列样式设置 */
+
+.main_nav .row .col {
+    flex: 1;
+}
+
+.main_nav .row .col a {
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+}
+
+/* 第2列和第3列设置左边框 */
+
+.main_nav .row .col:nth-child(n+2) {
+    border-left: 1px solid #fff;
+}
+
+/* 2列和第3列 下的第一个a设置下边框 */
+
+.main_nav .row .col:nth-child(n+2) a:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+/* 找到第一列下的a 高度88px */
+
+.main_nav .row .col:first-child a {
+    height: 88px;
+    background: url('../images/hotel.png') bottom center / 120px no-repeat;
+}
+
+/* 热门活动模块 */
+
+.hot {
+    background-color: #fff;
+    margin-top: 4px;
+}
+
+.hot_hd {
+    display: flex;
+    /* 侧轴对齐方式 居中 */
+    align-items: center;
+    /* 主轴space-between 左右两侧靠两边 */
+    justify-content: space-between;
+    height: 46px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 0 10px
+}
+
+.hot_hd h2 {
+    width: 73px;
+    height: 16px;
+    background: url('../images/hot.png') 0 -19px / 79px;
+}
+
+.hot_hd .more {
+    position: relative;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 20px 0 10px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #ff4f66, #ff6bc6);
+}
+
+.hot_hd .more::after {
+    content: "";
+    position: absolute;
+    right: 9px;
+    top: 6px;
+    width: 5px;
+    height: 5px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+.hot_bd ul {
+    display: flex;
+    /* 换行 */
+    flex-wrap: wrap;
+}
+
+.hot_bd ul li {
+    width: 50%;
+    border-bottom: 1px solid #ccc;
+}
+
+.hot_bd ul li:nth-child(2n+1) {
+    border-right: 1px solid #ccc;
+}
+
+.hot_bd ul li a {
+    display: block;
+}
+
+.hot_bd ul li img {
+    width: 100%;
+}

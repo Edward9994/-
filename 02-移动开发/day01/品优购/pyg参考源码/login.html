@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. base.css 初始化样式  -->
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header class="w">
+        <a href="#" class="logo"></a>
+    </header>
+    <!-- 主体部分 -->
+    <div class="main">
+        <!-- 通栏嵌套版心 -->
+        <div class="w">
+            <!-- 创建左右两个盒子 -->
+            <div class="main_l">
+                <img src="./images/juhui.png" alt="">
+            </div>
+            <div class="main_r">
+                <!-- 登录方式选择 -->
+                <div class="methods clearfix">
+                    <a href="#">扫码登录</a>
+                    <i></i>
+                    <a href="#" class="account">账户登录</a>
+                </div>
+
+                <!-- 提示 tips -->
+                <div class="tips">
+                    公共场所不建议自动登录，以免账户丢失
+                </div>
+
+                <!-- 表单部分 -->
+                <form class="login">
+                    <ul>
+                        <li><input type="text" placeholder="邮箱/用户名/手机号" name="username"></li>
+                        <li><input type="password" placeholder="请输入密码" name="pwd"></li>
+                        <li class="clearfix">
+                            <label>
+                                <input type="checkbox" name="autologin">
+                                自动登录
+                            </label>
+                            <a href="#" class="forget">忘记密码</a>
+                        </li>
+
+                        <li>
+                            <button>登录</button>
+                        </li>
+                    </ul>
+                </form>
+
+                <!-- 其他登录方式 -->
+                <div class="others">
+                    <div class="others_l">
+                        <a href="#">
+                            <img src="./images/qq.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./images/sina.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./images/zfb.png" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./images/wechat.png" alt="">
+                        </a>
+                    </div>
+                    <a href="#" class="others_r">立即注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="mod_copyright">
+        <div class="links">
+            <a href="#">关于我们</a> | <a href="#">联系我们</a> | 联系客服 | 商家入驻 | 营销中心 | 手机品优购 | 友情链接 | 销售联盟 | 品优购社区 |
+            品优购公益 | English Site | Contact U
+        </div>
+        <div class="copyright">
+            地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn <br>
+            京ICP备08001421号京公网安备110108007702
+        </div>
+    </div>
+</body>
+
+</html>

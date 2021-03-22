@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大事件 - 登录页面</title>
+    <!-- 先引入 layui 的样式 -->
+    <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
+    <!-- 在引入本页面的样式 -->
+    <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+
+<body>
+    <!-- 顶部logo -->
+    <div class="layui-main header">
+        <img src="./assets/images/logo.png" alt="">
+    </div>
+
+    <!-- 注册和登录区域 -->
+    <div class="loginAndRegBox">
+        <!-- 1.标题 -->
+        <div class="titleBox"></div>
+        <!-- 2.登录 -->
+        <div class="login-box">
+            <!-- 登录表单: 类名 layui-form 后面表单校验有关 -->
+            <form class="layui-form" id="form_login">
+                <!-- 用户名 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input value="3156584" type="text" name="username" required lay-verify="required"
+                        placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+                <!-- 密码 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input value="3156584" type="text" name="password" required lay-verify="required|pwd"
+                        placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+                <!-- 提交按钮 -->
+                <div class="layui-form-item">
+                    <!--  lay-submit 这个属性和后面表单校验有关 -->
+                    <!-- button 按钮的 type 属性，默认是 submit -->
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit
+                        lay-filter="formDemo">登录</button>
+                </div>
+                <!-- a链接 -->
+                <div class="layui-form-item links">
+                    <a href="javascript:;" id="link_reg">去注册账号</a>
+                </div>
+            </form>
+        </div>
+        <!-- 3.注册 -->
+        <div class="reg-box" style="display: none">
+            <!-- 注册表单: 类名 layui-form 后面表单校验有关 -->
+            <form class="layui-form" id="form_reg">
+                <!-- 用户名 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <!-- 密码 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="text" name="password" required lay-verify="required|pwd" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <!-- 重复密码 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="text" name="repassword" required lay-verify="required|pwd|repwd" placeholder="再次确认密码"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <!-- 提交按钮 -->
+                <div class="layui-form-item">
+                    <!--  lay-submit 这个属性和后面表单校验有关 -->
+                    <!-- button 按钮的 type 属性，默认是 submit -->
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit
+                        lay-filter="formDemo">注册</button>
+                </div>
+                <!-- a链接 -->
+                <div class="layui-form-item links">
+                    <a href="javascript:;" id="link_login">去登录</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- layui.all.js 的js文件和jQuery没有联系，所以写到 login.js之前就可以了 -->
+    <script src="./assets/lib/layui/layui.all.js"></script>
+    <!-- 先引入 jquery  -->
+    <script src="./assets/lib/jquery.js"></script>
+    <!-- baseAPI.js要写到，jquery之后，本页面js之前 -->
+    <script src="./assets/js/baseAPI.js"></script>
+    <!-- 在引入 当前页面的 js  -->
+    <script src="./assets/js/login.js"></script>
+</body>
+
+</html>

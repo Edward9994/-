@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>防抖</h1>
+    <input type="text" id="username" />
+    <script src="./libs/jquery.min.js"></script>
+    <script>
+      /* 通过防抖可以避免不必要的 Ajax 请求 - 前端 Ajax 性能优化 */
+      // 1.0 防抖写法步骤1：定义一个变量用来存储 setTimeout 返回的id
+      let timerId = null
+      $('#username').keyup(() => {
+        const str = $('#username').val().trim()
+        // 3.0 判断前一次的 timerId 如果有值，则清除本次 setTimeout 的执行
+        if (timerId) clearTimeout(timerId)
+        // 2.0 存储定时器启动时的 id
+        timerId = setTimeout(() => {
+          $.ajax({
+            type: 'get',
+            url: 'http://127.0.0.1:3001/validate',
+            data: {
+              userName: str,
+            },
+            success: (res) => {
+              console.log(res)
+            },
+          })
+        }, 500)
+      })
+    </script>
+  </body>
+</html>

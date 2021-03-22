@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      1. script 标签向服务器发送请求获取 JS 文件 
+      2. 服务器返回的 js 文件会被浏览器执行
+    -->
+    <script src="./libs/jquery.min.js"></script>
+    <script>
+      // JSONP 不是 AJAX 请求，只不过为了开发者方便，封装到了 $.ajax() 中
+      // 其实 JSONP 的本质是获取一个 JS 文件
+      $.ajax({
+        type: 'get',
+        url: 'https://floor.jd.com/recommend-v20/today_monetize/get?source=pc-home&_=1615276972941',
+        data: {},
+        dataType: 'jsonp', // dataType 的 属性值设置为 jsonp ，就变成了创建 script 标签请求 js 文件
+        success: (res) => {
+          console.log(res)
+        },
+      })
+    </script>
+  </body>
+</html>

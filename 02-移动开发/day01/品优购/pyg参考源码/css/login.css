@@ -1,0 +1,148 @@
+/* 1. 写版心 */
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 头部 */
+
+header {
+    height: 82px;
+    overflow: hidden;
+}
+
+header .logo {
+    display: block;
+    width: 171px;
+    height: 61px;
+    margin-top: 17px;
+    background: url('../images/logo.png') no-repeat;
+}
+
+/* 主题部分 */
+
+.main {
+    height: 490px;
+    background-color: #7e01ff;
+}
+
+.main_l {
+    float: left;
+}
+
+.main_r {
+    float: right;
+    width: 380px;
+    height: 362px;
+    margin-top: 62px;
+    padding: 22px 39px 0 37px;
+    background-color: #fff;
+}
+
+.main_r .methods {
+    position: relative;
+}
+
+.main_r .methods a {
+    float: left;
+    width: 50%;
+    padding: 0px 10px;
+    font-size: 18px;
+    color: #656565;
+}
+
+.main_r .methods .account {
+    text-align: right;
+}
+
+.main_r .methods i {
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    left: 50%;
+    top: 5px;
+    background-color: #ccc;
+}
+
+.main_r .tips {
+    height: 26px;
+    margin: 19px 0 10px;
+    padding-left: 9px;
+    line-height: 26px;
+    font-size: 12px;
+    background-color: #fffdee;
+    border: 1px solid #f4f0cd;
+}
+
+/* 表单登录部分 */
+
+.main_r .login li {
+    margin-bottom: 17px;
+}
+
+.main_r .login input[type="text"], .main_r .login input[type="password"] {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #ccc;
+    padding-left: 50px;
+}
+
+.main_r .login input[type="text"] {
+    background: url('../images/user.png') no-repeat;
+}
+
+.main_r .login input[type="password"] {
+    background: url('../images/pwd.png') no-repeat;
+}
+
+.main_r .login li label {
+    float: left;
+}
+
+.main_r .login li .forget {
+    float: right;
+    color: #353535;
+}
+
+.main_r .login input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.main_r .login button {
+    width: 100%;
+    height: 41px;
+    font-size: 16px;
+    background-color: #c81622;
+    color: #fff;
+}
+
+/* 其他登录方式 */
+
+.others_l {
+    float: left;
+}
+
+.others_r {
+    float: right;
+    margin-top: 7px;
+}
+
+/* 底部 */
+
+.mod_copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.links {
+    margin-bottom: 15px;
+}
+
+.links a {
+    margin: 0 3px;
+}
+
+.copyright {
+    line-height: 20px;
+}

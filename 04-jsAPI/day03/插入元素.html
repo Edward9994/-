@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+    <script>
+        let ul= document.querySelector('ul');
+        let lis =document.querySelectorAll('li');
+        let liNew =document.createElement('li');
+        liNew.innerHTML='我是新的';
+        //插入到ul里面
+    //    ul.appendChild(liNew);
+    //插入到ul孩子具体第二行
+        // ul.insertBefore(liNew,lis[1]);
+    </script>
+</body>
+</html>

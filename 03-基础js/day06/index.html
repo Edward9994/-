@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let date = new Date();
+        // console.log(date.toTimeString())
+        //  console.log(date.toDateString())
+        //   console.log(date.toLocaleTimeString())
+        //    console.log(date.toLocaleDateString())
+        //      console.log(date.getMonth()+1)
+        //       console.log(date.getMinutes())
+        //        console.log(date.getSeconds())
+        //         console.log(date.getFullYear())
+        //          console.log(date.getTime())
+        // document.write(`${date.getFullYear()}年${date.getMonth()+1}
+        // 月${date.getDay()}日${date.getHours()}时${date.getMinutes()}分
+        // ${date.getSeconds()}秒`)
+
+
+
+
+// indexOf  split  substr(2,10) substring(2,10) replace ('a','b') toUpperCase()toLowerCase()  trim()
+        // let str = '中国|广东|广州|天河|吉山|黑马|小马哥';
+        // console.log(str.indexOf('黑'));//内容位于第几个数
+        // console.log(str.indexOf('黑',17))//从第几个开始查
+        // console.log(str.substr(2,4))//截出,2起始,一共5个值
+        // console.log(str.substring(2,5))//截出，2~4;不包含结束位置
+        // console.log(str.replace('广州','惠州'))//替换指定内容
+        // console.log(str.split('|',3))//|切割数据，输出数据长度3
+        // console.log(str.split(/\|/))
+// console.log(str)
+// ？如果要替换全部如何实现？原生的
+        // 1. 循环：条件是能不能找到a，indexOf
+        // 2. 替换：一次替换一个，重新赋值给字符串
+        // str=str.replace(/\|/g,',');
+        
+        // for(i in str){
+        //   if (str[i]=='|'){
+        //       str[i]='a';
+        //   }
+        // }
+        
+
+
+
+
+ 
+ // 5. 大小写处理：字符串.toUpperCase() | toLowerCase()
+ // ? get-element-by-id   ====> 目标  getElementById
+// 6. 扩展：去除两边的空字符  字符串.trim()
+
+
+
+
+
+
+// JSON.stringify()//将复合数据类型按一定的格式格式化
+// let obj = {
+//     username:'李白',
+//     userAge:15,
+//     password:'123456',
+//     hoby:['将进酒','杯莫愁']
+// }
+// console.log(obj)
+// let jsonStr = JSON.stringify(obj);
+// console.log(jsonStr);
+// let jsonobj = JSON.parse(jsonStr);
+// console.log(jsonobj);
+// //JSON必须严格要求，数据双引号。
+// let str1  ='{"username":"李白","userAge":15,"password":"123456","hoby":["将进酒","杯莫愁"]}';
+// console.log(str1)
+// console.log(JSON.parse(str1));
+
+
+// let obj={name:'李四',age:'18'};
+// let obj1 = obj;
+// obj.age=99;
+// console.log(obj1,obj)
+// obj1={name:'张三'};
+// console.log(obj1,obj);
+
+
+
+
+// 需求：数组中有很多重复的数据，目标，重复的元素：保留1个
+ let str = ['a', 'b', 'a', 's', 'f', 
+ 'g', 'g', 'g', 'h', 'j', 'j', 'k', 'k', 'g', 
+ 'f', 'd', 'd', 's', 's', 's', 's', 's', '3', 
+ '4', '4', '4', '3', '4', '3'];
+// let str1=[];
+// for(i in str){
+//     if(str1.indexOf(str[i])==-1){
+//         str1.push(str[i]) 
+//     }
+// }
+// console.log(str1)
+
+
+
+
+    </script>
+</body>
+</html>

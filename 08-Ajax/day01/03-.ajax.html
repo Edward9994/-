@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>获取</button>
+    <button>添加</button>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $('button').eq(0).click(()=>{
+            $.ajax({
+                url:'http:/127.0.0.1:3001/getHeroSkin',
+                type:'get',
+                data:{heroName:'李大白'},
+                dataType:'json',
+                success:(res)=>{
+                    console.log(res);
+                }
+            })
+        })
+         $('button').eq(1).click(()=>{
+           $.ajax({
+                url:'http:/127.0.0.1:3001/addHeroSkin',
+                type:'post',
+                data:{cname:'李大白',skin_name:'凤求凰'},
+                success:(res)=>{
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

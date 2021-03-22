@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" name="" id="" />
+    <button>上传</button>
+    <script>
+      const button = document.querySelector('button')
+      button.onclick = function () {
+        const file = document.querySelector('[type="file"]').files[0]
+        // return console.log(file)
+        // FormData 有自己的 Content-Type 内容类型，不需要再设置
+        const fd = new FormData()
+        fd.append('file_data', file)
+        // POST 请求上传文件
+        const XHR = new XMLHttpRequest()
+        XHR.open('POST', 'http://127.0.0.1:3001/uploadFile')
+        XHR.send(fd)
+        XHR.onload = function () {
+          console.log(XHR)
+          const res = JSON.parse(XHR.responseText)
+          console.log(res)
+        }
+      }
+    </script>
+  </body>
+</html>

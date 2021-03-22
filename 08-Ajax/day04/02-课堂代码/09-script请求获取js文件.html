@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      1. script 标签向服务器发送请求获取 JS 文件 
+      2. 服务器返回的 js 文件会被浏览器执行
+    -->
+    <script>
+      function jsonpRecommend(res) {
+        console.log(res)
+      }
+    </script>
+    <script src="http://127.0.0.1:3001/getStudentsJSONP.js"></script>
+    <script src="https://floor.jd.com/recommend-v20/today_monetize/get?source=pc-home&callback=jsonpRecommend&_=1615276972941"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+       // 真正既安全又不占用内存的解决方案：凡是方法全部放到原型对象上即可
+        // 构造函数.prototype.方法名 = function(){}
+        // 孩子对象.方法名();
+ // 扩展一点：可以给任意构造函数挂载原型方法（不管是自定义的还是系统的）
+function Student (name,age){
+    this.name = name;
+    this.age = age;
+}
+Student.prototype.study = function(){
+    console.log(`名字：${this.name}年龄${this.age}`);
+}
+let s1 = new Student('上官','20');
+s1.study();
+
+  </script>  
+</body>
+</html>

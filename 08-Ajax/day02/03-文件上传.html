@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="file">
+    <button id="up_data">文件上传</button>
+    <button id="load_data">文件下载</button>
+    <a href=""> <img src="./images/logo.gif" alt="" id="load_img"></a>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        //文件上传
+        document.querySelector('#up_data').onclick=function(){
+            let file=document.querySelector('#file').files[0];
+            let fd= new FormData();
+            fd.append('file_data',file);
+            console.log(fd);
+              $.ajax({
+        type:'post',
+        url:'http://127.0.0.1:3001/uploadFile',
+        data: fd,
+        contentType:false,//取消jq内容类型的转换
+        processData:false,//取消jq序列化成字符串
+        success:(res)=>{
+        console.log(res);
+        }
+        })
+        }
+        // 文件获取
+
+      
+    </script>
+</body>
+</html>

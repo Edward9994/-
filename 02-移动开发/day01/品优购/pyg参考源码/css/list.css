@@ -1,0 +1,43 @@
+.header {
+    position: relative;
+}
+
+.seckill {
+    position: absolute;
+    width: 56px;
+    height: 26px;
+    left: 195px;
+    top: 45px;
+    background: url('../images/sk.png');
+}
+
+.seckill::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -12px;
+    width: 0;
+    height: 32px;
+    border-right: 1px solid #b3181c;
+}
+
+/* main_nav模块 */
+
+.main_nav .subnav li:nth-child(-n+3) {
+    font-weight: 700;
+    color: #000;
+}
+
+.main_nav .subnav li:last-child a::after {
+    content: "\e91e";
+    font-family: "icomoon";
+}
+
+.goods_list li {
+    float: left;
+    width: 292px;
+    height: 460px;
+    border: 1px solid #f00;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <style>
+        .element {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 10px solid #00ffff;
+
+
+            text-align: center;
+            font-size: 30px;
+            line-height: 200px;
+
+
+            overflow: hidden;
+            float: left;
+        }
+    </style>
+    <script>
+        // 原型链的继承：本质是让构造函数的原型对象继承另外一个原型对象
+        // 1. 创建子构造函数// 借调父构造函数：正常继承，肯定会用到父构造函数
+// 2. 原型链的继承
+
+  //JS动态创建元素 可以各种元素
+        // 1创建一构造函数 用来创建元素
+        function CreateElement(tag,className,text){
+            this.elc=document.createElement(tag)
+            this.elc.className=className //这样允许用户传入多个类
+            this.elc.innerHTML=text
+        }
+        // 构造函数自定义方法
+        CreateElement.prototype.appendTo=function(selector){
+            //获取父元素,同时将创建好的元素放到父元素后面
+            let parent=document.querySelector(selector)
+            parent.appendChild(this.elc)
+        }
+        // 问题 a标签怎么办 
+        // 继承,修改原来的构造函数
+        // 原型链的继承,本质是让构造函数的原型对象 继承另外一个原型对象
+        // 创建子构造函数
+        function CreateA(className,text,href){
+            // 借调父构造函数,正常继承,肯定会用到继承
+            CreateElement.call(this,"a",className,text)
+            this.elc.href=href
+            
+        }
+        // CreateA与CreateElement是平行关系
+        CreateA.prototype.__proto__=CreateElement.prototype
+        
+        let ce=new CreateElement("div","element","我来了")
+        ce.appendTo("body")
+        let a=new CreateA("element","我就是看看","https://www.baidu.com/")
+        a.appendTo("body")
+    </script>
+</body>
+</html>

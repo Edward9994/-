@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+
+        body {
+            background-color: #333;
+        }
+
+
+        .nav {
+            width: 800px;
+            height: 42px;
+            margin: 100px auto;
+            /*background-color: red;*/
+            background: #fff url(images/rss.png) no-repeat right center;
+            border-radius: 10px;
+            position: relative;
+        }
+
+
+        .nav li {
+            width: 83px;
+            height: 42px;
+            /*background-color: red;*/
+            text-align: center;
+            line-height: 42px;
+            float: left;
+            cursor: pointer;
+        }
+
+
+        ul {
+            position: relative;
+        }
+
+
+        .nav .current {
+            background: url(./images/cloud.gif) no-repeat;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul id="navBar">
+            <li class="current">北京校区</li>
+            <li>上海校区</li>
+            <li>广州校区</li>
+            <li>深圳校区</li>
+            <li>武汉校区</li>
+            <li>关于我们</li>
+            <li>联系我们</li>
+            <li id="last">招贤纳士</li>
+        </ul>
+    </div>
+    <script>
+        let lis = document.querySelectorAll('li');
+        let that=lis[0];
+        //鼠标移入
+        lis.forEach(function(li){   
+              li.addEventListener('click',function(){
+               this.className ='current';
+              that =this;
+                })
+            li.addEventListener('mouseenter',function(){
+                //清除全部li背景
+                lis.forEach(function(li){
+                    li.className='';
+                })
+                li.className='current';
+            })
+             //鼠标离开，只有第一个又背景
+             li.addEventListener('mouseleave',function(){
+                //清除全部li背景
+                lis.forEach(function(li){
+                    li.className='';
+                })
+              that.className = 'current'; 
+            })
+         
+           
+            
+        })
+       
+    
+         
+         
+       
+    </script>
+</body>
+</html>

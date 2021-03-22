@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            background-color: black;
+            
+        }
+        .a {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 200px;
+            background-color: red;
+            transition: all 3s;         
+        }
+        input {
+            margin-left: 200px;
+        }
+
+    </style>
+    <script>
+        window.addEventListener('load',function() {
+            let btn = document.querySelector ('input');
+            let a = document.querySelector('.a');
+            btn.addEventListener('mouseenter',function(){
+                a.style.top = 0;
+            })
+            btn.addEventListener('mouseleave',function(){
+                a.style.top =200 +'px';
+            })
+        }
+        )
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="a"></div>
+        <input type="button" value='提交'>
+    </div>
+    
+</body>
+</html>

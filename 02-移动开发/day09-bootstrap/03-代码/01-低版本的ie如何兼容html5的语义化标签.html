@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 
+    1  先通过js 来主动创建一遍 这个标签
+    2  再通过 css 来自己加块级  来设置这个标签的 块级特性
+    
+   -->
+
+    <script>
+      
+      var header=document.createElement("header");
+      
+    </script>
+
+  <style>
+    header{
+      background-color: red;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    块级元素
+  </header>
+  <helloworld>块级元素</helloworld>
+</body>
+</html>

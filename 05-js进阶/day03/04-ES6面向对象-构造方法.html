@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     class Student{
+    //         constructor(a,b){
+    //             console.log(a,b);
+    //             console.log('我被执行了');
+    //         }
+    //     }
+    //   new Student(1,2);
+
+
+
+    // 两个类：学生Student类，老师Teacher，增加属性（名字、性别、年龄），学生有学号，老师有工号
+    // 构造方法 ：constructor()是一个特殊的方法，只要new类，就会在对象产生后，对象自动调用这个方法
+        // 构造方法constructor的形参对应的就是new类名(实参)
+        class Teacher{
+            constructor(name,sex,age,tno){
+                this.name=name;
+                this.sex =sex;
+                this.age = age;
+                this.tno = tno;
+                this.teacher=function(){
+                    console.log(this.name+this.sex+this.age+this.tno);
+                }
+            }
+        }
+            class Studnet{
+            constructor(name,sex,age,tno){
+                this.name=name;
+                this.sex =sex;
+                this.age = age;
+                 this.tno = tno;
+            }
+        }
+        let t1 = new Teacher('小马哥','男','18','007');
+             t1.teacher();
+             
+          let s1= new Studnet('小小马','女','2','001');
+        // console.log(t1,s1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+@import "./wjsfont.less";
+
+/* 网页基本字体颜色 灰色 */
+
+@fontColor: #808080;
+.wjs_view {}
+
+
+/* 头部工具栏 */   
+
+.wjs_top_tool {
+    .row {
+        >div {
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            a.phone_code {
+                position: relative;
+                &:hover>img {
+                    display: block;
+                }
+                >img {
+                    position: absolute;
+                    top: 22px;
+                    left: -5px;
+                    display: none;
+                    z-index: 10;
+                }
+            }
+            a {
+                color: @fontColor;
+            }
+            a.btn-danger {
+                color: #fff;
+            }
+        }
+        >div:last-child {
+            border-right: none;
+        }
+    }
+}
+
+
+/* 导航条 */
+
+.wjs_nav {
+    nav {
+        // height: 80px;
+        margin-bottom: 0;
+    }
+    .navbar-header {
+        /* logo */
+        a.navbar-brand {
+            padding-top: 7px;
+            /* 微金所的图标 */
+            font-size: 70px;
+            height: 80px;
+            span.wjsfont-logo {
+                color: red;
+            }
+        }   
+    }
+    .navbar-nav {
+        a {
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 80px;
+            line-height: 80px;
+            &:hover,
+            &:focus {
+                /* focus 获得焦点 */
+                border-bottom: 1px solid red;
+            }
+        }
+    }
+}
+
+
+/* 轮播图 */
+
+.wjs_carousel {
+    img {
+        width: 100%;
+    }
+}
+
+
+/* 支付交易保障 */
+
+.wjs_exchange {
+    padding: 70px 0 40px;
+    a {
+        color: @fontColor;
+        &:hover {
+            color: red;
+        }
+        .media-left {
+            font-size: 40px;
+        }
+        .media-body {}
+    }
+    .row {
+        >div {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+
+/* 正在排队 */
+
+.wjs_waitting {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 16px;
+    padding: 20px 0;
+    .pull-left {
+        a {
+            color: red;
+            border-bottom: 1px dashed red;
+        }
+    }
+    .pull-right {
+        a {
+            color: #000;
+        }
+    }
+}
+
+
+/* 微投资 */
+
+.wjs_buy {
+    /* 灰色 默认 卡片 */
+    a.cart_default {
+        position: relative;
+        padding-right: 80px;
+        display: block;
+        background-color: #f7f7f7;
+        color: @fontColor;
+        box-shadow: 0 0 16px 0px #000;
+        .cart_content {
+            border-right: 1px dashed #000;
+            padding: 0 10px;
+            .content_title {
+                h4 {
+                    padding-top: 25px;
+                    text-align: center;
+                }
+            }
+            .content_info {}
+        }
+        .cart_rate {
+            position: absolute;
+            width: 80px;
+            height: 100%;
+            top: 0;
+            right: 0;
+            text-align: center;
+            padding-top: 60px;
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #fff;
+                top: 0;
+                left: 0;
+                transform: translate(-50%, -50%);
+                box-shadow: 0px 1px 1px 0px #000;
+            }
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #fff;
+                bottom: 0;
+                left: 0;
+                transform: translate(-50%, 50%);
+                box-shadow: 0px -1px 1px 0px #000;
+            }
+        }
+    }
+    /* 红色 体验 卡片 */
+    a.cart_exp {
+        background-color: red;
+        color: #fff;
+        .cart_content {
+            border-right: 1px dashed #fff;
+        }
+        >.wjsfont {
+            top: 0;
+            left: 0;
+            position: absolute;
+            font-size: 40px;
+        }
+    }
+    /* 灰色 进度 卡片 */
+    a.cart_progress {
+        .cart_content {
+            .content_info {
+                >div {
+                    /* 可以选择到pull-left pull-right */
+                    width: 50%;
+                }
+            }
+        }
+        .cart_rate {
+            .wjs_tips {
+                span:nth-child(1) {
+                    color: green;
+                    border: 1px solid green;
+                }
+                span:nth-of-type(2) {
+                    color: red;
+                    border: 1px solid red;
+                }
+            }
+        }
+    }
+}
+
+
+/* 新闻 */
+
+.wjs_news {
+    .news_all {
+        font-size: 30px;
+        border-bottom: 1px solid #000;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            right: 0;
+            bottom: 0;
+            transform: translate(100%, 50%);
+        }
+    }
+    .news_title {
+        position: relative;
+        .line {
+            width: 0;
+            border-left: 1px dashed #000;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 50px;
+            z-index: -1;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                margin-bottom: 40px;
+                a {
+                    display: inline-block;
+                    border-radius: 50%;
+                    padding: 10px;
+                    color: #fff;
+                    background-color: #cccccc;
+                    &:hover,&:focus{
+                        background-color: red;
+                    }
+                    .wjsfont {
+                        font-size: 50px;
+                    }
+                }
+            }
+        }
+    }
+    .news_content {}
+}
+
+
+/* 尾部 */
+
+.wjs_footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid #000;
+    h2{}
+    >div{
+        a{
+            color: @fontColor;
+            margin-left: 20px;
+            &:hover{
+                color: red;
+            }
+            span{
+                font-size: 80px;
+            }
+        }
+    }
+}

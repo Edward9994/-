@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box  {
+            height: 150px;
+            margin: 0 auto;
+            width: 100px;
+            position: relative;
+        }
+        img {
+            position: absolute;
+        }
+          img{
+            width: 100px;
+            height: 150px;
+            background-color: red;
+            transition: all 3s;
+            transform-origin: left bottom;
+            
+        }
+        .box:hover .g img { 
+            transform:rotate(60deg);
+        }
+        .box:hover .b img { 
+            transform:rotate(120deg);
+        }
+        .box:hover .c img { 
+            transform:rotate(180deg);
+        }
+        .box:hover .d img { 
+            transform:rotate(240deg);
+        }
+        .box:hover .e img { 
+            transform:rotate(300deg);
+        }
+        .box:hover .f img { 
+            transform:rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="b"><img src="./pk1.png" alt=""></div>
+        <div class="c"><img src="./pk1.png" alt=""></div>
+        <div class="d"><img src="./pk1.png" alt=""></div>
+        <div class="e"><img src="./pk1.png" alt=""></div>
+        <div class="f"><img src="./pk1.png" alt=""></div>
+        <div class="g"><img src="./pk1.png" alt=""></div>
+    </div>
+</body>
+</html>

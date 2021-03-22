@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="username" />
+    <script src="./libs/jquery.min.js"></script>
+    <script>
+      /* 没有做防抖的问题：服务器接收到很多不必要的请求 */
+      $('#username').keyup(() => {
+        const str = $('#username').val().trim()
+        // console.log(str)
+
+        $.ajax({
+          type: 'get',
+          url: 'http://127.0.0.1:3001/validate',
+          data: {
+            userName: str,
+          },
+          success: (res) => {
+            console.log(res)
+          },
+        })
+      })
+    </script>
+  </body>
+</html>

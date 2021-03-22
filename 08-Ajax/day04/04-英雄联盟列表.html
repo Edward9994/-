@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>访问</button>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script src="./template-web.js"></script>
+    <script id="t1" type="text/html">
+        {{each list item}}
+        <ul>
+            <li><span>{{item.name}}</span><img src="http://game.gtimg.cn/images/lol/act/img/champion/{{item.alias}}.png" alt=""></li>
+        </ul>
+        {{/each}}
+    </script>
+    <script>
+        document.querySelector('button').onclick = function () {
+            console.log(1);
+            $.ajax({
+                type: 'GET',
+                url: 'https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js',
+                data: {},
+
+                //后端返回的数据,指定为json
+                dataType: 'json',
+                success: (res) => {
+                    console.log(res.hero, res.hero[0].alias);
+                    let htmlStr = template('t1', { list: res.hero });
+                    $('body').append(htmlStr)
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 30px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div class="box"></div> -->
+    <script>
+        let body = document.querySelector('body');
+        console.log(body.clientHeight,body.clientWidth);
+        console.log(window.innerHeight,window.innerWidth);
+        window.onresize = function(){
+                if(innerWidth>=1200){
+                    document.body.innerHTML = 'pc端'
+                }else if (innerWidth>=750){
+                            document.body.innerHTML = '平板'
+                }else{
+                     document.body.innerHTML = '移动端'
+                }
+        }
+    </script>
+</body>
+</html>

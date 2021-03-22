@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            background-color: antiquewhite;
+            text-align: center;
+            line-height: 40px;
+            box-shadow: antiquewhite;
+        }
+
+        .change {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .form {
+            text-align: center;
+            height: 300px;
+            margin: 100px auto;
+        }
+
+        .form input {
+            height: 40px;
+            margin: 0 20px;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            border-color: skyblue;
+        }
+
+        #word {
+            width: 150px;
+        }
+
+        #description {
+            width: 300px;
+        }
+
+        #save {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="change">
+        <a href="#">查询单词</a>
+    </div>
+    <div class="form">
+        单词：<input type="text" name="word" id="word" placeholder="请输入单词">
+        解释：<input type="text" name="description" id="description" placeholder="请输入单词解释">
+        <input type="button" value="保存" id="save">
+    </div>
+
+    <script>
+        (function () {
+            let save = document.querySelector('#save');
+            let word = document.querySelector('#word');
+            let desc = document.querySelector('#description');
+
+            save.addEventListener('click', () => {
+                words = word.value.trim();
+                descs = desc.value.trim();
+
+                if (words.length == 0) {
+                    alert('单词不能为空');
+                    return false;
+                }
+
+                if (descs.length == 0) {
+                    alert('单词解释不能为空');
+                    return false;
+                }
+                // 从本地存储中取出数据：有就是字符串，没有就是null
+                let storage = localStorage.getItem('words');
+
+                // 如果为空null：说明当前是第一次存储数据
+                if (storage == null) storage = {};  // 空对象
+                else storage = JSON.parse(storage); // 有：将原来的对象取出来
+
+                // 安全特效：已有的不让覆盖
+                // storage['c']：有c属性，取出c属性的值
+                // storage['c']：没有c属性，得到的结果是undefined
+
+                /* 如果想要允许单词覆盖：将下面这几行代码注释 */
+                if (storage[words]) {
+                    // 对象中有words对应的属性
+                    alert(words + '已经存在');
+                    return;
+                }
+
+                // words是收入的单词，descs是解释
+                // storage增加一个属性：名字叫做words代表的单词，值就是解释
+                storage[words] = descs;
+                // storage = {a:apple,b:banana}
+                // 1. 如果storage，有words代表的单词属性，此时的效果是覆盖（替换） storage['a'] = 'again';  覆盖了原来的apple:{a:again,b:banana}
+                // 2. 如果storage，没有words代表的单词属性，此时就是新增 storage['o'] = 'orange'; {a:apple,b:banana,o:orange}
+
+                // 将当前新存储的内容，去覆盖原来的内容（转成json格式字符串）
+                localStorage.setItem('words', JSON.stringify(storage));
+
+                word.value = '';
+                desc.value = '';
+            });
+
+            document.querySelector('.change').addEventListener('click', () => {
+                location.assign('单词查看.html');
+            });
+        })();
+    </script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>

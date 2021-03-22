@@ -1,0 +1,98 @@
+// sourceMap: true
+// 生成map文件方便调试
+
+/* 
+    大于750px的时候
+    flexible.js还在继续设置html font-size
+    导致虽然给body设置max-width
+    但是由于js还在继续设置更大的字体大小
+
+    大于等于750px的屏幕就给html设置75px字体大小
+    小于等于320px的屏幕就给html设置32px字体大小
+
+*/
+@media screen and (min-width: 750px) {
+    html {
+        font-size: 75px !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 32px !important;
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 1.173333rem;
+    background-color: #ffc001;
+
+    .cate {
+        width: 1.226667rem;
+        height: 1.173333rem;
+        background: url("../images/cate.png") no-repeat center ~"/"0.586667rem 0.933333rem;
+    }
+
+    .search {
+        flex: 1;
+        height: 0.88rem;
+        line-height: 0.88rem;
+        border-radius: 0.44rem;
+        background-color: rgba(255, 255, 255, 0.637);
+    }
+
+    .login {
+        width: 1.266667rem;
+        height: 1.173333rem;
+        line-height: 1.173333rem;
+        text-align: center;
+        font-size: 0.32rem;
+        color: #fff;
+    }
+}
+
+
+.banner a {
+    display: block;
+
+    img {
+        width: 100%;
+    }
+}
+
+.cook {
+    display: flex;
+
+    a {
+        flex: 1;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        width: 20%;
+
+        a {
+            display: block;
+            // background-color: #0a0;
+            // border: 1px solid #fff;
+            text-align: center;
+            font-size: 0.32rem;
+            padding: 0.133333rem 0;
+
+            img {
+                width: 1.093333rem;
+                margin-bottom: 0.32rem;
+            }
+        }
+    }
+}

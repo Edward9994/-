@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 250px;
+            height: 500px;
+            border: 1px solid #000;
+            border-right: 250px solid #000;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        
+     
+        .box::after{
+            height: 250px;
+            width: 250px;
+            content: '';
+            background-color: black;
+            border: 100px solid white;
+            border-radius: 50%;
+            top: 0;
+            left:50%;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 999;
+        }
+        .box::before{
+            height: 250px;
+            width: 250px;
+            content: '';
+            background-color: white;
+            border: 100px solid black;
+            border-radius: 50%;
+            bottom: 0;
+            left: 50%;
+            box-sizing: border-box;
+            position: absolute;
+            
+        } 
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+</body>
+</html>

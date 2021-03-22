@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+
+
+// 18已知有字符串 let str="hei-ma-cheng-xu-yuan”,写一个 function 将其转化成驼峰表示法 "heiMaChengXuYuan”
+ let str='hei-ma-cheng-xu-yuan';
+ let arr=[];
+ //转化为数组
+function changChar(str){
+     for(let i in str){
+     arr.push(str[i])
+ }
+ for(let i = 0;i<arr.length;i++){
+    if(arr[i]=='-'){
+        arr[i]='';
+        arr[i+1]=arr[i+1].toUpperCase();
+    }
+    }
+     str=arr.join('');
+     return str;
+ }
+
+str = changChar(str);
+console.log(str)
+    </script>
+</body>
+</html>

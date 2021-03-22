@@ -1,0 +1,19 @@
+git clone git项目地址
+origin：github 项目的地址,第一次提交时就赋名了
+git push -u origin 主分支：分支		提交分支
+git branch -d 分支名  	删除本地分支
+git checkout -b reg origin/reg  获取远程分支
+git push  origin:分支名 	拉取分支
+
+
+
+init
+add .
+commit -m
+status
+SSH
+
+checkout -b
+push -u origin
+checkout 
+branch

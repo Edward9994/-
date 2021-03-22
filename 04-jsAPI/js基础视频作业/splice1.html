@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+         //splice(index,howmany,item)
+        //  index,howmany 必须
+        // 删除，指定两个参数(起始位置，要删除的项数)
+        // 插入，指定三个参数(起始位置，0，要插入的任意数量的项)。【注意：要插入的项要插入到当前索引位置之前】
+        // 替换，指定三个参数(起始位置，要删除的项数，要插入的任意数目的项)
+        arr = [0,1,2,3,4];
+
+  Array.prototype.splice1 = function (start, num) { 
+
+        // 两个for循环，将需要删除的值，遍历到数组最后面
+            for (var j = 0; j < num; j++) {
+                for (var i = start; i < this.length - 1; i++) { 
+                    var temp = this[i];
+                    this[i] = this[i + 1];
+                    this[i + 1] = temp;
+                }
+            }
+
+            // 改变数组长度，实现将后面需要删除的数组删除
+            this.length = this.length - num;
+      
+
+            for (var t = 2; t < arguments.length; t++) {
+                this[this.length] = arguments[t];
+        // 排序字母和数字
+        //  （this.length-1） 选择最后一个元素
+                // (1, 0, 'a', 'b', 'c')  
+            // 第一个循环a，第二个循环b，第三此循环c
+        //(start + (t - 2))   排序到起始位置
+                for (var s = this.length - 1; s > (start + (t - 2)); s--) {
+                    var temp1 = this[s];
+                    this[s] = this[s - 1];
+                    this[s - 1] = temp1;
+                }
+            }
+            return this;
+        }
+// console.log(arr.splice1(0, 3))
+// console.log(arr.splice1(1, 0, 'a', 'b', 'c'))
+console.log(arr.splice1(2, 1, 'hello', 'test', 'ronda'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .progress {
+        border: 1px solid #ddd;
+        height: 30px;
+        width: 500px;
+      }
+      .progress_bar {
+        background-color: pink;
+        height: 30px;
+        width: 1%;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" name="" id="" />
+    <button>上传</button>
+    <div class="progress">
+      <div class="progress_bar"></div>
+    </div>
+    <script src="./libs/jquery.js"></script>
+    <script>
+      $('button').click(() => {
+        // 上传文件参数准备
+        const file = document.querySelector('[type="file"]').files[0]
+        const fd = new FormData()
+        fd.append('file_data', file)
+        // JQ 发送 AJAX 请求上传文件
+        $.ajax({
+          type: 'POST',
+          url: 'http://127.0.0.1:3001/uploadFile',
+          data: fd,
+          contentType: false,
+          processData: false,
+          timeout: 500, // JQ封装的请求超时属性
+          success: (res) => {
+            console.log(res)
+          },
+        })
+      })
+    </script>
+  </body>
+</html>

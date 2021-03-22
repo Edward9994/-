@@ -1,0 +1,297 @@
+body {
+    background-color: #f7f7f7;
+    /* 给固定定位留出空白位置 */
+    padding: 45px 0 50px;
+}
+
+/* app模块 */
+
+.app {
+    /* 
+        固定定位 
+        绝对定位
+        浮动
+        脱离标准流
+        默认的宽度由内容撑开
+        失去和父元素等宽的效果
+        需要手动设置宽度
+    */
+    position: fixed;
+    top: 0;
+    /* left: 50%;
+    transform: translate(-50%); */
+    width: 100%;
+    max-width: 750px;
+    min-width: 320px;
+    /* 提高层级 */
+    z-index: 9;
+    height: 45px;
+    background-color: #333333;
+}
+
+.app .close {
+    float: left;
+    width: 8%;
+    height: 45px;
+    /* 设置背景图的大小一定要写在背景位置后面 用/分隔 */
+    background: url('../images/close.png') center / 10px no-repeat;
+}
+
+.app .logo {
+    float: left;
+    width: 10%;
+    height: 45px;
+    background: url('../images/logo.png') center / 30px no-repeat;
+}
+
+.app .slogan {
+    float: left;
+    width: 57%;
+    height: 45px;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+}
+
+.app button {
+    float: left;
+    width: 25%;
+    height: 45px;
+    background-color: #f63515;
+    color: #fff;
+}
+
+header {
+    height: 44px;
+    background-color: #c82519;
+}
+
+header .cate {
+    float: left;
+    width: 50px;
+    height: 44px;
+    background: url('../images/cate.png') 10px / 20px no-repeat;
+}
+
+header .search {
+    position: relative;
+    float: left;
+    width: calc(100% - 100px);
+    height: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-top: 7px;
+    padding-left: 80px;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+header .search::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 7px;
+    /* 测量得知 */
+    width: 20px;
+    height: 15px;
+    background: url('../images/jd.png') 0 0 / 20px;
+}
+
+header .search::after {
+    content: "";
+    position: absolute;
+    left: 51px;
+    top: 8px;
+    /* 30 / 2 */
+    width: 15px;
+    height: 15px;
+    /*
+        二倍精灵图设置背景大小一定要多多注意
+        background-size: 精灵图的一半
+        本案例中 精灵图400px
+        background-size: 200px;
+        不仅精灵图的大小要除以2
+        测量出来的背景图片的位置也要除以2
+        400 / 2
+        166 / 2
+    */
+    background: url('../images/jd-sprites.png') -83px 0 / 200px;
+}
+
+header .search .line {
+    position: absolute;
+    left: 42px;
+    top: 8px;
+    width: 0;
+    height: 14px;
+    border-left: 1px solid #ccc;
+}
+
+header .login {
+    float: left;
+    width: 50px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+}
+
+.banner a {
+    display: block;
+}
+
+.banner img {
+    width: 100%;
+}
+
+/* 图书模块 */
+
+.book a {
+    float: left;
+    width: 33.33%;
+}
+
+.book a img {
+    width: 100%;
+}
+
+.main_nav li {
+    float: left;
+    width: 20%;
+    /* border: 1px solid #000; */
+}
+
+.main_nav li a {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.main_nav li img {
+    width: 50%;
+    margin-bottom: 8px;
+}
+
+.new {
+    margin: 0 10px;
+    background-color: #6cf;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.new a {
+    float: left;
+    width: 50%;
+}
+
+.new a img {
+    width: 100%;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+.card a {
+    display: block;
+}
+
+.card a img {
+    width: 100%;
+}
+
+/* rec推荐模块 */
+
+.rec_hd {
+    margin-bottom: 6px;
+}
+
+.rec_hd img {
+    width: 100%;
+}
+
+.rec_bd li {
+    float: left;
+    /* 宽度需要提前减去6px */
+    /* width: calc((100% - 6px) / 2); */
+    width: calc(50% - 3px);
+    background-color: #fff;
+    margin-bottom: 6px;
+}
+
+/* 让奇数的li设置右侧外边距 */
+
+.rec_bd li:nth-child(2n+1) {
+    margin-right: 6px;
+}
+
+.rec_bd li a {
+    display: block;
+}
+
+.rec_bd li .pic img {
+    width: 100%;
+}
+
+.rec_bd .goods_info p {
+    /* 1. 弹性盒子模型 */
+    display: -webkit-box;
+    /* 2. 内容垂直显示 */
+    -webkit-box-orient: vertical;
+    /* 3. 限制显示行数 */
+    -webkit-line-clamp: 2;
+    /* 4. 溢出隐藏 */
+    overflow: hidden;
+    padding: 0 6px;
+}
+
+.rec_bd .goods_info p img {
+    height: 14px;
+}
+
+.rec_bd .goods_price {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 6px;
+}
+
+.rec_bd .goods_price .rmb {
+    float: left;
+    color: #f2304d;
+}
+
+.rec_bd .goods_price .similar {
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 0 4px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 750px;
+    min-width: 320px;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 2px 1px 20px rgba(0, 0, 0, 0.129);
+}
+
+footer li {
+    float: left;
+    width: 20%;
+    /* border: 1px solid #000; */
+    text-align: center;
+}
+
+footer li a {
+    display: block;
+}
+
+footer li img {
+    height: 50px;
+}

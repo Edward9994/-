@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <style>
+        #father {
+            width: 200px;
+            height: 400px;
+            background-color: skyblue;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        #son {
+            width: 200px;
+            height: 100px;
+            background-color: hotpink;
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="father">
+        <div id="son"></div>
+    </div>
+
+    <script>
+        let son = document.getElementById('son');// 与父元素对其 offsetLeft:0
+        let father = document.getElementById('father');// 父元素 offsetLeft:到body的距离
+        son.onmousedown = function (e) {
+            console.log('鼠标按下了');
+            let x = e.pageX - father.offsetLeft;
+            let y = e.pageY - father.offsetTop;
+            document.onmousemove = function (e) {
+                father.style.left = e.pageX - x + 'px';
+                father.style.top = e.pageY - y + 'px';
+            };
+            son.onmouseup = function () {
+                console.log('鼠标松开');
+                document.onmousemove = null;
+            };
+        };
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. 一定要写理想视口 -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>手机京东</title>
+    <!-- 
+        引入css文件
+        1. 引入normalize.css 由于里面添加了一些外边距等等样式 我们不想要 所以写在第一位
+        2. 引入base.css 清除默认样式
+        3. 引入当前页面的index.css
+    -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- app模块 -->
+    <div class="app">
+        <!-- 1. 关闭按钮 -->
+        <div class="close"></div>
+
+        <!-- 2. logo模块 -->
+        <div class="logo"></div>
+
+        <!-- 3. slogan宣传标语 -->
+        <div class="slogan">
+            打开京东App,购物更轻松
+        </div>
+
+        <!-- 
+            4. 打开app 
+            button按钮天生水平垂直居中
+        -->
+        <button class="open">
+            立即打开
+        </button>
+    </div>
+
+
+    <!-- 头部  -->
+    <header>
+        <!-- 分类 -->
+        <a href="#" class="cate"></a>
+        <div class="search">
+            <i class="line"></i>
+            移动硬盘
+        </div>
+        <a href="#" class="login">登录</a>
+    </header>
+
+    <!-- banner -->
+    <div class="banner">
+        <a href="#">
+            <img src="./uploads/banner.dpg" alt="">
+        </a>
+    </div>
+
+    <!-- 图书钜惠模块 -->
+    <div class="book clearfix">
+        <a href="#"><img src="./uploads/1.gif" alt=""></a>
+        <a href="#"><img src="./uploads/2.gif" alt=""></a>
+        <a href="#"><img src="./uploads/3.gif" alt=""></a>
+    </div>
+
+    <!-- 主导航 -->
+    <nav class="main_nav">
+        <ul class="clearfix">
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./uploads/vip.webp" alt="">
+                    <p>PLUS会员</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 新人 new -->
+    <div class="new clearfix">
+        <a href="#">
+            <img src="./uploads/new1.dpg" alt="">
+        </a>
+        <a href="#">
+            <img src="./uploads/new2.dpg" alt="">
+        </a>
+    </div>
+
+    <!-- card省省卡部分 -->
+    <div class="card">
+        <a href="#">
+            <img src="./uploads/sheng.webp" alt="">
+        </a>
+    </div>
+
+    <!-- 推荐模块 recommend -->
+    <div class="rec">
+        <div class="rec_hd">
+            <img src="./uploads/suggest.png" alt="">
+        </div>
+        <div class="rec_bd">
+            <ul class="clearfix">
+                <li>
+                    <!-- infomation信息 -->
+                    <a href="#" class="goods_info">
+                        <!-- 产品图的盒子 -->
+                        <div class="pic">
+                            <img src="./uploads/goods.webp" alt="">
+                        </div>
+
+                        <p>
+                            <img src="./uploads/618.webp" alt="">
+                            <img src="./uploads/ziying.png" alt="">
+                            联想(Lenovo)小新Air14 2020性能版 英特尔酷睿i5 全面屏独显轻薄笔记本电脑(i5 16G 512G MX350 100%sRGB)银
+                        </p>
+
+                    </a>
+                    <!-- 商品价格 -->
+                    <div class="goods_price">
+
+                        <div class="rmb">
+                            &yen;5499
+                        </div>
+
+                        <a href="#" class="similar">看相似</a>
+                    </div>
+                </li>
+                <li>
+                    <!-- infomation信息 -->
+                    <a href="#" class="goods_info">
+                        <!-- 产品图的盒子 -->
+                        <div class="pic">
+                            <img src="./uploads/goods.webp" alt="">
+                        </div>
+
+                        <p>
+                            <img src="./uploads/618.webp" alt="">
+                            <img src="./uploads/ziying.png" alt="">
+                            联想(Lenovo)小新Air14 2020性能版 英特尔酷睿i5 全面屏独显轻薄笔记本电脑(i5 16G 512G MX350 100%sRGB)银
+                        </p>
+
+                    </a>
+                    <!-- 商品价格 -->
+                    <div class="goods_price">
+
+                        <div class="rmb">
+                            &yen;5499
+                        </div>
+
+                        <a href="#" class="similar">看相似</a>
+                    </div>
+                </li>
+                <li>
+                    <!-- infomation信息 -->
+                    <a href="#" class="goods_info">
+                        <!-- 产品图的盒子 -->
+                        <div class="pic">
+                            <img src="./uploads/goods.webp" alt="">
+                        </div>
+
+                        <p>
+                            <img src="./uploads/618.webp" alt="">
+                            <img src="./uploads/ziying.png" alt="">
+                            联想(Lenovo)小新Air14 2020性能版 英特尔酷睿i5 全面屏独显轻薄笔记本电脑(i5 16G 512G MX350 100%sRGB)银
+                        </p>
+
+                    </a>
+                    <!-- 商品价格 -->
+                    <div class="goods_price">
+
+                        <div class="rmb">
+                            &yen;5499
+                        </div>
+
+                        <a href="#" class="similar">看相似</a>
+                    </div>
+                </li>
+                <li>
+                    <!-- infomation信息 -->
+                    <a href="#" class="goods_info">
+                        <!-- 产品图的盒子 -->
+                        <div class="pic">
+                            <img src="./uploads/goods.webp" alt="">
+                        </div>
+
+                        <p>
+                            <img src="./uploads/618.webp" alt="">
+                            <img src="./uploads/ziying.png" alt="">
+                            联想(Lenovo)小新Air14 2020性能版 英特尔酷睿i5 全面屏独显轻薄笔记本电脑(i5 16G 512G MX350 100%sRGB)银
+                        </p>
+
+                    </a>
+                    <!-- 商品价格 -->
+                    <div class="goods_price">
+
+                        <div class="rmb">
+                            &yen;5499
+                        </div>
+
+                        <a href="#" class="similar">看相似</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <footer>
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./images/nav-index.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/nav-happy.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/nav-happy.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/nav-happy.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/nav-happy.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

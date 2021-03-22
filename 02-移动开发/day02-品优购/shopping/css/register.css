@@ -1,0 +1,221 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.top {
+    height: 82px;
+    border-bottom: 1px solid #b3191b;
+}
+
+.top .logo {
+    margin-top: 15px;
+    margin-left: 4px;
+    width: 180px;
+    height: 60px;
+    background: url(../images/logo.png) no-repeat;
+    display: block;
+}
+
+.reg {
+    height: 524px;
+    border: 1px solid #ececec;
+}
+
+.reg_hd {
+    line-height: 41px;
+    height: 41px;
+    padding: 0 10px;
+    background-color: #ececec;
+}
+
+.reg_hd  .fl{
+    font-size: 20px;
+    color: #333333;
+}
+
+.reg_hd .fr {
+    font-size: 16px;
+    color: #333333;
+}
+.pyg_red {
+    color: #c5122f;
+}
+
+.reg_bd ul {
+    margin-top: 52px;
+    margin-left: 170px;
+}
+
+.reg_bd li {
+    margin-bottom: 20px;
+}
+
+.reg_bd .safe {
+    margin-left: 265px;
+}
+
+.reg_bd .safe i {
+    display: inline-block;
+    text-align: center;
+    line-height: 15px;
+    height: 15px;
+    width: 34px;
+    color: white;
+}
+
+.reg_bd .safe i:first-child {
+    background-color: red;   
+}
+
+.reg_bd .safe i:nth-child(2) {
+    background-color: rgb(72, 255, 0);
+}
+
+.reg_bd .safe i:nth-child(3) {
+    background-color: yellow;
+}
+.reg_bd label{
+    font-size: 15px;
+    color: #4a4a4a;
+    width: 180px;
+    display: inline-block;
+    /* background-color: red; */
+    text-align: right;
+}
+
+.reg_bd span {
+    color: #dd342f;
+    font-size: 13px;
+}
+.reg_bd input {
+    width: 242px;
+    height: 38px;
+    border: 1px solid #999999;
+}
+
+.reg_bd .rules {
+    margin-left: 185px;
+    margin-top: 30px;
+}
+.reg_bd .rules a {
+    color: #29a1e0;
+}
+
+.reg_bd .rules input {
+    vertical-align: middle;
+    width: auto;
+    height: auto;
+}
+
+.reg_bd .sucd {
+    width: 200px;
+    height: 36px;
+    background-color: #c81622;
+    margin-left: 200px;
+    color: #fbffff;
+    margin-top: 30px;
+}
+
+
+footer {
+    background-color: #f5f5f5;
+}
+
+footer .slogan {
+    height: 110px;
+    border-bottom: 1px solid #ececec;
+}
+
+footer .slogan ul {
+    margin-left: 30px;
+}
+
+footer .slogan li {
+    height: 52px;
+    width: 20%;
+    float: left;
+    margin-top: 30px;
+}
+
+footer .slogan li h3 {
+    display: block;
+    margin-top: 10px;
+}
+
+
+footer .slogan ul li:nth-child(1) .icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 5px;
+    background: url(../images/icons.png) -252px -2px;
+    float: left;
+}
+footer .slogan ul li:nth-child(2) .icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 5px;
+    background: url(../images/icons.png) -253px -52px;
+    float: left;
+}
+footer .slogan ul li:nth-child(3) .icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 5px;
+    background: url(../images/icons.png) -254px -104px;
+    float: left;
+}
+footer .slogan ul li:nth-child(4) .icon {
+    width: 52px;
+    margin-right: 5px;
+    height: 52px;
+    background: url(../images/icons.png) -255px -156px;
+    float: left;
+}
+footer .slogan ul li:nth-child(5) .icon {
+    width: 52px;
+    margin-right: 5px;
+    height: 52px;
+    background: url(../images/icons.png) -255px -207px;
+    float: left;
+}
+
+footer .help {
+    height: 188px;
+    border-bottom: 1px solid #ececec;
+}
+
+footer .help dl {
+    float: left;
+    margin-left: 50px;
+    margin-right: 60px;
+}
+
+footer .help dt a{
+    font-size: 17px;
+    margin-top: 23px;
+    margin-bottom: 15px;
+    color: #2e2e2e;
+    display: block;
+}
+
+footer .help .erweim {
+    width: 95px;
+    height: 95px;
+    margin-left: -15px;
+    
+}
+
+footer .links {
+    height: 120px;
+    text-align: center;
+    margin-top: 23px;
+    margin-bottom: 16px;
+}
+
+footer .links a {
+    margin: 0 16px;
+}
+footer .links p {
+    line-height: 23px;
+}

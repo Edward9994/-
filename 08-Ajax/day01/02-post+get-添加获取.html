@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>获取英雄皮肤数据</button>
+     <button>添加英雄皮肤数据</button>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+
+          $('button').eq(0).click(()=>{
+            //已经连接服务器，不同请求改变不同url
+            $.get('http:/127.0.0.1:3001/getHeroSkin',{heroName:'李太白'},function(res){
+                console.log(res,1);
+            })
+        })
+         $('button').eq(1).click(()=>{
+            //已经连接服务器，不同请求改变不同url
+            $.post('http:/127.0.0.1:3001/addHeroSkin',{cname:'李太白',skin_name:'凤求凰'},function(res){
+                console.log(res,2);
+            })
+        })
+     l
+    </script>
+</body>
+</html>

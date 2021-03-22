@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /*width: 322px;*/
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 20px;
+            /*background-color: red;*/
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <span id="closeButton"></span>
+        <div class="hd" id="headPart">
+            <img src="images/t.jpg" alt="" />
+        </div>
+        <div id="bottomPart" class="bd">
+            <img src="images/b.jpg" alt="" />
+        </div>
+    </div>
+    <script src="./animate.js"></script>
+    <script>
+
+        document.getElementById('closeButton').onclick = ()=>{
+            animateSlow(document.getElementById('bottomPart'),0,'height',function(){
+                animateSlow(document.getElementById('box'),0,'width')
+            });
+        }
+    </script>
+</body>
+</html>

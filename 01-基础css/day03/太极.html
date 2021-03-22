@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: pink;
+		}
+		.fl {
+			float: left;
+		}
+		.box {
+			height: 500px;
+			width: 500px;
+			margin:100px 100px;
+			background-color:white;
+			border-radius: 50%;
+			overflow: hidden;
+			position: relative;
+		}
+		.box-fl {
+			height: 500px;
+			width: 250px;
+			background-color: black;
+		}
+		.son-top {
+			height: 250px;
+			width: 250px;
+			background-color: white;
+			border:100px solid black;
+			border-radius: 50%;
+			position:absolute;
+			left: 50%;
+			margin-left: -125px;
+			box-sizing: border-box;
+		}
+		.son-but {
+			height: 250px;
+			width: 250px;
+			background-color: black;
+			border:100px solid white;
+			border-radius: 50%;
+			position:absolute;
+			left: 50%;
+			bottom: 0;
+			margin-left: -125px;
+			box-sizing: border-box;
+		}
+	</style>
+<body>
+	<div class="box">
+		<div class="box-fl fl"></div>
+		<div class="son-top"></div>
+		<div class="son-but"></div>
+	</div>
+</body>
+</html>

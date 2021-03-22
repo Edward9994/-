@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 281px;
+            background-color: pink;
+            position: relative;
+        }
+        .box::after {
+            display: none;
+            background:url(../image/arr.png) rgba(0, 0, 0, 0.5) no-repeat center;
+            content: '';
+            width: 500px;
+            height: 281px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .box:hover::after{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="../image/wzry.png" alt="">
+    </div>
+</body>
+</html>

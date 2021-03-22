@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cir-out {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin-top: 50px;
+            margin-left: 200px;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .cir-inner {
+            width: 180px;
+            height: 180px;
+            /* border: 1px solid #000; */
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            z-index: 100;
+        }
+        .line>div {
+            height: 200px;
+            width: 2px;
+            background-color:green;
+            position: absolute;
+            left: 50%;
+            margin-left: 1px;
+            
+        }
+        .line div:nth-child(2) {
+            transform: rotate(30deg);
+        }
+        .line div:nth-child(3) {
+            transform: rotate(60deg);
+        }
+        .line div:nth-child(4) {
+            transform: rotate(90deg);
+        }
+        .line div:nth-child(5) {
+            transform: rotate(120deg);
+        }
+        .line div:nth-child(6) {
+            transform: rotate(150deg);
+        }
+
+        .second {
+            height: 90px;
+            width: 2px;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            margin-left: 1px;
+            animation: ani-sec 60s infinite steps(60);
+            transform-origin:bottom;
+        }
+        @keyframes ani-sec {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .min {
+            height: 60px;
+            width: 2px;
+            background-color:black;
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            margin-left: 1px;
+            animation: ani-min 3600s infinite linear;
+            transform-origin:bottom;
+        }
+        @keyframes ani-min {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hourse {
+            height: 45px;
+            width: 2px;
+            background-color:red;
+            position: absolute;
+            left: 50%;
+            top: 45px;
+            margin-left: 1px;
+            animation: ani-hor 7940000s infinite linear;
+            transform-origin:bottom;
+        }
+        @keyframes ani-hor {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cir-out">
+        <div class="cir-inner">  
+            <div class="second"></div>
+            <div class="min"></div>
+            <div class="hourse"></div>
+        </div>
+        <div class="line">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    let str = 'abaasdffggghhjjkkgfddsssss3444343';
+    // //   * 输出字符串的长度?
+    // console.log(str.length);
+
+    // //   * 取出指定位置的字符，如：0,3,5,9等?
+    // console.log(str.substr(0,1),str.substr(3,1),str.substr(5,1),str.substr(9,1))
+
+//   * 查找指定字符是否在以上字符串中存在，如：i，c?，b等?
+    // let s = prompt();
+    // if(str.indexOf(s)==-1){
+    //    alert('不存在')
+    // }else(
+    //     alert('存在')
+    // )
+    
+    //   * 替换指定的字符，如：g替换为22,ss替换为b等操作方法?
+    // console.log(str.replace(/g/g,22),str.replaceAll('ss','b'))
+    
+    //   * 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串（包括下标5）
+    // console.log(str.substring(1,6))
+
+
+    //   * `找出以上字符串中出现次数最多的字符和出现的次数?`
+    // let obj = [];
+    // //遍历字符串，对象形式输出
+    // for(let i in str){
+    //     let s = str[i];//单个字符
+    //     if (obj[s]==undefined){
+    //         obj.push(s);
+    //         obj[s]=1;
+    //     }else [
+    //         obj[s]+=1
+    //     ]
+    // }
+    // let max = -Infinity;
+    // let maxChar;
+    // //遍历对象，找出最大属性值
+    // for(let key in obj){
+    //    if(obj[key]>max ){
+    //        max=obj[key];
+    //        maxChar = key;
+    //    }
+    // }
+    // console.log(max,maxChar)
+
+
+    //   * 遍历字符串，并将遍历出的字符两头添加符号“@”输出至当前的文档页面。
+        // let arr= [];
+        // for(let i in str){
+        //     arr.push(str[i])
+        // }
+        // arr.unshift('@');
+        // arr.push('@');
+        // 使用concat方法
+        // str='';
+        //  for(let i in arr){
+        //     str= str.concat(arr[i]);
+        //  }
+        // 使用join方法
+        // str = arr.join('');
+        // console.log(str)
+        
+       
+// * 2.已知有字符串foo=”get&element&by&className”,写一个function将其转化成驼峰表示法”getElementByClassName”
+ 
+// let foo=prompt();
+// let arr=[];
+// let strNew='';
+// function changeChar(foo){
+//     for(let i in foo){
+//     arr.push(foo[i]);
+// }
+// for(let i=0;i<foo.length;i++){
+//     if(arr[i]=='&'){
+//         arr[i]='-';
+//         if(arr[i+1]==undefined){break}else{arr[i+1]=arr[i+1].toUpperCase();}
+        
+//     }
+//     strNew = strNew.concat(arr[i]);
+// }
+// console.log(strNew)
+// }
+// changeChar(foo);
+    </script>
+</body>
+</html>

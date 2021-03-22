@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery-1.11.1.min.js"></script>
+   <form action="" id="form1">
+<!-- 给表单元素添加name属性 -->
+        <input type="text" name='aa' value="11"/>
+        <input type="text" name="bb" value="22"/>
+        <!-- button写到form表单的内部，点击的时候默认会提交，导致页面被刷新 -->
+        <button>点击获取序列化后的表单字符串</button>
+   </form>
+   <script>
+    $('button').click((e)=>{
+        // 解决方案：通过事件对象，阻止form表单内部按钮的提交行为
+        e.preventDefault();
+        // serialize表单序列化
+           const str = $('#form1').serialize()
+ //    快速获取form表单中带name属性的值，以naem=value的形式获取，用&符号连接多份数据
+ let obj = {name:'名字',value:'程咬金'}
+ const{name,value}=obj;
+       console.log(str);
+        console.log(name+':'+value);
+    })
+   </script>
+</body>e
+</html>

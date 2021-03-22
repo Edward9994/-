@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style: none;
+            padding-top: 15px;
+        }
+
+
+        .box {
+            width: 350px;
+            height: 420px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+
+
+        li {
+            float: left;
+            width: 20%;
+            text-align: center;
+        }
+
+
+        img:hover {
+            outline: 3px solid #0094ff;
+        }
+    </style>
+</head>
+<body>
+  <div class="box">
+        <div>
+            <img src="images/b1.jpg" id="big" alt="" />
+        </div>
+        <div>
+            <ul id="ul">
+                <!--data-src是自定义属性，存放对应大图的src-->
+                <li data-src="images/b1.jpg"><img src="images/s1.jpg" alt="" /></li>
+                <li data-src="images/b2.jpg"><img src="images/s2.jpg" alt="" /></li>
+                <li data-src="images/b3.jpg"><img src="images/s3.jpg" alt="" /></li>
+                <li data-src="images/b4.jpg"><img src="images/s4.jpg" alt="" /></li>
+                <li data-src="images/b5.jpg"><img src="images/s5.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div> 
+    <script>
+        let lis = document.querySelectorAll('ul>li');
+        let big = document.querySelector('#big')
+        lis.forEach(function(li,i){
+            li.onclick=function(){
+                //第一种方法：dataset
+            // big.src = li.dataset.src;
+            
+            //第二种方法,setAttribute
+            li.setAttribute('index',i)
+            big.setAttribute('src',`images/b${i+1}.jpg`)
+            }
+        })
+    </script>  
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 需求：定义一个函数，实现冒泡排序，可以选择升序也可以降序，由调用者决定
+        let arr = [2,34,6,4];
+        function bubbletSort(arr,asc=true){
+            // asc=  true(正序) false(倒序)
+            //true
+            for(let i =0;i<arr.length;i++)
+            for(let j =0;j<arr.length-i;j++){
+                if(asc?arr[j]>arr[j+1]:arr[j]<arr[j+1]){
+                    let item = arr[j+1];
+                    arr[j+1]=arr[j];
+                    arr[j]=item;
+                }
+            }
+        return arr;
+        }
+        let a= new bubbletSort(arr);
+        console.log(a);
+    </script>
+</body>
+</html>

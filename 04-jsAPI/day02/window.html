@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="open" id="open">   
+<input type="button" value="close" id="close">   
+<script>
+ let open = document.querySelector('#open');
+  let close = document.querySelector('#close');
+  let res = window.open('http://www.itcast.cn','_blank');
+      open.onclick=function(){
+        res.open();
+        // window.open('http://www.itcast.cn','_self');
+   
+      }
+        close.onclick=function(){
+        window.close();
+      }
+
+</script>  
+</body>
+</html>

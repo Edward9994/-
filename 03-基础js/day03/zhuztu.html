@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        #content {
+            width: 1200px;
+            height: 300px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-end
+        }
+    </style>
+</head>
+<body>
+    <script>
+         window.addEventListener('load',function(){
+
+            let body = document.querySelector('body');
+            //创建div 赋id
+            let content = document.createElement('div');  
+            content.id ='content'      
+            //body插入div
+            body.appendChild(content);
+            let items = +prompt();
+            //for循环创建li，并插入li
+          
+            for(let i=0;i<items;i++) {
+                let li = document.createElement('li');
+                content.appendChild(li);
+                 //设置盒子宽度
+                 li.style.width = 1200/(2*items+1)+'px';
+                 li.style.height = Math.ceil(Math.random()*300)+'px';
+                 let ca = Math.round(Math.random()*255);
+                let cb = Math.round(Math.random()*255);
+                let cc = Math.round(Math.random()*255);
+                console.log(ca,cb,cc);
+                 li.style.backgroundColor = `rgb(${ca},${cb},${cc})`;
+               
+            }
+
+        })
+    </script>
+</body>
+</html>

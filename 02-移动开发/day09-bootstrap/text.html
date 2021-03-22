@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #152830;
+        }
+        .box {
+            width: 120px;
+            height: 70px;
+            background-color:  #152830;
+            margin: 50px;
+            position: relative;
+        }
+        .text {
+            position: absolute;
+            bottom: 0;
+            color: #f9cb64;
+
+        }
+        .icon {
+            width: 60px;
+            height: 50px;
+            /* background-color: black; */
+            position: absolute;
+            top: 3px;
+            right: 0;
+        }
+        .a,.b,.c {
+            width: 10px;
+            height: 50px;
+            margin-right: 10px;
+            background-color: pink;
+            float: left;
+        }
+        .a {
+            animation: long 1s linear infinite alternate;
+        }
+        .b {
+            transform: scaleY(0.4);
+            animation: long 1s 0.5s linear infinite alternate;
+        }
+        .c {
+            transform: scaleY(0.8);
+            animation: long 1s 1s linear infinite alternate;
+        }
+        @keyframes long {
+            from{
+                transform: scaleY(0.4);
+            }
+            to{
+                transform: scaleY(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="text">Loading</div>
+        <div class="icon">
+            <div class="a"></div>
+            <div class="b"></div>
+            <div class="c"></div>
+        </div>
+    </div>
+</body>
+</html>

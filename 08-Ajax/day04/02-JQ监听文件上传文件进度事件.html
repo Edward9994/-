@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file">
+    <button>上传</button>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        document.querySelector('button').onclick = function () {
+            const file = document.querySelector('[type="file"]').files[0];
+            const fd = new FormData();
+            fd.append('file_data', file);
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:3001/uploadFile',
+                data: fd,
+                contentType: false,
+                processData: false,
+                // 通过xhr属性可以重写JQ内部的XHR对象
+                xhr: () => {
+                    // 1.自己创建个XHR对象
+                    const XHR = new XMLHttpRequest();
+                    // 2.给XHR对象表单上传进度监听事件
+                    XHR.upload.onprogress = function (e) {
+                        console.log(111, e);
+                    }
+                    return XHR;
+                },
+                success: (res) => {
+                    console.log(res);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+
+        span {
+            display: inline-block;
+            width: 30px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body><div class="box">
+        <span id="spanHour">11</span>
+        <span>:</span>
+        <span id="spanMin">06</span>
+        <span>:</span>
+        <span id="spanSec">15</span>
+    </div>
+    <!-- // 秒杀分为两种形式
+        // 1. 定时秒杀（整点秒杀）：有一个明显的提示当前时间的变换
+        //      * 利用Date对象，获取当前的时间，利用定时器把时间显示出来即可
+        // 2. 倒计时秒杀：有一个明显的提示，当前还有多久能够到达时间的清零
+        //      * 需要自己计算时间
+        // 需求：倒计时秒杀，到了时间清零：结束（秒杀业务）
+            思路分析
+            1. 获取元素：#spanHour #spanMin  #spanSec
+            2. 定时器（要记录定时器编号）：停的时候要结束
+            2.1 获取每个元素对应的数据：innerText / innerHTML
+            2.2 方便处理：方便运算，变成数字：parseInt()
+            2.3 事件逻辑运算
+            * 先变化秒数：秒数--
+            * 时间规则：0-59，秒数不能小于0：重置为59，分钟要减少1
+            * 分判定：小于0：重置为59，小时减少1
+            2.4 将数据重写到页面中：让用户看到
+            * 不管是日期还是时间：一般都是两位数
+            2.5 判定：判定时分秒是否都为0：代表结束，清除定时器 -->
+
+    <script>
+        let h =document.getElementById('spanHour');
+        let m =document.getElementById('spanMin');
+        let s =document.getElementById('spanSec');
+        let htext=parseInt(h.innerText);
+        let mtext=parseInt(m.innerText);
+        let stext=parseInt(s.innerText);
+    let timer = setInterval(() => {
+        //秒
+        s.innerText=stext;
+        if(stext==0){
+            stext =60;
+              mtext--;
+        }
+        stext--;
+        //分
+        m.innerText=mtext;
+            if(mtext==0){
+            mtext =60;
+             htext--;
+        }
+ 
+   h.innerText=htext;
+       
+
+
+
+    }, 5);
+        
+    </script>
+</body>
+</html>

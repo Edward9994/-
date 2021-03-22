@@ -1,0 +1,252 @@
+
+@ratio:10rem/750;
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?z5fko7');
+    src:  url('../fonts/icomoon.eot?z5fko7#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?z5fko7') format('truetype'),
+      url('../fonts/icomoon.woff?z5fko7') format('woff'),
+      url('../fonts/icomoon.svg?z5fko7#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    // speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-cheveron-right:before {
+    content: "\e900";
+  }
+  .icon-heart:before {
+    content: "\e901";
+  }
+  .icon-information-solid:before {
+    content: "\e902";
+  }
+  .icon-search:before {
+    content: "\e903";
+  }
+  
+  body {
+      background-color: #ffffff;
+  }
+  .fr {
+      float: right;
+  }
+  .fl {
+      float: left;
+  }
+  header {
+      display: flex;
+      height: 76*@ratio;
+      .logo {
+          width: 158*@ratio;
+          height: 76*@ratio;
+        //   background-color: pink;
+          display: flex;
+          a {
+              width: 123*@ratio;
+              height: 40*@ratio;
+              display: block;
+              margin: 13*@ratio auto;
+              img {
+                width: 100%;
+            }
+          }
+         
+      }
+      .search {
+          flex: 1;
+          position: relative;
+          &::before {
+              content: '';
+              font-family: 'icomoon';
+              position: absolute;
+              top: 15*@ratio;
+              left: 10*@ratio;
+              font-size: 28*@ratio;
+              font-weight: normal!important;
+          }
+          input {
+              width: 100%;
+              height: 55*@ratio;
+              background-color: #f0f0f0;
+              border-radius: 30*@ratio;
+              margin-top: 8*@ratio;
+              font-size: 25*@ratio;
+              color: #a18995;
+              text-indent: 50*@ratio;
+          }
+      
+      }
+      .user {
+          width: 83*@ratio;
+          height: 76*@ratio;
+          a {
+            width: 53*@ratio;
+            height: 53*@ratio;
+            display: block;
+            margin: 8*@ratio auto;
+            img {
+              width: 100%;
+          }
+        }
+      }
+  }
+  .banner a {
+      width: 750*@ratio;
+      height: 400*@ratio;
+      display: block;
+      img {
+          width: 100%;
+          height: 100%;
+      }
+  }
+  nav ul{
+      display: flex;
+      flex-wrap: wrap;
+      height:250*@ratio;
+      width: 100%;
+      margin-top: 20*@ratio;
+      li {
+          width: 20%;
+          a{
+            //   display: block;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-around;
+              font-size: 20*@ratio;
+              .icon {
+                  width: 87*@ratio;
+                  height: 87*@ratio;
+                  img {
+                    width: 100%;
+                    height: 100%; 
+                  }
+              }
+          }
+      }
+  }
+
+  footer {
+      margin: 0 30*@ratio;
+      margin-bottom: 20*@ratio;
+     .top {
+         width: 100%;
+         height: 63*@ratio;
+        //  background-color: pink;
+         h2 {
+             float: left;
+             font-size: 40*@ratio;
+             font-weight: 800;
+             line-height: 63*@ratio;
+         }
+         a{
+             float: right;
+             font-size: 27*@ratio;
+             color: white;
+             height: 52*@ratio;
+             width: 240*@ratio;
+             background-color: #02db94;
+             margin-top: 5*@ratio;
+             border-radius: 30*@ratio;
+             line-height: 52*@ratio;
+             text-indent: 30*@ratio;
+             position: relative;
+             &::before {
+                content: '';
+                position: absolute;
+                font-family: 'icomoon';
+                left: -28px;
+                top: 0;
+             }  
+             &::after {
+                content: '';
+                position: absolute;
+                font-family: 'icomoon';
+                right: 0;
+                top: 0;
+             }  
+         }
+     }
+     nav ul{
+         width: 100%;
+         display: flex;
+         flex-wrap: wrap;
+         &>li{
+             width: 48%;
+             height: 430*@ratio;
+             display: flex;
+             flex-direction: column;
+             margin-bottom: 20*@ratio;
+             &:nth-child(odd) {
+                margin-right: 20*@ratio;
+             }
+            .icon {
+                width:100%;
+                height: 330*@ratio;
+                display: block;
+                border-radius: 10*@ratio;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .title {
+                font-weight: 700;
+                color: #060003;
+                word-break: break-all;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .like {
+                display: flex;
+                position: relative; 
+                &::after {
+                    content: '';
+                    position: absolute;
+                    font-family: 'icomoon';
+                    right: 50*@ratio;
+                    top: 0;
+                    font-size: 20*@ratio;
+                 } 
+                h4 {
+                    flex: 1;
+                    color: #d4d1d5;
+                }
+                a{
+                    flex: 1;
+                    color: #000000;
+                    text-align: right; 
+                    display: block; 
+                   
+                   
+                           
+                }
+              
+            }
+                
+           
+         }
+     }
+  }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <button>获取LOL英雄数据</button>
+  <script src="./libs/jquery.min.js"></script>
+  <script>
+    /* 
+      英雄联盟英雄列表：
+        网址：https://lol.qq.com/data/info-heros.shtml
+      CORS
+        英雄联盟的服务器做了 CORS 跨源资源共享，浏览器能正确获取到数据
+    */
+    $('button').click(() => {
+      $.ajax({
+        type: 'GET',
+        url: 'https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js',
+        // 后端返回的 Content-Type 没有指定 JSON，可通过 dataType:'json' 手动转换
+        dataType: 'json',
+        data: {},
+        success: (res) => {
+          console.log(res)
+        },
+      })
+    })
+  </script>
+</body>
+
+</html>

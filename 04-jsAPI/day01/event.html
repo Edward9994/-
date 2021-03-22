@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- // 需求：点击按钮，实现li隔行变色，奇数行变红色，偶数行变黄色 -->
+    <ul>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+        <li>阿里巴巴</li>
+    </ul>
+    <button>变色</button>
+<script>
+    let lis = document.querySelectorAll('li');
+    let btn = document.querySelector('button');
+    btn.addEventListener('click',function(){
+        lis.forEach(function(item,index){
+            if(index%2==0){
+            item.style.backgroundColor = 'red';}else{
+             item.style.backgroundColor = 'yellow';}
+        });
+        // for (let i = 0; i<lis.length;i++){
+        //     if(i%2==0){
+        //          lis[i].style.backgroundColor = 'red';
+        //     }else {
+        //           lis[i].style.backgroundColor = 'yellow';
+        //     }
+        // }
+       
+    })
+</script>
+
+
+
+    <!-- <div class="big">我在这
+        <div class="small" style="display: none;">
+            <img src="./images/b1.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        let big = document.querySelector('.big');
+        let small = document.querySelector('.small')
+        big.addEventListener('mouseover',function(){
+                small.style.display='block';
+        })
+         big.addEventListener('mouseleave',function(){
+                small.style.display='none';
+        })
+    </script> -->
+
+
+
+    <!-- //disabled -->
+    <!-- 用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    性别：男<input type="radio" name="gender"> 女<input type="radio" name="gender"><br>
+    爱好：篮球<input type="checkbox" name="hobby"> 足球<input type="checkbox" name="hobby">
+    <hr>
+    <button id="reboot">启用</button>
+    <button id="stop">禁用</button>
+    <script>
+        let inputs = document.querySelectorAll('input');
+        let reboot = document.querySelector('#reboot');
+        let stop = document.querySelector('#stop');
+         reboot.addEventListener('click',function(){
+             inputs.forEach(function(item){
+            item.disabled =false;
+        })
+         }
+        );
+        stop.addEventListener('click',function(){
+            inputs.forEach(function(item){
+            item.disabled =true;
+        
+        })
+        }
+        );
+    </script> -->
+
+
+
+<!-- click -->
+   <!-- <button>变色</button>
+    <script>
+        let btn = document.querySelector('button');
+        let body = document.querySelector('body');
+        let color1 = ['red','black','pink'] 
+        let i =0;
+        btn.addEventListener('click',function(){
+            if(i>2){
+                i=0
+            }
+                body.style.backgroundColor = color1[i];
+                i++;
+        }) 
+    </script> -->
+
+
+<!-- mouseover  mouseleave mouseenter -->
+    <!-- <div class="box">asdfsdf</div>
+    <script>
+        let box = document.querySelector('.box');
+        box.addEventListener('mouseenter',function(){
+            box.style.width = '100px'
+             box.style.height ='100px';
+              box.style.backgroundColor = 'red';
+        });
+          box.addEventListener('mouseleave',function(){
+            console.log(1)
+            box.style.width = '';
+             box.style.height ='';
+              box.style.backgroundColor = '';
+        });
+    </script> -->
+</body>
+</html>

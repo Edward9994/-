@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<table>
+        <tr>
+            <th>
+                <input type="checkbox" id="checkAll" />全选/全不选
+            </th>
+            <th>菜名</th>
+            <th>商家</th>
+            <th>价格</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" class="check" />
+            </td>
+            <td>红烧肉</td>
+            <td>隆江猪脚饭</td>
+            <td>￥200</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" class="check" />
+            </td>
+            <td>香酥排骨</td>
+            <td>隆江猪脚饭</td>
+            <td>￥998</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" class="check" />
+            </td>
+            <td>北京烤鸭</td>
+            <td>隆江猪脚饭</td>
+            <td>￥88</td>
+        </tr>
+    </table>
+    <script>
+        //确定事件源：checkbox checkAll
+        //事件类型：click
+        //事件处理：让checkbox.check与checkbox#checkAll 的 checked的状态一致
+        let checks= document.querySelectorAll('.check')
+        let checkAll = document.querySelector('#checkAll')
+        checkAll.onclick = function(){
+            checks.forEach(function(item){
+            item.checked = checkAll.checked;
+        })
+        }
+        //第二板块
+          checks.forEach(function(check){
+            //每点击一下就判断一下
+          check.onclick =function(){
+            
+            // checks.forEach(function(check){
+            //     //开关
+            //     let flag = true;
+            //     //如果当前为false，checkAll.checked也为false，跳出执行
+            //     if(!check.checked){
+            //         checkAll.checked=check.checked;
+            //         return;
+            //     }else{
+            //     //
+            //     checks.forEach(function(check){
+            //         if(check.checked==false){
+            //             flag = false
+            //         }
+            //     })
+            //     checkAll.checked = flag;
+            // }
+            // })
+
+
+            
+            //   let flag = true;
+            //   //如果当前的false,则All为false
+            //      if(!check.checked){
+            //         checkAll.checked=check.checked;
+            //         return;
+            //     }
+            //     checks.forEach(function(check){
+            //         if(!check.checked){
+            //             flag = false
+            //         }
+            //     })
+
+            //    checkAll.checked = flag;
+
+
+            //  let flag = true;
+            //   //如果当前的false,则All为false
+            //     checks.forEach(function(check){
+            //         if(!check.checked){
+            //             flag = false
+            //         }
+            //     })
+
+            //    checkAll.checked = flag;
+
+
+          }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+//         
+
+
+
+
+// * 2.使用函数实现将数组中指定的元素去掉（★）
+//   * function arrTrip(数组,要去除的变量)
+//   * 例如:[0,10,20,30,0,40,0] 变成[10,20,30,40]：arrTrip([0,10,20,30,0,40,0] ,0)
+
+function arrTrip(arr,x){
+    let arr_new=[];     //空数组
+    let k=0;
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]!=x){      //符合条件，插入新数组中
+            arr_new[k]=arr[i];
+            k++;
+        }
+    }return arr_new;
+}
+console.log(arrTrip([0,10,20,30,0,40,0] ,0));
+
+
+
+
+// * 3.使用函数求出数组中是否所有的数字都是正数，打印结果（★★）
+//   * 例如：[10,20,30,40,50],打印：`true`
+//   * 例如：[-10,20,30,40,50],打印：`false`
+function  iszhengshu(arr) {
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]<=0){      //负数就返回false
+            return false;
+        }
+    }return true;
+}
+console.log(iszhengshu([10,20,30,40,-1]));
+
+
+
+
+// * 4.使用函数求出任意指定数组中的最小值（★）
+function minNum(arr) {
+    let min = arr[0];       //设置数组第一个元素为擂主
+    for(let i=1;i<arr.length;i++) {
+        if (arr[i]<min) {       //小于擂主，挑战成功
+            min = arr[i];
+        }
+    }return min;
+}console.log(minNum([10,20,30,-10,-1]))
+
+
+
+
+        // 5.大马驮2石粮食，中马驮1石粮食，两头小马驮一石粮食，要用100匹马，驮100石粮食，该如何调配？（★★★）
+
+        // 马驮粮食：      100石粮食，需要的马数：
+        //     大：2                   x
+        //     中：1                   y
+        //     小：0.5                 z
+
+        100=2x+y+0.5z;
+        100=x+y+z;
+
+        for(let i=0;i<=50;i++){  
+            for(let j=0;j<=100;j++){
+                for(let k=0;k<=100;k++){
+                    if((i+j+k==100)&&(2*i+j+0.5*k==100)){
+                       document.write(i+'\t'+j+'\t'+k+'\t','</br>')
+                    }
+                }
+
+
+
+
+
+        // 6.小明单位发了100元的购物卡，小明到超市买三类洗化用品，洗发水（15元），香皂（2元），牙刷（5元）。要把100元整好花掉，可如有哪些购买结合？（★★★★）
+        //   100=15x+2y+5z;
+        // 100=x+y+z;
+        // for(let i=0;i<=6;i++){
+        //     for(let j=0;j<=50;j++){
+        //         for(let k=0;k<=20;k++){
+        //             if(15*i+2*j+5*k==100){
+        //                document.write(i+'\t'+j+'\t'+k+'\t','</br>')
+        //             }
+        //         }
+        //     }}
+//两个循环代替三个循环
+            for(let i=0;i<=6;i++){
+            for(let j=0;j<=(100-15*i)/2;j++){
+                let k=(100-15*i-2*j)/5;
+                    if(15*i+2*j+5*k==100&& k%1==0&&k>=0){
+                        
+                       document.write(i+'\t'+j+'\t'+k+'\t','</br>')
+                }
+            }}
+
+
+
+
+//  **农场第一年有两头牛，每两头牛每一年可以生一头小牛，小牛只需要吃草一年即可生牛，请问该农场需要多少年可以有一千头牛**
+// let da =2;
+// let xiao=0;
+// let years=0
+// for(;da<=1000;years++){
+//     xiao = Math.floor(da/2);
+//     da+=xiao;
+// } console.log(years);
+
+// let da =2;
+// let years=0;
+// let xiao=0;
+// while(da<=1000){
+// years++;
+// xiao = Math.floor(da/2);
+// da+=xiao;
+// }
+// console.log(years);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./template-web.js"></script>
+    <script type="text/html" id="t1">
+     <!-- {{each list item index}} -->
+    <!-- 循环嵌套需要改名，value、index单词忘记了也可以改 -->
+    {{each list}}
+    <ul>
+        <li>
+            <p>索引值：{{$index}}</p>
+            <p>名字：{{$value.name}}</p>
+            <p>id：{{$value.id}}</p>
+        </li>
+    </ul>
+    {{/each}}
+    </script>
+    <script>
+        const htmlStr = template('t1', { list: [{ name: '小刘', id: 1 }, { name: '小关', id: 2 }, { name: ' 小飞', id: 3 }] })
+        console.log(htmlStr);
+    </script>
+
+
+
+    <!-- <script src="./template-web.js"></script>
+    <script id="t1" type="text/html">
+{{each list}}
+<p>{{$value.name}}</p>
+{{/each}}
+</script>
+    <script>
+        const htmlStr = template('t1', { list: [{ name: '贝贝' }, { name: '关关' }, { name: '飞飞' }] })
+        console.log(htmlStr);
+    </script> -->
+
+
+
+
+</body>
+
+</html>

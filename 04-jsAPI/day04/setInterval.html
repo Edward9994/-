@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <button id="start">开启</button>
+    <button id="stop">暂停</button>
+    <span id="span">0</span>
+    <script>
+        let timer;
+        let flag=true;
+    
+            document.getElementById('start').onclick = function(){
+                // clearInterval(timer);
+              if(flag){
+                timer=setInterval(() => {
+                span.innerText++;
+            }, 1000)
+              }
+              flag = false;
+
+        }
+     
+          document.getElementById('stop').onclick = function(){
+            clearInterval(timer);
+            flag= true;
+        }
+    </script>
+</body>
+</html>

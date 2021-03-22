@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     table{
+       border-collapse: collapse;
+     }
+     th,td{
+         border: 1px solid #000;
+     }
+    </style>
+</head>
+<body>
+<table>
+<thead>
+    <tr>
+     <th>名称</th>
+     <th>官网</th>
+     <th>操作</th>
+    </tr>
+</thead>
+ <tbody>
+ </tbody>
+</table>
+<div class="search">
+    名称：<input type="text" id="name">
+    官网: <input type="text" id="page" >
+    <button id="submit">增加</button>
+</div>
+<script>
+
+//增加列表
+let submit = document.querySelector('#submit');
+let tbody = document.querySelector('tbody');
+submit.onclick=function(){
+    let addname = document.querySelector('#name');
+    let addpage = document.querySelector('#page');  
+    // 获取表单值
+    console.log(addname.value,addpage.value)
+    let tr =document.createElement('tr');
+    tr.innerHTML  =`<td>${addname.value}</td><td>${addpage.value}</td><td>
+          <button class="delete">删除</button><button   class="movedown">下移</button><button class="moveup">上移</button>
+        </td>`;
+    console.log(tr)
+    tbody.appendChild(tr);
+     //删除事件
+    let trs = document.querySelectorAll('tr');
+    let dels = document.querySelectorAll('.delete');
+    // let tbody = document.querySelector('tbody');
+    let tbodys = document.querySelectorAll('tbody>tr');
+    dels.forEach(function(del){
+       del.onclick=function(){
+          this.parentNode.parentNode.remove();
+       }
+    })
+    //下移事件
+    let mds = document.querySelectorAll('.movedown');
+   mds.forEach(function(md){
+      md.onclick=function(){
+            if(this.parentNode.parentNode.nextElementSibling){
+             tbody.insertBefore( this.parentNode.parentNode.nextElementSibling, this.parentNode.parentNode)
+            }
+            
+       }
+    })
+    let mps= document.querySelectorAll('.moveup');
+     mps.forEach(function(mp){
+      mp.onclick=function(){
+            if(this.parentNode.parentNode.previousElementSibling){
+                 tbody.insertBefore(this.parentNode.parentNode,this.parentNode.parentNode.previousElementSibling)
+            }
+          
+       }
+    })
+}
+    // 事件源：delete、delete.father
+    // 事件类型：onclick
+    // 事件处理：delete
+
+   
+</script>
+</body>
+</html>

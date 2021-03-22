@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+
+        .top {
+            height: 168px;
+        }
+
+
+        img {
+            vertical-align: top;
+        }
+
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+        }
+
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="top" id="topPart">
+        <img id="pic" src="images/top.png" alt="" />
+    </div>
+
+
+    <div class="nav" id="navBar">
+        <img src="images/nav.png" alt="" />
+    </div>
+
+
+    <div class="main" id="mainPart">
+        <img src="images/main.png" alt="" />
+    </div>
+    <script>
+        // 需求：页面滚动到一定高度，导航栏固定，否则导航栏不固定
+        let topPart = document.getElementById('topPart');
+          let nav = document.getElementById('navBar');
+            let main = document.getElementById('mainPart');
+            let topMargin = parseInt(getComputedStyle(main)['margin-top']);
+          
+        window.onscroll= ()=>{
+            topWidth = topPart.offsetHeight;
+            if(pageYOffset>topWidth){
+                  nav.classList.add('fixed');
+                main.style.marginTop= topMargin+nav.offsetHeight +'px';
+            }else {
+                nav.classList.remove('fixed');
+                 main.style.marginTop= topMargin +'px';
+            }
+        }
+    </script>
+</body>
+</html>

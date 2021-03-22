@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 1200px;
+            height: 100%;
+            border: 1px solid #000;
+        }
+
+        .tab {
+            width: 500px;
+            height: 30px;
+        }
+
+        .tab li {
+            float: left;
+            margin-right: 20px;
+        }
+
+        .tab .ico {
+            width: 10px;
+            height: 10px;
+            float: left;
+            margin-top: 6px;
+            border-radius: 50%;
+            border: 1px solid #000;
+        }
+
+        .active {
+            background-color: skyblue;
+        }
+
+        .list li {
+            float: left;
+        }
+
+        .clearfix:after {
+            /*伪元素是行内元素 正常浏览器清除浮动方法*/
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+            /*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box clearfix">
+        <ul class="tab">
+            <li><span class="ico active"></span> 所有英雄</li>
+            <li data-title="fighter"><span class="ico"></span>战士</li>
+            <li data-title="mage"><span class="ico"></span>法师</li>
+            <li data-title="assassin"><span class="ico"></span>刺客</li>
+            <li data-title="tank"><span class="ico"></span>坦克</li>
+            <li data-title="marksman"><span class="ico"></span>射手</li>
+            <li data-title="support"><span class="ico"></span>辅助</li>
+        </ul>
+        <ul class="list">
+
+        </ul>
+    </div>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script src="../template-web.js"></script>
+    <script type="text/html" id="t1">
+    {{each list item}}
+            <li>
+                <img src="http://game.gtimg.cn/images/lol/act/img/champion/{{item.alias}}.png" alt="">
+                <p>{{item.name}}</p>
+            </li>
+    {{/each}}
+    </script>
+    <script>
+        //所有英雄
+        $.ajax({
+            type: 'get',
+            url: 'https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js',
+            data: {},
+            dataType: 'json',
+            success: (res) => {
+                let htmlStr = template('t1', { list: res.hero });
+                $('.list').append(htmlStr)
+            }
+        })
+        h        //tab栏切换
+        $('.tab').on('click', 'li', function () {
+            $(this).find('span').addClass('active').parent('li').siblings('li').find('span').removeClass('active');
+            let key = $(this).attr('data-title');
+            console.log(key);
+            if (!key) {
+                return $.ajax({
+                    type: 'get',
+                    url: 'https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js',
+                    data: {},
+                    dataType: 'json',
+                    success: (res) => {
+                        let htmlStr = template('t1', { list: res.hero });
+                        $('.list').append(htmlStr)
+                    }
+                });
+
+            }
+            $.ajax({
+                type: 'get',
+                url: 'https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js',
+                data: {},
+                dataType: 'json',
+                success: (res) => {
+                    // console.log(res.hero);
+                    let list = [];
+                    $(res.hero).each((index, item) => {
+                        if (item.roles.includes(key)) list.push(item);
+                    })
+                    let htmlStr = template('t1', { list: list });
+                    $('.list').html('');
+                    $('.list').append(htmlStr)
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

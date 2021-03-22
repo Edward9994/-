@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" name="" id="">
+    <button>提交</button>
+    <script>
+        const button = document.querySelector('button');
+        button.onclick = function () {
+            const file = document.querySelector('[type="file"]').files[0];
+            // return c            onsole.log(file)
+            // FormData 有自己的content-Type 内容类型，不需要再设置
+            const fd = new FormData();
+            fd.append('file_data', file);
+            const XHR = new XMLHttpRequest();
+            // POST请求上传文件
+            XHR.open('POST', 'http://127.0.0.1:3001/uploadFile');
+            XHR.upload.onprogress = function (e) {
+                console.log(111, e);
+            }
+            // upload.onprogress事件需要写到请求发送send（）前面
+            // 通过Network网络面板把网速改成fast 3g ，更好的查看上传进度
+            XHR.send(fd);
+            XHR.onload = function () {
+                const res = JSON.parse(XHR.responseText);
+                console.log(res);
+            }
+        }
+    </script>
+</body>
+
+</html>

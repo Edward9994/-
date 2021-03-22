@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 250px;
+            width: 430px;
+            border: 1px solid #000;
+            /* background-color: pink; */
+        }
+        .hero{
+            height: 33px;
+            width: 100%;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <div class="hero">
+        英雄名:<input type="text" id="txt"><button>获取英雄皮肤</button>
+    </div>
+    <h3>名称：</h3>
+    <div class="hero_name">
+        
+    </div>
+    <hr>
+    <h3> 皮肤：</h3>
+    <div class="hero_skin">
+       
+    </div>
+    </div>
+   <script src="../jquery-1.11.1.min.js"></script>
+   <script>
+      
+   $('button').click(()=>{
+       const str = $('#txt').val().trim();
+            $.ajax({
+                url:'http:/127.0.0.1:3001/getHeroSkin',
+                type:'get',
+                data:{heroName:str},
+                dataType:'json',
+                success:(res)=>{
+                    const {cname,skin_name}=res.data;
+                    // console.log(cname,skin_name);
+                    $('.hero_name').text(cname);
+                    $('.hero_skin').text(skin_name);
+                }
+            })
+        })
+   </script> 
+</body>
+</html>

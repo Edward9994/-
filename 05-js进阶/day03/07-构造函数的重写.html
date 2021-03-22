@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Father{
+            constructor(name){
+                this.name=name;
+            }
+        }
+        class Son extends Father {
+            constructor(name){
+                // 07-构造函数的重写.html:17 Uncaught ReferenceError:
+                //  Must call super constructor in derived class 
+                //  before accessing 'this' or returning from derived constructor
+                
+                // 凡是父类的东西，子类都可以重写：构造方法也可以重写
+ // 如果子类重写父类的构造方法：那么子类在使用this之前必须先调用父类的构造方法（而且：子类构造方法必须调用父类构造方法）
+        // 构造方法很特殊：所有类都是同名的，因此不需要使用super.constructor()（反倒是错误的）
+        // 正确的用法：super();   括号对应的就是父类的constructor的形参括号
+                super(name);
+            }
+        }
+
+        let s1 = new Son('sdfs');
+        console.log(s1);
+    </script>
+</body>
+</html>

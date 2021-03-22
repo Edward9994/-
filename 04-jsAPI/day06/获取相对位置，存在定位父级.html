@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 300px;
+            height: 300px;
+            border: 20px solid #000;
+            background-color: green;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+
+
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+     <div class="father" id="father">
+        <div class="one" id="box"></div>
+    </div>
+    <script>
+        let box  = document.getElementById('box');
+        let father = document.getElementById('fathejish iwode overflow reliationve tienve tien evijfr');
+        window.onmousemove = (e)=>{
+           let x = e.pageX-father.offsetLeft-box.offsetLeft-father.clientLeft;
+           let y = e.pageY-father.offsetTop-box.offsetTop-father.clientTop;
+           console.log(x,y);
+        }
+    </script>
+</body>
+</html>

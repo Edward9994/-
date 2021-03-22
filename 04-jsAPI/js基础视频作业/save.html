@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            background-color: antiquewhite;
+            text-align: center;
+            line-height: 40px;
+            box-shadow: antiquewhite;
+        }
+
+        .change {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .form {
+            text-align: center;
+            height: 300px;
+            margin: 100px auto;
+        }
+
+        .form input {
+            height: 40px;
+            margin: 0 20px;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            border-color: skyblue;
+        }
+
+        #word {
+            width: 150px;
+        }
+
+        #description {
+            width: 300px;
+        }
+
+        #save {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="change">
+        <a href="#">查询单词</a>
+    </div>
+    <div class="form">
+        单词：<input type="text" name="word" id="word" placeholder="请输入单词">
+        解释：<input type="text" name="description" id="description" placeholder="请输入单词解释">
+        <input type="button" value="保存" id="save">
+    </div>
+
+    <script>
+        (function () {
+            let save = document.querySelector('#save');
+            let word = document.querySelector('#word');
+            let desc = document.querySelector('#description');
+
+            save.addEventListener('click', () => {
+                //去除字符串两端空格
+                words = word.value.trim();
+                descs = desc.value.trim();
+                // 数据不能为空
+                if (words.length == 0) {
+                    alert('单词不能为空');
+                    return false;
+                }
+                // 单词描述也不能为空
+                if (descs.length == 0) {
+                    alert('单词解释不能为空');
+                    return false;
+                }
+                // 从本地存储中取出数据：有就是字符串，没有就是null
+                let storage = localStorage.getItem('words');
+
+                // 如果为空null：说明当前是第一次存储数据
+                if (storage == null) storage = {};  // 空对象
+                else storage = JSON.parse(storage); // 有：将原来的对象取出来
+                /* 如果想要允许单词覆盖：将下面这几行代码注释 */
+                if (storage[words]) {
+                    // 对象中有words对应的属性
+                    alert(words + '已经存在');
+                    return;
+                }
+                // 为每个words单词，赋予属性值（描述）
+                storage[words] = descs;
+                // 更新storage
+                localStorage.setItem('words', JSON.stringify(storage));
+                // 搜索框，变为空
+                word.value = '';
+                desc.value = '';
+            });
+        })();
+    </script>
+</body>
+
+</html>

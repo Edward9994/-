@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         // 类成员只有两个：属性  和   方法
+        /*
+            属性：
+                不需要let，直接名字即可
+                属性的赋值是用 =
+
+
+            方法：
+                只要方法名 + () {}，不需要function关键字
+        */
+
+        class Student{
+            name;
+            age;
+            study(){
+                console.log(`名字：${this.name}年龄：${this.age}`);
+            }
+        }
+        const stu1 = new Student();
+        stu1.name='sdf';
+        stu1.age=18;
+        console.log(stu1.study());
+    </script>
+</body>
+</html>

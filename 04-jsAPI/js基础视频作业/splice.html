@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <script>
+        let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        //splice index(必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。)
+        //howmany(必需。要删除的项目数量。如果设置为 0，则不会删除项目。)
+        //item1, ..., itemX(可选。向数组添加的新项目。)
+        //(4,2)
+        Array.prototype.splice1 = function splice1(index, howmany) {
+            let newarr = [];
+            while (index < 0) {
+                index += this.length;
+            }
+            if (this.length > index && arguments.length <= 2) {
+                for (i = 0; i < this.length; i++) {
+                    if (i < index || i > index + howmany - 1) {
+                        newarr.push(this[i]);
+                    }
+                }
+                this.length -= howmany;
+                for (i = 0; i < newarr.length; i++) {
+                    this[i] = newarr[i];
+                }
+                return this;
+            } else if (this.length > index && arguments.length > 2) {
+                for (i = 0; i < this.length; i++) {
+                    if (i < index || i >= index + howmany - arguments.length + 2) {
+                        newarr.push(this[i]);
+                    }
+                }
+                // if (howmany >= arguments.length - 2) {
+                //     this.length -= (howmany - arguments.length + 2);
+                // } else {
+                //     this.length = this.length;
+                // }
+                let a = 2;//赋值从arguments[2]个开始
+                let b;//遍历次数
+                if (index + howmany > this.length) {
+                    b = this.length;
+                } else {
+                    b = index + howmany;
+                }
+                for (i = index; i < b; i++) {
+                    if (arguments[a]) {
+                        newarr[i] = arguments[a];
+                        a++;
+                    }
+                }
+                for (i = 0; i < newarr.length; i++) {
+                    this[i] = newarr[i];
+                }
+                return this;
+            }
+        }
+        arr1.splice1(0,10);
+        // arr1.splice1(3, 10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+        console.log(arr1);
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,333 @@
+@font-face {
+    /* 
+        1. 注意当前引入字体文件的路径
+        从common.css文件出发 跳出当前目录才能
+        找到fonts文件夹 ../
+        ctrl+D 选中相同的内容
+    */
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?tomleg');
+    src: url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?tomleg') format('truetype'), url('../fonts/icomoon.woff?tomleg') format('woff'), url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* 1. 先写版心 */
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.pyg_color {
+    color: #c81623;
+}
+
+/* 快捷导航模块 */
+
+.shortcut {
+    height: 31px;
+    line-height: 31px;
+    background-color: #f1f1f1;
+}
+
+.shortcut .login {
+    margin: 0 12px;
+}
+
+.shortcut li {
+    float: left;
+}
+
+.shortcut li:nth-child(2n) {
+    width: 0px;
+    height: 12px;
+    margin-top: 9px;
+    /* background-color: #676767; */
+    border-right: 1px solid #676767;
+}
+
+.shortcut li a {
+    padding: 0 15px;
+}
+
+.shortcut .arrow::after {
+    content: "\e91e";
+    font-family: 'icomoon';
+    margin: 0 3px;
+}
+
+/* 快捷导航模块结束 */
+
+.header {
+    height: 105px;
+    /* background-color: #6cf; */
+}
+
+.header .logo {
+    float: left;
+    margin-top: 28px;
+}
+
+.header .logo a {
+    display: block;
+    width: 175px;
+    height: 56px;
+    background: url('../images/logo.png') no-repeat;
+    /* 隐藏文字 */
+    /* text-indent: -2000px;
+    overflow: hidden; */
+    font-size: 0;
+}
+
+.header_center {
+    float: left;
+    width: 538px;
+    height: 70px;
+    margin-left: 172px;
+    margin-top: 25px;
+    /* background-color: #0a0; */
+}
+
+.header_center .search {
+    width: 538px;
+    height: 36px;
+    border: 2px solid #af1918;
+}
+
+.header_center .search input {
+    float: left;
+    width: 454px;
+    height: 32px;
+    padding-left: 10px;
+}
+
+.header_center .search button {
+    float: right;
+    width: 80px;
+    height: 32px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #b2191b;
+}
+
+.header_center nav li {
+    float: left;
+}
+
+.header_center nav li a {
+    padding: 0 13px;
+    line-height: 28px;
+}
+
+.shopcar {
+    position: relative;
+    float: right;
+    width: 140px;
+    height: 36px;
+    margin-top: 25px;
+    margin-right: 64px;
+    line-height: 36px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+    color: #646464;
+}
+
+.shopcar::before {
+    content: "\e93a";
+    font-family: "icomoon";
+    margin-right: 3px;
+}
+
+.shopcar::after {
+    content: "\e920";
+    font-family: "icomoon";
+    font-size: 16px;
+    vertical-align: bottom;
+    margin-left: 3px;
+}
+
+.shopcar .num {
+    position: absolute;
+    /* right: 19px; */
+    left: 105px;
+    top: -8px;
+    height: 14px;
+    padding: 0 4px;
+    line-height: 14px;
+    color: #fff;
+    border-radius: 7px 7px 7px 0;
+    background-color: #e50014;
+}
+
+/* 头部结束 */
+
+/* 主导航部分 */
+
+.main_nav {
+    height: 48px;
+    line-height: 46px;
+    border-bottom: 2px solid #b3181c;
+}
+
+/* 没思考全面 */
+
+.main_nav .all_cate {
+    float: left;
+    width: 209px;
+    height: 48px;
+}
+
+.main_nav .cate_hd {
+    background-color: #b2191b;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.main_nav .cate_bd {
+    /* height: 466px; */
+    margin-top: 2px;
+    background-color: #c81622;
+}
+
+.main_nav .cate_bd li {
+    line-height: 31px;
+    height: 31px;
+    margin-left: 2px;
+}
+
+.main_nav .cate_bd li a {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 11px;
+}
+
+.main_nav .cate_bd li a::after {
+    float: right;
+    content: "\e920";
+    /* height: 31px; */
+    font-family: "icomoon";
+}
+
+.main_nav .cate_bd li a:hover {
+    background-color: #fff;
+    color: #c81622;
+}
+
+.main_nav .subnav {
+    float: left;
+    margin-left: 16px;
+}
+
+.main_nav .subnav li {
+    float: left;
+}
+
+.main_nav .subnav li a {
+    display: block;
+    padding: 0 24px;
+    font-size: 16px;
+    color: #313131;
+}
+
+.main_nav .subnav li a:hover {
+    color: #c81623;
+}
+
+/* 尾部开始 */
+
+footer {
+    height: 417px;
+    background-color: #f5f5f5;
+}
+
+footer .slogan {
+    height: 110px;
+    /* background-color: #6cf; */
+    border-bottom: 1px solid #ccc;
+}
+
+footer .slogan li {
+    float: left;
+    width: 20%;
+    padding-top: 30px;
+    padding-left: 33px;
+}
+
+footer .slogan li .icon {
+    float: left;
+    width: 51px;
+    height: 51px;
+    margin-right: 5px;
+    background: url('../images/icons.png') -252px -2px no-repeat;
+}
+
+footer .slogan li:nth-child(2) .icon {
+    background-position: -255px -53px;
+}
+
+footer .slogan li:nth-child(3) .icon {
+    background-position: -255px -106px;
+}
+
+footer .slogan li:nth-child(4) .icon {
+    background-position: -255px -156px;
+}
+
+footer .slogan li:nth-child(5) .icon {
+    background-position: -255px -209px;
+}
+
+footer .slogan h3 {
+    color: #323232;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+footer .slogan h4 {
+    color: #676767;
+    font-weight: 400;
+}
+
+footer .mod_help {
+    height: 188px;
+    padding-left: 52px;
+    padding-top: 17px;
+    border-bottom: 1px solid #ccc;
+}
+
+footer .mod_help dl {
+    float: left;
+    width: 200px;
+}
+
+footer .mod_help dl dt {
+    font-size: 16px;
+    color: #313131;
+    margin-bottom: 7px;
+}
+
+footer .mod_help dl dd {
+    color: #666;
+    line-height: 22px;
+}
+
+footer .mod_help dl:last-child {
+    width: 90px;
+    text-align: center;
+}
+
+footer .links {
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 14px;
+}
+
+footer .address {
+    text-align: center;
+}

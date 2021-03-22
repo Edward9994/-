@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      .list {
+        width: 1238px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid #ddd;
+        padding: 30px;
+      }
+      .list a {
+        width: 90px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: 0.4s;
+      }
+      .list a:hover {
+        transform: scale(1.1);
+      }
+      .list a img {
+        width: 65px;
+        height: 65px;
+      }
+      .list a p {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>获取LOL英雄数据</button>
+    <div class="list"></div>
+    <script src="./libs/jquery.js"></script>
+    <script src="./libs/template-web.js"></script>
+    <script type="text/html" id="t1">
+      {{ each list item}}
+      <a class="hero_item" href="https://lol.qq.com/data/info-defail.shtml?id={{item.heroId}}">
+        <img src="http://game.gtimg.cn/images/lol/act/img/champion/{{item.alias}}.png" />
+        <p>{{ item.name }}</p>
+      </a>
+      {{ /each }}
+    </script>
+    <script>
+      /* 
+        英雄联盟英雄列表：
+          网址：https://lol.qq.com/data/info-heros.shtml
+        CORS
+          英雄联盟的服务器做了 CORS 跨源资源共享
+      */
+      $('button').click(() => {
+        $.ajax({
+          type: 'GET',
+          url: 'https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js',
+          // 后端返回的 Content-Type 没有指定
+          dataType: 'json',
+          data: {},
+          success: (res) => {
+            console.log(res)
+            const htmlStr = template('t1', { list: res.hero })
+            console.log(htmlStr)
+            $('.list').html(htmlStr)
+          },
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-size: 20px;
+        }
+
+
+        .box {
+            width: 600px;
+            height: 40px;
+            margin: 200px auto;
+            position: relative;
+        }
+
+
+        #txt {
+            width: 498px;
+            height: 38px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+        }
+
+
+        #search {
+            width: 100px;
+            height: 40px;
+        }
+
+
+        #keywords {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: rgb(12, 255, 24);
+            list-style: none;
+            width: 500px;
+            ;
+        }
+
+
+        li {
+            line-height: 24px;
+        }
+    </style>
+</head>
+<body>
+       <div class="box">
+        <div class="top">
+            <input type="text" id="txt" /><input type="button" value="search" id="search" />
+        </div>
+        <ul id="keywords">
+
+
+        </ul>
+    </div>
+    <script>
+        let keywords = ["小马哥", "小马哥为什么喜欢挖坑", "小马哥有老婆吗", "小马哥是谁", "广东人", "广东人爱吃", "广东人爱吃什么", "广东人什么都吃", "华为", "华为任正非", "华为余大嘴", "华为被美国封杀", "新八国联军封杀中国华为", "中国抗议胜利", "全世界都在看中国", "中国出手了", "黑马.中国", "Java", "王思聪", "王健林", "社会王", "隔壁老王"];
+         // 需求1：用户在输入框中输入关键字，需要去“服务器”匹配内容，在列表中显示给用户
+    /*
+        思路分析
+        1. 获取相关元素：用户输入框、ul
+        2. 事件：用户输入的事件：oninput（针对表单输入事件），onkeyup/onkeydown，键盘弹起和按下事件： 建议使用oninput
+        3. 事件处理：获取用户输入的内容，去“服务器”匹配
+        3.1 获取用户输入的数据：输入框.value
+        3.2 清空原有的匹配数据：ul.innerHTML = ''
+        3.3 安全处理：左右两边无效的空格去掉：用户输入的数据.trim()
+        3.4 安全处理：判定用户是内容是否为空：字符串 === '' || 字符串.length === 0，结束：return
+        3.5 去服务器匹配数据：服务器是一个数组keywords，去词条（每个元素）匹配是否包含关键字
+        3.5.1 遍历取出数组的每个元素：forEach()
+        3.5.2 将每个元素去匹配用户输入的关键字：indexOf() !== -1 就有
+        3.5.3 匹配成功后：创建li，将内容放到li中，将li放到ul上
+    */
+ let ul =document.querySelector('ul');
+ let input = document.querySelector('#txt');
+  let arr=[];
+ input.oninput =function(){
+         ul.innerHTML = '';
+        let value = input.value.trim();
+    //   console.log(value.length)
+    if(value!=0){
+          keywords.forEach(function(item){
+        // console.log(item.indexOf(input.value))
+        console.log(item)
+        if(item.indexOf(value)==0){
+            // console.log(item)
+            let li =document.createElement('li');
+            li.innerHTML = item;
+            ul.appendChild(li);
+            li.onmouseover = function(){
+                this.style.backgroundColor = 'red';
+            }
+             li.onmouseleave = function(){
+                this.style.backgroundColor = '';
+            }
+            li.onclick = function(){
+                input.value = item;
+                ul.innerHTML = '';
+                arr.push(item); 
+            }
+        }
+      }
+          )}else{
+              for(let i in arr){
+                    let li =document.createElement('li');
+                    li.innerHTML = arr[i];
+                    ul.insertBefore(li,ul.childNodes[0]);
+                    console.log(ul[0])
+                      li.onmouseover = function(){
+                this.style.backgroundColor = 'red';
+            }
+             li.onmouseleave = function(){
+                this.style.backgroundColor = '';
+            }
+            li.onclick = function(){
+                input.value = arr[i];
+                ul.innerHTML = '';
+                arr.push(arr[i]); 
+            }
+
+
+              }
+              
+          }
+      }
+
+
+    </script>
+</body>
+</html>

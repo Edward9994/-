@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 函数原型：是个函数就有原型（prototype：原型对象）：是系统产生的，平常也用不到
+// 函数只要定义好，系统就一定会产生一个原型对象：函数名.prototype
+// 原型对象中：有一个默认属性，constructor（构造器）：指向构造函数自己
+
+
+        function Teacher(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        // 创建构造函数就会自动生成原型
+        // console.log(Teacher.prototype);
+        // 创建对象
+    let stu1 = new Teacher();
+    console.log(stu1);
+    // 对象里的原型与构造里的原型一样
+    console.log(stu1._proto_==Teacher._proto_);
+//对象要访问构造函数要通过原型，_proto_可以省略，因为_proro_也在对象里面
+       console.log(stu1.constrator==Teacher());
+    </script>
+</body>
+</html>

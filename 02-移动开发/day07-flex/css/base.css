@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 限定最大宽度 */
+    /* max-width: 540px; */
+    /* 最小宽度 */
+    /* min-width: 320px; */
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei;
+    color: #000;
+    background: #f2f2f2;
+    /* 禁止出现水平滚动条 */
+    overflow-x: hidden;
+}
+
+/*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+
+input, button {
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+}
+
+/*禁用长按页面时的弹出菜单*/
+
+img, a {
+    -webkit-touch-callout: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}

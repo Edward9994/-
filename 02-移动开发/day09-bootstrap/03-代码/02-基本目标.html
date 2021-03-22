@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <!-- 当ie类的浏览器 看到这个代码的时候 自动切换成最高版本的内核  -->
+  <!-- 
+    ie11
+      内核  ie10
+      内核  ie9
+   -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 理想视口的代码 做移动端必备!!  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <title>Bootstrap 101 Template</title>
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.css">
+
+
+   <!-- 
+     条件注释
+     1 浏览器满足 一定的条件的时候   注释里面的代码 就会执行!!! 
+        less than  少于 ie 9 以下  代码就会被执行 
+
+     2 html5shiv.js
+        1 html5 的语义化标签 兼容性的   header
+     
+     3 respond.js
+        1 让低版本的ie浏览器 识别 媒体查询的代码  
+
+     
+    -->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <h1>你好，世界！</h1>
+
+
+  <!-- 引入 jquery.js 文件 -->
+  <script src="./assets/jquery/jquery.js"></script>  
+  <!-- 引入 bootstrap.js 文件 -->
+  <script src="./assets/bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

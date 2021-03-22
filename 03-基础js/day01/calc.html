@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>14th_test</title>
+<meta charset="UTF-8">
+</head>
+ 
+<body>
+<h1>这是一个标题</h1>
+<p>以下是一个简易计算器</p>
+ 
+<table border="1" style="position:center;">
+<tr>
+<th>第一个数</th>
+<td><input id="fir" type="text" /></td>
+</tr>
+ 
+<tr>
+<th>第二个数</th>
+<td><input id="sec" type="text" /></td>
+</tr>
+ 
+<tr>
+<td colspan="2">
+<button type="button"  class="add">+</button>
+<button type="button" οnclick="substract">-</button>
+<button type="button" οnclick="multiply">*</button>
+<button type="button" οnclick="divide">/</button>
+</td>
+</tr>
+ 
+<tr>
+<td colspan="2"><p id="result"></p></td>
+</tr>
+</table>
+ 
+<script>
+window.addEventListener('load',function() {
+let add = document.querySelector('.add');
+let substract = document.querySelector('.substract');
+let multiply = document.querySelector('.multiply');
+let divide = document.querySelector('.divide');
+var res;
+//加法
+add.addEventListener('click',function()
+{
+var first = document.getElementById("fir").value;
+var second = document.getElementById("sec").value;
+res = Number(first) + Number(second); 
+ sent(res);
+
+})
+//减法
+substract.addEventListener('click',function()
+{
+var first = document.getElementById("fir").value;
+var second = document.getElementById("sec").value;
+ let res = first - second;
+ sent(res);
+
+})
+//乘法
+multiply.addEventListener('click',function()
+{
+var first = document.getElementById("fir").value;
+var second = document.getElementById("sec").value;
+ let res = first * second; 
+ sent(res);
+
+})
+//除法
+divide.addEventListener('click',function()
+{
+var first = document.getElementById("fir").value;
+var second = document.getElementById("sec").value;
+ let res = first / second; 
+ sent(res);
+
+})
+function sent(re)
+{
+ document.getElementById("result").innerHTML = re;
+}
+})
+</script>
+</body>
+</html>

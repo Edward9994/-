@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>栅格系统</title>
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.css">
+  <style>
+    .row>div{
+      box-shadow: 0 0 1px 0px black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    栅格系统 
+    1 它是bootstrap框架实现 响应式布局的关键 
+    2 将屏幕的宽度  按照 宽的分类 分成了  4种  , 不管哪一种屏幕 一行 12列  12份 
+      1 大屏幕   大于 1200px    lg
+      2 中等屏幕   992 - 1200 px   md
+      3 小屏幕     768 - 992 px  sm
+      4 极小屏幕   小于 768px    xs 
+
+    3 使用栅格系统的步骤
+      1 定版心 (1 版心 container  2 全屏 container-fluid )
+      2 定行  .row 
+      3 哪种屏幕下  一列 占几份 
+
+    4 默认情况
+      1 较大屏幕会沿用较小屏幕的  划分份数的设置 
+        1 只设定了极小屏幕的  几列占几份  那么 比它大的屏幕 都会沿用它的设置 
+      2 设置了大屏幕下的 几列占几份那么比它小的屏幕 几列几份都会失效(普通的div 块级 换行显示 )
+
+      3 否则 希望初学者 可以繁琐一点 把 每一个屏幕下的设置 都思考好 
+   -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <h1>大屏幕下 一列占一份</h1>
+        <div class="col-lg-1">1</div>
+        <div class="col-lg-1">2</div>
+        <div class="col-lg-1">3</div>
+        <div class="col-lg-1">4</div>
+        <div class="col-lg-1">5</div>
+        <div class="col-lg-1">6</div>
+        <div class="col-lg-1">7</div>
+        <div class="col-lg-1">8</div>
+        <div class="col-lg-1">9</div>
+        <div class="col-lg-1">10</div>
+        <div class="col-lg-1">11</div>
+        <div class="col-lg-1">12</div>
+      </div>
+      <div class="row">
+        <h1>大屏幕下 每一列占2份</h1>
+        <div class="col-lg-2">1</div>
+        <div class="col-lg-2">2</div>
+        <div class="col-lg-2">3</div>
+        <div class="col-lg-2">4</div>
+        <div class="col-lg-2">5</div>
+        <div class="col-lg-2">6</div>
+      </div>
+      <div class="row">
+        <h1>大屏幕下 每一列占4份</h1>
+        <div class="col-lg-4">1</div>
+        <div class="col-lg-4">2</div>
+        <div class="col-lg-4">3</div>
+      </div>
+      <div class="row">
+        <h1>大屏幕下 每一列占6份</h1>
+        <div class="col-lg-6">1</div>
+        <div class="col-lg-6">2</div>
+      </div>
+      <div class="row">
+        <h1>大屏幕下 每一列占一份 15列</h1>
+        <!-- 当一行 超过12份的时候 就会往下掉 - 本质是浮动!!!  -->
+        <div class="col-lg-1">1</div>
+        <div class="col-lg-1">2</div>
+        <div class="col-lg-1">3</div>
+        <div class="col-lg-1">4</div>
+        <div class="col-lg-1">5</div>
+        <div class="col-lg-1">6</div>
+        <div class="col-lg-1">7</div>
+        <div class="col-lg-1">8</div>
+        <div class="col-lg-1">9</div>
+        <div class="col-lg-1">10</div>
+        <div class="col-lg-1">11</div>
+        <div class="col-lg-1">12</div>
+        <div class="col-lg-1">13</div>
+        <div class="col-lg-1">14</div>
+        <div class="col-lg-1">15</div>
+      </div>
+      <div class="row">
+        <h1>大屏幕下 一列 1份 二列 占2份 第三列 占 4份 第四排列 占 5份</h1>
+        <div class="col-lg-1">第1列</div>
+        <div class="col-lg-2">第2列</div>
+        <div class="col-lg-1">额外加的</div>
+        <div class="col-lg-4">第3列</div>
+        <div class="col-lg-5">第4列</div>
+      </div>
+      <div class="row">
+        <h1>大屏幕下 一列占一份 同时 中等屏幕下 一列占4份</h1>
+        <div class="col-lg-1 col-md-4 ">1</div>
+        <div class="col-lg-1 col-md-4 ">2</div>
+        <div class="col-lg-1 col-md-4 ">3</div>
+        <div class="col-lg-1 col-md-4 ">4</div>
+        <div class="col-lg-1 col-md-4 ">5</div>
+        <div class="col-lg-1 col-md-4 ">6</div>
+        <div class="col-lg-1 col-md-4 ">7</div>
+        <div class="col-lg-1 col-md-4 ">8</div>
+        <div class="col-lg-1 col-md-4 ">9</div>
+        <div class="col-lg-1 col-md-4 ">10</div>
+        <div class="col-lg-1 col-md-4 ">11</div>
+        <div class="col-lg-1 col-md-4 ">12</div>
+      </div>
+      <div class="row">
+        <h1>演示较大屏幕会沿用较小屏幕的设置 </h1>
+        <div class="col-xs-6">1</div>
+        <div class="col-xs-6">2</div>
+      </div>
+      <div class="row">
+        <h1>演示较小屏幕不会沿用较大屏幕的设置</h1>
+        <div class="col-lg-6">1</div>
+        <div class="col-lg-6">2</div>
+      </div>
+    </div>
+  <script src="./assets/jquery/jquery.js"></script>
+  <script src="./assets/bootstrap/js/bootstrap.js"></script>
+  <script src="./assets/utils/showscreen.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,374 @@
+/* 把我们所有标签的内外边距清零 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* em 和 i 斜体的文字不倾斜 */
+
+em, i {
+    font-style: normal
+}
+
+/* 去掉li 的小圆点 */
+
+li {
+    list-style: none
+}
+
+img {
+    /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+    border: 0;
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle
+}
+
+button {
+    /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+    cursor: pointer
+}
+
+a {
+    color: #666;
+    text-decoration: none
+}
+
+a:hover {
+    color: #c81623
+}
+
+button, input {
+    /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    border: 0;
+    outline: 0;
+}
+
+body {
+    /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666
+}
+
+/* 隐藏 */
+
+.hide, .none {
+    display: none;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tomleg');
+    src:  url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+      url('../fonts/icomoon.woff?tomleg') format('woff'),
+      url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+  .clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: "";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+.pyg_red {
+    color: #c81729;
+
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.shortcut {
+    height: 32px;
+    background-color: #f1f1f1;
+    line-height: 32px;
+}
+
+
+.shortcut ul li {
+    float: left;
+}
+
+.shortcut ul li:nth-child(2n) {
+    width: 0;
+    height: 13px;
+    display: block;
+    border-right: 1px solid #696969;
+    margin: 9px 16px;
+}
+
+.shortcut ul li:last-child {
+    border-right:0;
+    margin: 0;
+}
+
+.shortcut ul li .arrow::after {
+    content: "\e91e";
+    font-family:'icomoon';
+    margin-left: 9px;
+
+}
+header {
+    height: 107px;
+}
+
+header .logo {
+    width: 180px;
+    height: 57px;
+    background-color: pink;
+    margin-top: 27px;
+    float: left;
+    background: url(../images/logo.png) no-repeat;
+    font-size: 0;
+}
+
+.header_center {
+    width: 707px;
+    height: 83px;
+    /* background-color:pink; */
+    float: left;
+}
+
+.header_center .search {
+    border: 2px solid #ae191b;
+    float: right;
+    margin-top: 29px;
+}
+.header_center input {
+    height: 34px;
+    width: 456px;
+    float: left;
+    color: #656565;
+    text-indent: 10px;
+}
+
+.header_center button {
+    height: 34px;
+    width: 82px;
+    float: left;
+    color: #fffdfe;
+    background-color: #ae191b;
+}
+
+.header_center nav ul{
+    margin-right: 10px;
+    float: left;
+    margin-left: 182px;
+}
+
+
+.header_center nav ul li {
+    float: left;
+    margin-right: 25px;
+}
+
+header .shopcar {
+    width: 140px;
+    height: 36px;
+    background-color:#f7f7f7;
+    border: 1px solid #dedede;
+    float: right;
+    margin-right: 63px;
+    margin-top: 27px;
+    line-height: 36px;
+    text-align: center;
+    position: relative;
+}
+
+
+header .shopcar a::before {
+    content: '';
+    font-family: 'icomoon';
+    margin-right: 7px;
+    color: #d65250;
+}
+
+header .shopcar a::after {
+    content: '';
+    margin-left: 13px;
+    font-family: 'icomoon';
+}
+
+
+header .shopcar .num {
+    width: 16px;
+    line-height: 16px;
+    border-radius: 7px 7px 7px 0;
+    height: 17px;
+    background-color:red;
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: 19px;
+}
+
+.main_nav {
+    height: 47px;
+    line-height: 47px;
+    border-bottom: 2px solid #b1181a;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+.main_nav nav {
+    float: left;
+}
+.main_nav nav li {
+    float: left;
+    margin-left: 50px;
+    font-size: 17px;
+}
+
+.main_nav ul li:nth-child(-n+3) a{
+        font-size: 18px;
+        font-weight: 700;
+        color: #000000;
+}   
+
+.list li {
+    width: 290px;
+    height: 460px;
+    border: 1px solid #f7f7f7;
+    float: left;
+    overflow: hidden;
+    margin-right: 13px;
+}
+
+.list li:hover {
+    border: 1px solid red;
+}
+
+.list li:nth-child(4n) {
+    margin-right: 0;
+}
+
+footer {
+    background-color: #f5f5f5;
+}
+
+footer .slogan {
+    height: 110px;
+    border-bottom: 1px solid #ececec;
+}
+
+footer .slogan ul {
+    margin-left: 30px;
+}
+
+footer .slogan li {
+    height: 52px;
+    width: 20%;
+    float: left;
+    margin-top: 30px;
+}
+
+footer .slogan li h3 {
+    display: block;
+    margin-top: 10px;
+}
+
+
+footer .slogan ul li:nth-child(1) .icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 5px;
+    background: url(../images/icons.png) -252px -2px;
+    float: left;
+}
+footer .slogan ul li:nth-child(2) .icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 5px;
+    background: url(../images/icons.png) -253px -52px;
+    float: left;
+}
+footer .slogan ul li:nth-child(3) .icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 5px;
+    background: url(../images/icons.png) -254px -104px;
+    float: left;
+}
+footer .slogan ul li:nth-child(4) .icon {
+    width: 52px;
+    margin-right: 5px;
+    height: 52px;
+    background: url(../images/icons.png) -255px -156px;
+    float: left;
+}
+footer .slogan ul li:nth-child(5) .icon {
+    width: 52px;
+    margin-right: 5px;
+    height: 52px;
+    background: url(../images/icons.png) -255px -207px;
+    float: left;
+}
+
+footer .help {
+    height: 188px;
+    border-bottom: 1px solid #ececec;
+}
+
+footer .help dl {
+    float: left;
+    margin-left: 50px;
+    margin-right: 60px;
+}
+
+footer .help dt a{
+    font-size: 17px;
+    margin-top: 23px;
+    margin-bottom: 15px;
+    color: #2e2e2e;
+    display: block;
+}
+
+footer .help .erweim {
+    width: 95px;
+    height: 95px;
+    margin-left: -15px;
+    
+}
+
+footer .links {
+    height: 120px;
+    text-align: center;
+    margin-top: 23px;
+    margin-bottom: 16px;
+}
+
+footer .links a {
+    margin: 0 16px;
+}
+footer .links p {
+    line-height: 23px;
+}

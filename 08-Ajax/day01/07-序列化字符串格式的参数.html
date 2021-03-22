@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+   <form action="" id="form1">
+<!-- 给表单元素添加name属性 -->
+        <input type="text" name='cname' value="11"/>
+        <input type="text" name="skin_name" value="22"/>
+        <!-- button写到form表单的内部，点击的时候默认会提交，导致页面被刷新 -->
+        <button>点击获取序列化后的表单字符串</button>
+   </form>
+     <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+           $('button').click(()=>{
+                   let str = $('#form1').serialize()
+            // console.log(cname,skin_name);
+                $.ajax({
+            type:'post',
+            url:'http:/127.0.0.1:3001/addHeroSkin',
+            data:str,
+            success:(res)=>{
+            console.log(res);
+            alert(res.msg);
+            }
+            })
+          
+        })
+    </script>
+</body>
+</html>

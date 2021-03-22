@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .fz{
+        font-size: 30px;
+    }
+    .red {
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="box">
+        <ul>
+            <li><a href="#">隔壁老王1</a></li>
+            <li><a href="#">隔壁老王2</a></li>
+            <li><a href="#">隔壁老王3</a></li>
+            <li><a href="#">隔壁老王4</a></li>
+            <li id="li5"><a href="#">隔壁老王5</a></li>
+            <li><img src="images/cloud.gif" alt=""></li>
+        </ul>
+    </div>
+      <script>
+            let img = document.querySelector('img');
+            //图片路径
+            img.src = './images/b1.jpg';
+            //ul下面的所以li
+            let lis = document.querySelectorAll('ul>li');
+            lis[1].className = 'fz';
+            //获取元素所以的类，得到一个对象
+            console.log(lis[1].classList)
+            //add()添加类,remove删除类
+            lis[1].classList.add('red')
+
+            //获取a元素，并修改href属性
+            let a1 = lis[1].querySelector('a');
+            a1.href = 'http://www.baidu.com';
+            console.log(a1.href);
+
+            a1.innerHTML = '我是重新修改的文本';
+            
+        </script>
+</body>
+</html>

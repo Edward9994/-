@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ages = [32, 33, 16, 40];
+//         过滤
+// filter  arr.filter(functoin(){})
+ function checkAdult(age) {
+    return age >= 18;
+}
+// let  result = ages.filter(checkAdult);
+// let result = ages.filter((x)=>x>30)
+// console.log(result);
+
+
+//加工
+// let  result = ages.map(x=>2*x);
+//  console.log(result);
+
+
+//组装字符串
+// let  result = ages.join(',');
+//  console.log(result);
+
+
+// 删除指定元素，下标为1，删除2两个元素，并替换为'123';
+// let  result = ages.splice(1,2,'123');
+//  console.log(result);
+
+var ages1 = [32, 33, 16, 40];
+let  result = ages.push('ages1');
+console.log(result);
+</script>
+</body>
+</html>

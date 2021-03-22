@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        1.引入模板引擎
+        2.定义模板HTML结构
+        3.准备模板所需要的数据
+        4.调用模板引擎
+    -->
+
+
+    <!-- 1.引入模板引擎 -->
+    <script src="./template-web.js"></script>
+    <!-- 2.定义模板HTML结构 -->
+    <script id="t1" type="text/html">
+        <h2>{{aa.code}}</h2>
+    </script>
+    <script>
+        //  3.准备模板所需要的数据
+        const res = {
+            code: 200,
+            msg: '请求成功',
+            data: {
+                name: '英雄名称',
+                gender: '男'
+            }
+        };
+        // 4.调用模板引擎
+        // template('模板id',{变量：数据})
+        let htmlStr = template('t1', {
+            aa: res
+        })
+        console.log(htmlStr);
+    </script>
+</body>
+
+</html>

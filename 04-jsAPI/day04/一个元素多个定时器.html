@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">移动到600</button>
+    <button id="btn2">移动到0</button>
+    <div class="box"></div>
+    <script>
+        let box = document.querySelector('.box');
+        let timer;
+            btn1.onclick = function(){
+                if(Number.parseInt(box.style.left)>=300)return;
+            box.style.left=box.offsetLeft+10+'px';
+            clearInterval(timer);
+              timer = setInterval(()=>{
+                    btn1.onclick();
+                },100)
+        }
+          btn2.onclick = function(){
+                if(Number.parseInt(box.style.left)<=0)return;
+            box.style.left=box.offsetLeft-10+'px';
+            clearInterval(timer);
+              timer = setInterval(()=>{
+                    btn2.onclick();
+                },100)
+        }
+    </script>
+</body>
+</html>

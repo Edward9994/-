@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+            background-color: red;
+            cursor:none;
+            
+        }
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/tianshi.gif" alt="" id="img1" style="width: 200px; height: 200px;">
+    <script>
+        let img = document.getElementById('img1')
+        window.onmousemove= (e)=>{
+            console.log(e.pageX,e.pageY);
+            img.style.top = e.pageY-img.offsetHeight/2+'px';
+            img.style.left = e.pageX-img.offsetWidth/2+'px';
+        }
+    </script>
+</body>
+</html>

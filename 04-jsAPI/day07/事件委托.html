@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <ul>
+        <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+   </ul>
+    <script>
+        // 事件冒泡：页面中所有元素从一开始就拥有所有事件，只是没有对应的代码实现对应的效果
+        // 页面DOM生成的规则：从window对象（从上往下）
+// window  包含 body
+
+
+        // 如果父子元素具有相同的事件（window和body都有点击事件），一旦触发了子元素的事件，父元素也会跟着触发：事件冒泡
+        // 事件委托：孩子太多，添加事件很麻烦，可以尝试利用冒泡的规则，给父元素添加事件
+        // 事件对象会直到事件到底是发生在哪个元素上：e.target
+// target除了包含发生事件的子元素意外，还可能包含其他结构：如何区分是不是li呢？
+            // 节点：三要素 nodeType  nodeName  nodeValue
+            // console.log(e.target.nodeName);      // 大写标签名字符串
+// 事件委托：利用事件冒泡，发生在子元素身上的事件一定会冒泡到父元素身上：只要父元素能够在事件发生的过程中区分出是不是子元素，就可以实现想要的效果
+
+
+        // 事件委托的价值：减少子元素绑定事件的次数（提升JS引擎解析代码的效率）
+    
+document.querySelector('ul').onmouseover=(e)=>{
+    // e.target包含自身、还有子孩子，筛选出li，赋予相应样式。
+    console.log(e.target);
+    if(e.target.nodeName =='LI'){
+        e.target.style.backgroundColor = 'red';
+    }
+}
+document.querySelector('ul').onmouseout=(e)=>{
+    if(e.target.nodeName =='LI'){
+        e.target.style.backgroundColor = '';
+    }
+}
+    </script>
+</body>
+</html>

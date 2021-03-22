@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 重写的价值
+
+
+        // 属性的重写：覆盖
+
+
+        // 方法的重写
+        /*
+            1. 子类拥有自己的，与父类完全无关：方法直接全盘否定（永远不会涉及到父类的同名方法）（类似覆盖）
+            2. 子类想扩展父类已有的方法：原来的要，但是要改进（新增内容）
+        */
+
+
+        // super访问父类被重写的方法：表示进入到父类的原型对象
+        // 使用语法：super.被重写的方法()   一般都是在被重写的子类方法之中实现
+        class Father {
+            work(){
+                console.log('赚钱');
+            }
+        }
+        class Son extends Father {
+            work(){
+                super.work();
+                console.log('败家');
+            }
+        }
+        let s1 = new Son();
+       s1.work();
+    </script>
+</body>
+</html>

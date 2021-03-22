@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>获取英雄皮肤数据</button>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        // 参数不传或为空，return all data
+        // $('button').click(()=>{
+        //     //已经连接服务器，不同请求改变不同url
+        //     $.get('http:/127.0.0.1:3001/getHeroSkin',null,function(res){
+        //         console.log(res);
+        //     })
+        // })
+
+        // 参数=露可娜娜  return specific data
+          $('button').click(()=>{
+            //已经连接服务器，不同请求改变不同url
+            $.get('http:/127.0.0.1:3001/getHeroSkin',{heroName:'露可娜娜'},function(res){
+                console.log(res);
+            })
+        })
+    </script>
+</body>
+</html>

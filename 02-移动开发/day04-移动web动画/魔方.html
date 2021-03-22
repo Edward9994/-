@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 稍微添加一点点透视看起来更立体 */
+            perspective: 400px;
+            /* 小屏幕会出现滚动条，直接干掉 */
+            overflow: hidden;
+        }
+        .box {
+            position: relative;
+            width:400px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            /* background-color: pink; */
+            animation: move   6s infinite linear;   
+           
+        }
+        .box>div {
+            width: 100px;
+            height: 100px;
+            margin: 70px 70px;
+            border: 1px solid red;
+            position: absolute;
+        }
+        /* 正面 */
+       .box div:nth-child(1) {
+           background-color:#00469f ;
+           transform: translateZ(50px);
+       }
+       /* 底面 */
+       .box div:nth-child(2) {
+           background-color: black;
+           /* transform: translateZ(-50px) rotateY(180deg); */
+           transform: translateZ(-50px); 
+       }
+
+       /* 左面 */
+       .box div:nth-child(3) {
+           background-color: #009f41;
+           /* transform: translateX(-50px) rotateY(-90deg); */
+           transform: rotateY(90deg) translateZ(-50px) ; 
+       }
+       .box div:nth-child(4) {
+           background-color: orange;
+           transform: rotateY(90deg) translateZ(50px) ;
+       }
+       /* 下面 */
+       .box div:nth-child(5) {
+           background-color: #d50010;
+           transform:rotateX(90deg) translateZ(50px) ;
+       }
+       .box div:nth-child(6) {
+        transform:rotateX(90deg) translateZ(-50px) ;
+           background-color:yellow ;
+       }
+       @keyframes move {
+           
+            100% {
+                transform: rotate3d(1,1,1,360deg) ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+    </div>
+</body>
+</html>

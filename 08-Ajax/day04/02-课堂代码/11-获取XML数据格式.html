@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./libs/jquery.min.js"></script>
+    <script>
+      $.ajax({
+        type: 'get',
+        url: 'http://127.0.0.1:3001/getUserNameXML',
+        data: {},
+        success: (res) => {
+          console.log(res) // XML 标记数据(DOM结构)
+          // 👿 需要把XML数据包装成JQ对象，调用 JQ 的 find 查找方法，找到标签后再提取数据
+          const id = $(res).find('id').text()
+          const name = $(res).find('name').text()
+          console.log(id)
+          console.log(name)
+        },
+      })
+    </script>
+  </body>
+</html>

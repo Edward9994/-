@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .progress {
+        border: 1px solid #ddd;
+        height: 30px;
+        width: 500px;
+      }
+      .progress_bar {
+        background-color: pink;
+        height: 30px;
+        width: 1%;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" name="" id="" />
+    <button>上传</button>
+    <div class="progress">
+      <div class="progress_bar"></div>
+    </div>
+    <script src="./libs/jquery.js"></script>
+    <script>
+      $('button').click(() => {
+        // 上传文件参数准备
+        const file = document.querySelector('[type="file"]').files[0]
+        const fd = new FormData()
+        fd.append('file_data', file)
+        // JQ 发送 AJAX 请求上传文件
+        $.ajax({
+          type: 'POST',
+          url: 'http://127.0.0.1:3001/uploadFile',
+          data: fd,
+          contentType: false,
+          processData: false,
+          // 🔔 通过 xhr 属性可以重写JQ内部的 XHR 对象
+          xhr: () => {
+            // 1. 自己创建个 XHR 对象
+            const XHR = new XMLHttpRequest()
+            XHR.timeout = 500
+            // 3. 返回自己创建的 XHR 对象给 JQ 使用
+            return XHR
+          },
+          success: (res) => {
+            console.log(res)
+          },
+        })
+      })
+    </script>
+  </body>
+</html>

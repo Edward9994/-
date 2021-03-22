@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+
+        .hd {
+            height: 45px;
+        }
+
+
+        .hd span {
+            display: inline-block;
+            /*将行内元素转换成行内块元素，宽高才起作用*/
+            width: 90px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+
+        .hd span.current {
+            /*交集选择器，标签指定式选择器*/
+            background-color: purple;
+            /*紫色*/
+        }
+
+
+        .bd li {
+            height: 255px;
+            background-color: purple;
+            display: none;
+            /*设置隐藏*/
+        }
+
+
+        .bd li.current {
+            display: block;
+            /*显示*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="hd">
+            <span class="current">体育</span>
+            <span>娱乐</span>
+            <span>新闻</span>
+            <span>综合</span>
+        </div>
+        <div class="bd">
+            <ul id="list">
+                <li class="current">我是体育模块</li>
+                <li>我的娱乐模块</li>
+                <li id="li3">我是新闻模块</li>
+                <li>我是综合模块</li>
+            </ul>
+        </div>
+    </div>
+<script>
+    class TabExchange{
+        constructor(selector){
+            this.box = document.querySelector(selector);
+            this.spans = this.box.querySelectorAll('.hd>span');
+            this.lis = this.box.querySelectorAll('#list>li')
+        }
+        tabClick(){
+            this.spans.forEach((span,index)=>{
+                span.onclick=()=>{
+                    this.spans.forEach((s,i)=>{
+                        s.classList.remove('current');
+                        this.lis[i].classList.remove('current');
+                    })
+                    span.classList.add('current');
+                    this.lis[index].classList.add('current');
+                }
+            })
+        }
+    }
+   let t1=new TabExchange();
+   t1.tabClick();
+</script>
+</body>
+</html>

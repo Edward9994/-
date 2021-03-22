@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #152830;
+        }
+        .box {
+            margin: 50px;
+            width:80px;
+            height:70px;
+            /* background-color: #152830; */
+            position: relative;
+        }
+       .text {
+            position: absolute;
+            bottom: 0;
+            color: #d49942;
+       }
+       .icon {
+           width: 50px;
+           height: 45px;
+           background-color:#152830;
+           position: absolute;
+           right: 0;
+       }
+       .a,.b,.c {
+           width: 10px;
+           height: 45px;
+           background: pink;
+           margin: 0 3px;
+           float: left;
+       }
+       .a {
+           animation: long 1s linear infinite alternate; 
+       }
+       .b {
+           animation: long 1s 0.5s linear infinite alternate; 
+           transform: scaleY(0.4);
+       }
+       .c {
+           animation: long 1s 1s linear infinite alternate; 
+           transform: scaleY(0.8);
+       }
+       @keyframes long {
+           0% {
+               transform:scaleY(0.4);
+           }
+           100% {
+                transform: scaleY(1);
+           }
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="text">Loading</div>
+        <div class="icon">
+            <div class="a"></div>
+            <div class="b"></div>
+            <div class="c"></div>
+        </div>
+    </div>
+</body>
+</html>

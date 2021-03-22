@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        1.引入模板引擎
+        2.定义模板HTML结构
+        3.准备模板所需要的数据、调用模板引擎
+      
+    -->
+    <!-- <script src="./template-web.js"></script>
+    <script id="t1" type="text/html">
+        {{if list.length}}
+        <ul>
+            <li>
+                <p>{{list[0].id}}</p>
+                <p>{{list[0].name}}</p>
+            </li>
+        </ul>
+        {{else}}
+                    <div>没有英雄</div>
+                    {{/if}}
+    </script>
+    <script>
+        const res1 = [{
+            id: 1,
+            name: 'a'
+        }]
+        const res2 = [];
+        const htmlStr = template('t1', {
+            list: res1
+        })
+        console.log(htmlStr);
+    </script> -->
+
+    <script src="./template-web.js"></script>
+    <script type="text/html" id="t1">
+   {{if list.length}}
+   <ul>
+       <li>
+           <p>{{list[0].id}}</p>
+           <p>{{list[0].name}}</p>
+       </li>
+   </ul>
+   {{else}}
+   <div>没有</div>
+   {{/if}}
+    </script>
+    <script>
+        const res = [{ id: 1, name: 'aaa' }];
+        const htmlStr = template('t1', { list: res })
+        console.log(htmlStr);
+    </script>
+
+</body>
+
+</html>

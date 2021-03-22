@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./b5.jpg" alt="" style="display: none;">
+    <button>Ajax 获取数据</button>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $('button').click(() => {
+            $.ajax({
+                type: 'get',
+                url: 'http://127.0.0.1:3001/getHeroList',
+                data: {},
+                //请求发送前
+                beforeSend: () => {
+                    $('img').show()
+                },
+                //请求完成,不分成功失败
+                complete: () => {
+                    $('img').hide()
+                },
+                success: (res) => {
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

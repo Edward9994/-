@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 20px;
+        }
+
+        .box {
+            width: 800px;
+            height: 60px;
+            margin: 220px auto;
+            position: relative;
+        }
+
+        #txt {
+            width: 798px;
+            height: 58px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+        }
+
+
+        #keywords {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: rgb(12, 255, 24);
+            list-style: none;
+            width: 798px;
+            ;
+        }
+
+        li {
+            line-height: 24px;
+            cursor: pointer;
+        }
+
+        #description {
+            /* display: none; */
+            width: 798px;
+            height: 200px;
+            position: absolute;
+            top: -210px;
+            border: 1px dashed green;
+        }
+
+        .go {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            background-color: burlywood;
+            box-shadow: cadetblue;
+            position: absolute;
+            text-align: center;
+            left: 50px;
+            top: 100px;
+        }
+
+        .go:hover {
+            cursor: pointer;
+            color: steelblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="go">
+        单词存储
+    </div>
+    <div class="box">
+        <div id="description"></div>
+        <div class="top">
+            <input type="text" id="txt" placeholder="请输入要检索的内容，可以是单词也可以是解释">
+        </div>
+        <ul id="keywords"></ul>
+    </div>
+<script>
+     // 需求：实现类似仿百度的效果，数据的来源：在本地存储localStorage中，存储的名字叫做 words
+
+        /*
+            思路分析
+            1. 获取相关元素：输入框#txt，ul#keywords，显示#description
+            2. 给输入框#txt做输入事件：oninput
+            2.1 获取用户输入的数据：去除前后的空格trim()
+            2.2 清空之前的匹配结果：ul内容清空
+            2.3 安全处理：保证输入有效：无效就结束
+            2.4 获取词条数据：localStorage.getItem('words')
+            2.5 安全处理：没有数据，直接使用JSON.parse()会出现报错
+            2.6 数据的匹配：对象需要遍历for-in
+            2.6.1 匹配：允许用户输入单词，也可以是解释，单词与解释都要进行匹配，只要有一个成功就可以：逻辑或，匹配就是字符串查找：indexOf() != -1
+            2.6.2 匹配成功：创建li，把数据放到li中，li添加到ul中；匹配失败：不用管
+            2.6.3 鼠标移入li事件，移出li事件，点击事件
+        */
+
+
+        //   1. 获取相关元素：输入框#txt，ul#keywords，显示#description
+        let storage = '{"英语四级":"大师傅但是","aa":"aa","aaa":"aa","aaaa":"aaaaa","aaaaaa":"aaaaaa","aaaaaaaa":"a","aaaaaaaaaaaaa":"aaaaa","aaaaaaaaaaaaaaaaaa":"aaaaaaa","aaaaaaa":"aaaa"}';
+        let txt = document.getElementById('txt');
+        let ul = document.getElementById('keywords');
+        let description = document.getElementById('description');
+    // 将JSON格式的数据存入本地
+            localStorage.setItem('newsto',storage);
+            //将本地的JSON数据解析出来，存储到storage
+           storage = JSON.parse( localStorage.getItem('newsto'));
+        //  2. 给输入框#txt做输入事件：oninput
+        txt.oninput = function(){
+            // 每次输入前清空历史ul
+            ul.innerHTML = '';
+            //   2.1 获取用户输入的数据：去除前后的空格trim()
+            let  txts= txt.value.trim();
+            for (let word in storage){
+                if(word.toString().indexOf(txts) != -1 || storage[word].toString().indexOf(txts) != -1){
+                    let li = document.createElement('li');
+                    li.innerHTML = `${word}：${storage[word]}`;
+                    ul.appendChild(li);
+
+                    // 鼠标移入li颜色变化
+                    li.onmouseover  = function(){
+                        this.style.backgroundColor='red';
+                    }
+                       li.onmouseleave = function(){
+                        this.style.backgroundColor='';
+                    }
+                        li.onclick = function(){
+                    description.innerText = li.innerText;
+                    ul.innerHTML = '';
+                    }
+                }   
+        }
+            }
+</script>
+ 
+</body>
+
+</html>

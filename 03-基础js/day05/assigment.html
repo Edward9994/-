@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            color: black;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        
+const news = [
+            { category: "要闻", title: "牢记初心使命 实干笃定前行", href: "https://news.ifeng.com/c/7wNelHB0SgK" },
+            { category: "要闻", title: "你以生命相托，我必全力以赴", href: "https://news.ifeng.com/c/7wM1V3EzQBM" },
+            { category: "要闻", title: "中国无人战车正式服役：机枪显示惊人杀伤力", href: "https://tech.ifeng.com/c/7wMT02ftUZ4" },
+            { category: "健康", title: "独家 | 武汉封城建议者：向武汉人民致敬，向援助武汉的人致敬", href: "https://finance.ifeng.com/c/7wM0E6Bs8PI" },
+            { category: "汽车", title: "马斯克发飙：起诉当地政府！总部搬离加州！", href: "http://auto.ifeng.com/c/7wM43afWMFs" },
+            { category: "汽车", title: "奇瑞真正的旗舰SUV，车长近5米+2.0T动力，气场不输路虎揽胜", href: "https://auto.ifeng.com/c/7wIpWtWvHYv" },
+            { category: "房产", title: "广州即将推出9宗土地 涉及22.2万平米4宗宅地", href: "https://gz.house.ifeng.com/news/2020_05_11-52744145_0.shtml" }
+        ];
+let div = document.createElement('div');
+let ul = document.createElement('ul');
+let body = document.querySelector('body');
+
+body.appendChild(div);
+div.appendChild(ul);
+for(let i=0;i<news.length;i++){
+    let li = document.createElement('li');
+    ul.appendChild(li);
+    li.innerHTML=`<a href="${news[i].href}">${news[i].category}  >  ${news[i].title}</a>` ;
+
+}
+
+
+//   有一个数组，存储五件商品信息。 求出这五件商品的总价格
+//         let arr = [
+//             {name:'iPhone',price:3888},
+//             {name:'switch',price:1688},
+//             {name:'iPad',price:2460},
+//             {name:'mac',price:18880},
+//             {name:'ipod',price:188},
+//         ];
+// function priceSum(arr){
+//     let sum = 0;
+//     for(let i in arr){
+//         sum+=arr[i].price;
+//     } return sum;
+// }
+// console.log(priceSum(arr));
+   
+
+
+
+//有一个字符串数组,找出出现次数最多的字符及对应的次数
+//         let str = ['a', 'b', 'a', 's', 'f', 'g', 
+//         'g', 'g', 'h', 'j', 'j', 'k', 'k', 'g', 'f', 
+//         'd', 'd', 's', 's', 's', 's', 's', '3', '4', 
+//         '4', '4', '3', '4', '3'];
+        
+//         function timesMax(arr){
+//             //次数判断
+//         let obj={};
+//         for(let i in arr){
+//         let name = arr[i];          //记录str数组元素
+//         if(obj[name]==undefined){   //如果obj对象没有这个属性
+//             obj[name]=1;         //则赋予属性和值
+//         }else{                  //如果已有属性，则属性值加一
+//             obj[name]++;
+//         }
+//     };console.log(obj)
+//     //最大值
+//     let maxnum=-Infinity;
+//     let maxstr;
+//     for(let j in obj){
+//         if(obj[j]>maxnum){
+//             maxnum = obj[j];
+//             maxstr  =j;
+//         }
+//     }return maxnum,maxstr;
+// }
+// console.log(timesMax(str))
+
+
+</script>
+</body>
+</html>

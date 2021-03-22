@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+<script>
+  // 1.接收用户输入的身高(178.2），并转成 浮点数，在此基础上 + 2，最后打印到控制台。 
+// let a = prompt();
+// console.log(parseFloat(a)+2);
+
+//2.var numLove = parseInt("   520  1314")  执行后 numLove 的值是什么？
+// var numLove = console.log(parseInt("   520  1314"))
+//520
+
+// 3.var num = parseInt("12.3abc")  执行后 num 的值是什么？
+// var num = console.log(parseInt("12.3abc"))
+// 12
+
+// 4.Boolean()函数能把那些数据 转成 false？
+// 0 false undefined null -0  NaN ''
+
+// 5.判断输出结果？
+// let a = 5;
+//     let b = 0;
+//     console.log ( a+b ); //5
+//     console.log ( typeof (a+b) );//number
+//     console.log ( a-b );//5
+//     console.log ( typeof (a-b) );//Number
+//     console.log ( a-Boolean(b) );//5
+//     console.log ( typeof (a-Boolean(b)) );//number
+//     console.log ( Boolean(a)-b );1
+//     console.log ( typeof (Boolean(a)-b) );//Number
+
+// 6.说出程序的值
+// let a = NaN > NaN || NaN == NaN;
+// console.log(a);//  错误结果：true  正确结果：false
+// let b = parseFloat(123.1) > Number(123.1) && parseFloat(123.1) > parseInt(123.1)
+// console.log(b);//false&&true     false
+
+
+
+// 7.算出d,e,f,g的值。
+// let a = 12;
+//     let b = 10;
+//     let c = 5;
+//     let d = a++;//错误答案：12 正确答案：14
+//     let e = ++b;//错误答案：10 正确答案：11
+//     let f = c + d++;//17
+//     let g = c + ++d;//19
+//     console.log(d,e,f,g)
+
+// * 闰年的计算方法：能被400整除 或者 能被4整除且不能被100整除
+// let year = prompt();
+// if(   (year % 400 == 0)|| (   year % 4 == 0 && year % 100 != 0  )    )
+// { console.log('闰年') }else{ console.log('平年') }
+
+
+
+
+
+// 9.请用户输入年份和月份，打印出这个月有多少天（★）
+//  1，3，5，7，8，10，12月有31天
+//  4，6，9，11有30天
+//  2月，如果是平年就是28天，闰年就是29天
+// let year = prompt();
+// let month =prompt()
+// if((year % 400 == 0)||(year % 4 == 0 && year % 100 != 0))
+// { 
+//     // console.log('闰年')
+//     if(month=1||motnth==3||motnth==5||motnth==7||motnth==8||motnth==10||motnth==12)
+//     {
+//         console.log('平年','31天')}
+//     else if (month==2){
+//             console.log('平年','29天')
+//         }
+//     else {
+//         console.log('平年','30天')
+//     }
+  
+// }
+// else{ 
+    
+//     // console.log('平年')
+//     if(month=1||motnth==3||motnth==5||motnth==7||motnth==8||motnth==10||motnth==12)
+//     {
+//         console.log('平年','31天')}
+//     else if (month==2){
+//             console.log('平年','28天')
+//         }20
+//     else {
+//         console.log('平年','30天')
+//     } 
+// }
+</script>
+</body>
+</html>

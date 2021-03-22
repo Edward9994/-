@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>节流</h1>
+    <button>抢票</button>
+    <script src="./libs/jquery.min.js"></script>
+    <script>
+      /* 技能冷却时间 */
+      let timer = null
+      $('button').click(() => {
+        // 如果定时器还没结束(技能还没冷却)，就不执行代码
+        if (timer) return
+        timer = setTimeout(() => {
+          console.log('抢票的Ajax请求发送')
+          timer = null
+        }, 1000)
+      })
+    </script>
+  </body>
+</html>

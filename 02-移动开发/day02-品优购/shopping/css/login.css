@@ -1,0 +1,127 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    height: 83px;
+    /* background-color: pink; */
+    overflow: hidden;
+}
+
+.pyg_red{
+    color: #c71525;
+}
+
+header  a {
+    display: block;
+    margin-top: 17px;
+    margin-left: 2px;
+}
+
+.banner {
+    height: 487px;
+    background-color: #7e01ff;
+    overflow: hidden;
+
+}
+
+.login  {
+    height: 362px;
+    width: 378px;
+    background-color: #ffffff;   
+    margin-left:700px;
+    margin-top: 60px;
+}
+
+.login li {
+    width: 303px;
+    margin: 0 auto;
+}
+
+.login .log_tp{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.log_tp a {
+    font-size: 20px;
+}
+
+.log_tp span {
+    width: 0;
+    height: 20px;
+    border-right: 1px solid #ededed;
+    margin:0 46px ;
+}
+
+ .tips {
+    height: 24px;
+    background-color: #fffdee;
+    border: 1px solid #f3eed0;
+}
+
+.login  .user   {
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+}
+
+.login .psw {
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+}
+
+
+
+.login input {
+    width: 301px;
+    height: 35px;
+    border: 1px solid #bbbbbb;
+    text-indent: 40px;
+}
+
+.login input[type="text"] {
+    background: url(../images/user.png) no-repeat;
+}
+
+.login input[type="password"] {
+    background: url(../images/pwd.png) no-repeat;
+}
+
+.login .rules {
+    height: 16px;
+    margin-top: 5px;
+}
+
+.rules  input   {
+    margin: 0;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+}
+
+.rules a {
+    float: right;
+    color: #313131;
+}
+
+.login .btn button{
+    height: 42px;
+    font-size: 18px;
+    width: 302px;
+    color: #fffff6;
+    margin-top: 20px;
+    background-color: #c81622;
+}
+
+.login ul li:last-child {
+    height: 35px;
+    line-height: 35px;
+    margin-top: 30px;
+}
+.login ul li:last-child a {
+    margin-right: 16px;
+}

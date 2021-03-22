@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //3.请用户输入1个星期数. 就将对应的英文的星期打印出来. 英文自己查有道.1 monday 2 tuesday（★）
+        let num1 = +prompt();
+        let arr1 = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+        console.log(arr1[num1-1])
+
+        //5.要求用户输入两个数a、b，如果a能被b整除或者a加b大于100，则输出a的值，否则输出b的值（★）
+        let a=+prompt(),b=+prompt();
+        if((a+b)>100||a%b==0){
+            console.log(a)
+        }else{
+            console.log(b)
+        }
+
+//        6.编一个程序，从键盘上输入三个数，把最大数找出来。（★★）
+// * 不能用Math.max// * 要自己用if-else来判断
+//   * 难度提升：也可以尝试分别用三种分支结构来实现,仅当锻炼自己的逻辑思维
+let a= +prompt(),b= +prompt(),c= +prompt();
+let max;
+if(a>=b){
+    max=a;
+}else {
+    max = b;
+};if(c>=max){
+    max = c
+}console.log(max)
+
+//7.接收用户输入的分数，根据分数输出对应的等级字母 A、B、C、D、E。其中：（★）
+let a = prompt();
+if (a>=90)
+{
+    console.log('A')
+}else if (a>=80){
+    console.log('B')
+}
+else if (a>=70){
+    console.log('C')
+}
+else if (a>=60){
+    console.log('D')
+}
+else{
+    console.log('E')
+}
+
+
+// 8.拯救网瘾少年
+
+// * （1）弹出输入框，让用户输入年龄
+// * （2）如果年龄在18岁以上，就打印“这个网站可以给你看
+// * （3）如果年龄在14-18岁中间， 就用 选择框 询问是否真的要继续查看    （let a = confirm() -> 返回 bool）
+//   * 如果用户按的是确认，就提示‘给你看了，后果自负’ 
+//   * 如果用户按的是取消，就提示‘好孩子，不看也好
+// * （4）如果年龄在14岁以下，就提示‘sorry，请回家找妈妈’。
+
+let age = +prompt();
+if(age>=18){
+    console.log('这个网站可以给你看')
+}else if (age<14){
+    console.log('sorry，请回家找妈妈')
+}else{
+    if(confirm('是否真的要继续查看')==true){
+        alert('给你看了，后果自负')
+    }else{
+        alert('好孩子，不看也好')
+    }
+}
+    </script>
+</body>
+</html>

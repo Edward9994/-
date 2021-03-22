@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 基础数据类型的变量：变量名和值都在栈里
+        // * 变量赋值：值传递 
+
+
+        // 复合数据类型的变量：变量名在栈，数据在堆
+        // * 变量赋值：按共享引用，只要不赋值，操作的是同一个内存地址的内容
+// 如何我希望复合数据类型就是引用传值？有没有办法？
+        // 只要不允许变量被重新赋值：const常量
+
+        //因为变量名存储在栈中，数据存储在堆中，一赋值，就会指向同一个内存地址
+        //用const就能解决
+        let obj1 = {};
+        let obj2=obj1;
+        obj1.name = '李四';
+        console.log(obj1,obj2);
+    </script>
+</body>
+</html>

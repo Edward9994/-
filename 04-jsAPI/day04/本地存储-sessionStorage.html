@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button id="btn1">存储</button>
+    <button id="btn2">查看</button>
+    <button id="btn3">移出</button>
+    <button id="btn4">清空</button>
+    <script>
+        // sessionStorage.setItem(名，值)//只能存字符串
+        // sessionStorage.getItem(名)
+        // sessionStorage.remove(名)
+        // sessionStorage.clear(名)
+        // sessionStorage特点:页面关闭，保存的数据就会被清空（localStorage不会）
+        //存
+        // document.getElementById('btn1').onclick  = function(){
+        //     sessionStorage.setItem('name','李白');
+        //     console.log( sessionStorage.setItem('name','李白'))
+        // }
+        //查看  
+           document.getElementById('btn2').onclick  = function(){
+         let value = sessionStorage.getItem('name','李白');
+           console.log(value)
+        }
+        //删除
+           document.getElementById('btn3').onclick  = function(){
+            sessionStorage.removeItem('name','李白');
+           
+        }
+         //清空
+           document.getElementById('btn4').onclick  = function(){
+            sessionStorage.clear('name','李白');
+           
+        }
+ 
+        //复合数据类型（对象、数据）真实存储：先转为json   JSON.tostringfy(obj)
+        let obj  = {
+            name:'李白',
+            age:18
+        }
+  document.getElementById('btn1').onclick  = function(){
+    //    console.log(JSON.stringify(obj))
+            // sessionStorage.setItem('obj',JSON.stringify(obj));
+            // console.log( sessionStorage.setItem('name','李白'))
+        }
+    </script>
+</body>
+</html>

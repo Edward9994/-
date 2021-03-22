@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 20px;
+        }
+
+        .box {
+            width: 800px;
+            height: 60px;
+            margin: 220px auto;
+            position: relative;
+        }
+
+        #txt {
+            width: 798px;
+            height: 58px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+        }
+
+
+        #keywords {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: rgb(12, 255, 24);
+            list-style: none;
+            width: 798px;
+            ;
+        }
+
+        li {
+            line-height: 24px;
+            cursor: pointer;
+        }
+
+        #description {
+            /* display: none; */
+            width: 798px;
+            height: 200px;
+            position: absolute;
+            top: -210px;
+            border: 1px dashed green;
+        }
+
+        .go {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            background-color: burlywood;
+            box-shadow: cadetblue;
+            position: absolute;
+            text-align: center;
+            left: 50px;
+            top: 100px;
+        }
+
+        .go:hover {
+            cursor: pointer;
+            color: steelblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="go">
+        单词存储
+    </div>
+    <div class="box">
+        <div id="description"></div>
+        <div class="top">
+            <input type="text" id="txt" placeholder="请输入要检索的内容，可以是单词也可以是解释">
+        </div>
+        <ul id="keywords"></ul>
+    </div>
+
+    <script>
+        (function () {
+            let txt = document.querySelector('#txt');
+            let ul = document.querySelector('#keywords');
+            let description = document.querySelector('#description');
+
+            txt.addEventListener('input', () => {
+                ul.innerHTML = '';
+
+                let txts = txt.value.trim();
+
+                if (txts == '') return;
+
+                let storage = localStorage.getItem('words');
+                if (storage == null) storage = {};
+                else storage = JSON.parse(storage);
+
+                for (word in storage) {
+                    if (word.toString().indexOf(txts) != -1 || storage[word].toString().indexOf(txts) != -1) {
+                        let li = document.createElement('li');
+                        li.innerHTML = `${word}：${storage[word]}`;
+                        ul.appendChild(li);
+
+                        li.addEventListener('mouseover', () => {
+                            li.style.backgroundColor = '#eee';
+                        });
+
+                        li.addEventListener('mouseout', () => {
+                            li.style.backgroundColor = '';
+                        });
+
+                        li.addEventListener('click', () => {
+                            // description.innerText = '';
+                            description.innerText = li.innerText;
+
+                            ul.innerHTML = '';
+                            txt.value = '';
+                        });
+                    }
+                }
+            });
+
+            document.querySelector('.go').addEventListener('click', () => {
+                location.assign('单词存储.html');
+            });
+
+        })();
+    </script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>

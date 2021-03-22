@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+               let data = [
+  {
+    "name": "广东",
+    "children": [
+      {
+        "name": "广州",
+        "children": [
+          {
+            "name": "越秀"
+          },
+          {
+            "name": "天河",
+            "children": [
+              {
+                "name": "吉山"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "深圳",
+        "children": [
+          {
+            "name": "南山"
+          }
+        ]
+      }
+    ]
+  }
+]
+  
+let body = document.querySelector('body');
+let index=0;
+function show(data){
+    index++;
+    console.log(index);
+    data.forEach(item=>{
+        body.innerHTML+=`<section>${index}${item.name}</section>`;
+    })
+    data.forEach(item=>{
+         if(item.children){
+            return show(item.children);
+        }
+    })
+    
+}
+show(data);
+    </script>
+</body>
+</html>

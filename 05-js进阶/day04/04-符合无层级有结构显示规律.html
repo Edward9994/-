@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let data = [
+  {
+    "name": "广东",
+    "children": [
+      {
+        "name": "广州",
+        "children": [
+          {
+            "name": "越秀"
+          },
+          {
+            "name": "天河",
+            "children": [
+              {
+                "name": "吉山"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "深圳",
+        "children": [
+          {
+            "name": "南山"
+          }
+        ]
+      }
+    ]
+  }
+]
+  
+// 套娃
+// let body = document.querySelector('body');
+// data.forEach((item)=>{
+//     document.write(item.name)
+//     if(item.children){
+//         item.children.forEach((item)=>{
+//                 document.write(item.name)
+//                  if(item.children){
+//         item.children.forEach((item)=>{
+//                 document.write(item.name)
+//         })
+//     }
+//         })
+//     }
+// })
+
+ // 递归：recursive，是一种算法，一个大问题中包含很多小问题，小问题与大问题的性质一样，只是规模较小
+
+
+        // 可以通过找到大问题中最小的问题（最优子结构），给最优子结构提供解决方案，然后等小的解决了，再往上去解决大的，解决方案一样
+
+
+        // 程序中的递归：与递归思想反过来：先找到最大的要解决的问题，着手解决（用函数解决），如果里面碰到小问题性质一样的，调用自己解决
+        // 程序中的递归：函数自己调用自己
+        /*
+            递归点：函数碰到了小问题，可以自己调用自己
+            递归出口：一定要有函数不需要调用自己（函数能结束）
+        */
+
+    </script>
+</body>
+</html>

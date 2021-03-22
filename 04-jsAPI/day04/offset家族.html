@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+        }
+        .box{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div><div class="box" style="width: 100px;height: 100px;background-color: red;margin: 50px;"></div></div>
+  <script>
+      /*
+        offsetWidth:元素真实宽度
+        offsetHeight
+
+        offsetLeft：左偏移
+        offsetTop
+
+        offsetParent:·定位父级，有定位的父级（寻找父亲）
+        body:上所有定位的顶级定位父级
+      */
+     let box = document.querySelector('.box');
+     let body = document.querySelector('body');
+     
+    //  console.log(box.offsetParent,body.offsetParent)
+    //  console.log(box.offsetTop,box.offsetLeft)
+    //  console.log(box.offsetWidth,box.offsetHeight)
+    box.onclick = function(){
+         box.style.left = box.offsetLeft+1+'px';
+     }
+
+     
+  </script>
+</body>
+</html>

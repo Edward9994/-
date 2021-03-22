@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数：在普通函数的基础上改造而来，是ES5的面向对象思想体现的核心方式
+        // 构造函数：用来产生对象的
+
+
+        // 不同的构造函数：代表不同的对象类型
+
+
+        /*
+            构造函数语法
+
+
+            1. 定义构造函数（构造函数与普通函数有一丢丢区别）
+            * 构造函数的名字：大驼峰
+            * 构造函数内在修改：不需要返回值return，自动返回对象（基于使用方式不一样）
+            function 大驼峰法名字(形参：代表属性值){
+                使用this为自己这个对象赋值
+            }
+
+
+            2. 调用构造函数：产生对象
+            new 构造函数名字();
+        */
+
+
+        // 创建学生和老师两个体系的对象：都有名字和年龄
+        function Student (name,age){
+            this.name = name;
+            this.age = age;
+        }
+       function Teacher (name,age){
+            this.name = name;
+            this.age = age;
+        }
+        let stu =new Student('颜回',18);
+         let tea =new Teacher('孔子',88);
+        console.log(stu,tea);
+
+        //new的工作原理：系统一见到new关键字，开辟一块内存（堆）
+        // 在堆中创建一个对象：this（空对象）
+        // 利用this对象去调用new后面的函数：如果有给this挂属性：放在对象空间
+        // 将this对象的内存地址：返回到new处
+    </script>
+</body>
+</html>

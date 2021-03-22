@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .add{
+            width: 300px;
+            height: 200px;
+            background-color: #252525;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="add">
+       <h1>添加英雄皮肤数据</h1>
+        <p>
+            名称：<input type="text" id="name">
+        </p>
+          <p>
+            皮肤：<input type="text" id="skin">
+        </p>
+        <button>提交</button>
+    </div>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $('button').click(()=>{
+            const name=$('#name').val().trim();
+            const skin=$('#skin').val().trim();
+            // console.log(cname,skin_name);
+           if(name==''||skin==''){
+               alert('不能为空')
+           }else{
+                $.ajax({
+            type:'post',
+            url:'http:/127.0.0.1:3001/addHeroSkin',
+            data: {cname:name,skin_name:skin},
+            success:(res)=>{
+            console.log(res);
+            alert(res.msg);
+            }
+            })
+           }
+        })
+    </script>
+</body>
+</html>
