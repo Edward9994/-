@@ -1,0 +1,12 @@
+{
+  "name": "day03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-post-get.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

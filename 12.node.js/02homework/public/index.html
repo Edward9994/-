@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn_keyvalue1">get-传递普通键值对</button>
+    <button id="btn_keyvalue"> post-传递普通键值对</button>
+    <hr />
+    <button id="btn_json"> post-传递json</button>
+    <hr />
+    <form id="myform">
+        <input type="text" name="title" value="哈哈哈">
+        <input type="file" name="cover">
+    </form>
+    <button id="btn_formdata">post-传递formdata</button>
+    <hr />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        $('#btn_keyvalue1').click(function () {
+            $.ajax({
+                type: 'get',
+                url: 'http://localhost:3000/list?id=2&&name=大姐',
+                success(res) {
+                    console.log(res);
+                }
+            })
+        })
+        // 最普通的键值对格式
+        $('#btn_keyvalue').click(function () {
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:3000/post',
+                data: { a: 1, b: 2 },
+                success(res) {
+                    console.log(res);
+                }
+            })
+        })
+        var obj = {
+            name: "abc",
+            address: {
+                "a": 1,
+                "b": 2,
+                "info": "c"
+            }
+        }
+
+        // 传递复杂的JSON对象数据
+        $('#btn_json').click(function () {
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:3000/postJSON',
+                // contentType: false,
+                contentType: "application/json; charset=UTF-8",
+                data: JSON.stringify(obj),
+                success(res) {
+                    console.log(res);
+                }
+            })
+        })
+
+        // 传formData表单数据
+        $('#btn_formdata').click(function () {
+            var fd = new FormData(document.getElementById('myform'));
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:3000/admin/article_publish',
+                contentType: false,
+                processData: false,
+                data: fd,
+                success(res) {
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

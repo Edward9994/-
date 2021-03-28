@@ -1,5 +1,4 @@
 const http = require('http');
-const { kStringMaxLength } = require('node:buffer');
 const server = http.createServer((req, res) => {
 
     res.write('<head><meta charset="utf-8"/></head>');
