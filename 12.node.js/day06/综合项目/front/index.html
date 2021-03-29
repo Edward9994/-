@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>英雄管理主页</title>
+	<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css" />
+	<style>
+		.panel {
+			width: 900px;
+			margin: 10px auto;
+		}
+
+		.table img {
+			width: 40px;
+			height: 40px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="panel panel-primary">
+			<!-- Default panel contents -->
+			<div class="panel-heading">英雄列表管理</div>
+			<div class="panel-body">
+				<!-- 存放的搜索区域 -->
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<input type="text" id="hname" class="form-control" placeholder="输入英雄信息..." />
+							<span class="input-group-btn">
+								<button class="btn btn-default" id="btn_search" type="button">搜索</button>
+							</span>
+						</div>
+						<!-- /input-group -->
+					</div>
+					<!-- /.col-lg-6 -->
+					<div class="col-lg-3 col-lg-offset-3">
+						<!-- 添加英雄的按钮 -->
+						<!-- 
+              🧨调用模态框的两个属性：
+                  data-toggle="modal"                 🧨 调用切换模态框功能
+                  data-target="#exampleModal"         🧨 要调用哪个模态框
+            -->
+						<button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-success">
+							添加英雄
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Table -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>英雄名称</th>
+						<th>英雄性别</th>
+						<th>头像</th>
+						<th>操作区</th>
+					</tr>
+				</thead>
+				<!-- 表格主体 -->
+				<tbody id="tbody">
+					<!-- tr 是一行内容 -->
+					<!-- <tr>
+						<td>1</td>
+						<td>大乔</td>
+						<td>女</td>
+						<td><img src="" /></td>
+						<td>
+							<button type="button" class="btn btn-warning">上传头像</button>
+							<button type="button" class="btn btn-danger">删除</button>
+						</td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+		<!-- 上传按钮  display: none; 把按钮隐藏起来，但是点击按钮还是可以实现上传的 -->
+		<input type="file" id="uploadFile" style="display: none" />
+
+		<!-- 🧨模态框的结构 - CV过来的 -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="exampleModalLabel">添加英雄</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="recipient-name" class="control-label">英雄名称:</label>
+								<input type="text" placeholder="请输入英雄名称" class="form-control" id="heroName" />
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="control-label">英雄性别:</label>
+								<label><input type="radio" checked value="男" name="gender" /> 👦男生</label>
+								<label><input type="radio" value="女" name="gender" /> 👩‍🦰女生</label>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button id="addHeroBtn" type="button" class="btn btn-primary">添加</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 🧨 必须先引入 jquery.js 再引入 bootstrap.js -->
+	<script src="./lib/jquery/jquery.min.js"></script>
+	<script src="./lib/bootstrap/js/bootstrap.js"></script>
+	<script>
+		// 你的代码
+		$(function () {
+			// ajax统一请求处理
+			$.ajaxSetup({
+				headers: {
+					Authorization: localStorage.getItem('token'),
+				}
+			})
+			//身份认证失败时，回到登录页面
+			$(document).ajaxError(function (event, request, settings) {
+				if (request.status === 401) {
+					// alert(request.responseJSON.msg)
+					return (location.href = './login.html')
+				}
+			})
+			// 英雄数据更新
+			getHeroList()
+			function getHeroList() {
+				const heroName = $('#hname').val().trim()
+
+				$.ajax({
+					type: 'get',
+					url: 'http://127.168.0.1:3006/hero/getHeroList',
+					data: { heroName: heroName },
+					success: (res) => {
+						// console.log(res);
+						let htmlStr = '';
+						$(res.data).each((index, item) => {
+							htmlStr += `
+							 <tr>
+						<td>${item.id}</td>
+						<td>${item.name}</td>
+						<td>${item.gender}</td>
+						<td><img src="${item.img}" /></td>
+						<td>
+							<button type="button" data-id="${item.id}" class="btn btn-warning">上传头像</button>
+							<button type="button" data-id="${item.id}" class="btn btn-danger">删除</button>
+						</td>
+					</tr>
+							`
+						})
+						$('#tbody').html(htmlStr)
+
+					}
+				})
+			}
+			// 点击搜索英雄
+			$('#btn_search').click(function () {
+				getHeroList()
+			})
+
+			// 点击添加英雄
+			$("#addHeroBtn").click(
+				function () {
+					const name = $('#heroName').val().trim();
+					const gender = $("[name=gender]:checked").val().trim();
+					$.ajax({
+						type: 'post',
+						url: 'http://127.168.0.1:3006/hero/addHero',
+						data: { name, gender },
+						success: (res) => {
+							if (res.code = 200) {
+								$('#exampleModal').modal('hide')
+								getHeroList()
+							}
+						}
+					})
+				}
+			)
+
+			// 上传头像按钮点击
+			$('#tbody').on('click', '.btn-warning', function () {
+				// console.log('你点击了上传头像的按钮')
+				// 调用真正的上传文件按钮
+				$('#uploadFile').click()
+				// 获取列表按钮中的自定义 id 属性
+				const id = $(this).attr('data-id')
+				// 把自定义 id 属性添加到 真正的上传按钮中
+				$('#uploadFile').attr('data-id', id)
+			})
+
+			// 😨 5.2 真正的上传按钮
+			$('#uploadFile').change(function () {
+				// 获取元素身上的 id ，用于后期更新图片的
+				const id = $(this).attr('data-id')
+				// console.log(id)
+				// 获取文件对象
+				const filesObj = $('#uploadFile').get(0).files[0]
+				// console.log(filesObj);
+
+				// 准备 FormData 对象，以后作为 ajax 的请求参数
+				const fd = new FormData()
+				fd.append('file_data', filesObj)
+
+				// Ajax 请求，注意 FormData 上传的时候注意的 3 个问题
+				$.ajax({
+					method: 'POST',
+					url: 'http://127.0.0.1:3006/hero/uploadFile',
+					data: fd, // FormData 直接作为参数
+					processData: false, // 无需 jq 处理数据
+					contentType: false, // 无需 jq 处理内容类型
+					success: (res) => {
+						// console.log(res, res.src)
+						// 更新头像
+						$.ajax({
+							method: 'POST',
+							url: 'http://127.0.0.1:3006/hero/updateHero',
+							data: {
+								id: id,
+								img: res.src,
+							},
+							success: (res) => {
+								// 当图片更新成功后，再获取最新的列表数据
+								getHeroList()
+							},
+						})
+					},
+				})
+
+
+			})
+
+			//删除
+			$('#tbody').on('click', '.btn-danger', function () {
+				const id = $(this).attr('data-id');
+				$.ajax({
+					type: 'get',
+					url: 'http://127.0.0.1:3006/hero/delHeroById',
+					data: { id: id },
+					success: (res) => {
+						if (res.status === 500) alert('删除失败')
+						if (res.code === 200) alert(`${res.msg}`)
+						getHeroList()
+					}
+				})
+			})
+
+		})
+
+	</script>
+</body>
+
+</html>
